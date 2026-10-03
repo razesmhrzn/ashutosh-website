@@ -26,7 +26,7 @@ export type Product = {
   sample: true;
 };
 
-export const consultationMessage = "Book a free consultation call. We’ll analyze your business and create a customized digital marketing plan that you can start implementing immediately.";
+export const consultationMessage = "Tell us where your marketing feels stuck. We’ll review your goals, audience and current online presence, then create a free customized digital marketing plan with clear next steps.";
 
 export const categories: Category[] = [
   { slug:"cleaning-laundry-chemicals", name:"CLEANING & LAUNDRY CHEMICALS", shortName:"Cleaning & Laundry Chemicals", icon:"FlaskConical", description:"Everyday chemical categories for cleaning and laundry routines.", intro:"Explore illustrative cleaning and laundry chemical types for routine facility, housekeeping and linen-care requirements.", uses:["Routine floor and surface cleaning","Laundry and linen-care programs","Glass and high-touch area cleaning","Kitchen and utility-area degreasing"], examples:["floor cleaners","laundry detergents","glass cleaners","degreasers"], related:["cleaning-tools-equipments","hand-hygiene-soaps","dispensing-systems"] },
@@ -77,11 +77,11 @@ export const productById = Object.fromEntries(products.map(product => [product.i
 export const mainRoutes = ["/", "/about", "/products", "/catalogue", "/contact"];
 
 export function routeMeta(pathname:string) {
-  if (pathname === "/") return { title:"Ashutosh Trade | Housekeeping & Facility Supplies in Kathmandu", description:"Housekeeping supplies, facility products and cleaning machinery options for organizations in Kathmandu, Nepal." };
-  if (pathname === "/about") return { title:"About Ashutosh Trade | Kathmandu, Nepal", description:"Learn how Ashutosh Trade supports institutional and commercial buyers with requirement-led branded and generic supply options." };
+  if (pathname === "/") return { title:"AI-Powered Digital Marketing | Ashutosh Trade", description:"Turn scattered marketing into a clear growth plan with AI-powered research, content, search and campaign support." };
+  if (pathname === "/about") return { title:"Our AI-Powered Marketing Approach | Ashutosh Trade", description:"See how Ashutosh Trade combines AI insights with practical human strategy to help businesses market with clarity." };
   if (pathname === "/products") return { title:"Product Categories | Ashutosh Trade", description:"Explore ten housekeeping, facility, hygiene, machinery and hospitality supply categories." };
   if (pathname === "/catalogue") return { title:"Searchable Product Catalogue | Ashutosh Trade", description:"Search illustrative product categories and request verified product information or a tailored quotation." };
-  if (pathname === "/contact") return { title:"Contact & Request a Quote | Ashutosh Trade", description:"Share your housekeeping, facility or cleaning supply requirements with Ashutosh Trade in Kathmandu." };
+  if (pathname === "/contact") return { title:"Get a Free Customized Marketing Plan | Ashutosh Trade", description:"Book a free consultation and receive a customized digital marketing plan built around your business goals." };
   const category = categoryBySlug[pathname.replace("/products/","")];
   if (category) return { title:`${category.shortName} | Ashutosh Trade`, description:`Explore illustrative ${category.shortName.toLowerCase()} and request suitable branded or generic options in Kathmandu, Nepal.` };
   return { title:"Page Not Found | Ashutosh Trade", description:"The requested page could not be found." };

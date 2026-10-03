@@ -37,3 +37,18 @@
 @media(max-width:760px){.section{padding-block:64px}.section-head{align-items:start;flex-direction:column}.category-grid,.industry-grid{grid-template-columns:1fr 1fr}.product-grid{grid-template-columns:1fr 1fr}.feature-list{grid-template-columns:1fr}.process-list{grid-template-columns:1fr}.process-list li{border-right:0;border-bottom:1px solid rgb(255 255 255/.18)}.related-links{grid-template-columns:1fr}.action-strip{align-items:flex-start;flex-direction:column}.catalogue-tools{grid-template-columns:1fr}.results-bar{align-items:flex-start;flex-direction:column}.page-hero{padding-block:55px}.page-hero h1{font-size:3rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}.consult-band{padding:34px 26px}.category-grid.detailed{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.detail-list{grid-template-columns:1fr}.catalogue-heading{align-items:start;flex-direction:column}.catalogue-heading .filter-field{width:100%}.action-strip>div:last-child{flex-wrap:wrap}}
 @media(max-width:520px){.category-grid,.industry-grid,.product-grid{grid-template-columns:1fr}.category-card{min-height:235px}.hero h1{font-size:2.55rem}.hero-media{min-height:300px}.page-hero h1{font-size:2.6rem}.section-head h2,.split-feature h2,.two-column h2{font-size:2.2rem}.form-card{padding:24px 18px}.site-footer{padding-top:55px}.site-header{padding-inline:14px}.brand strong{font-size:.96rem}.brand-mark{width:39px;height:39px}.menu-button{width:42px;height:42px}.consult-dialog,.product-dialog{padding:20px}.hero-caption{left:12px;right:12px;bottom:12px}}
 @media(max-width:370px){.shell{width:min(100% - 22px,1180px)}.hero h1{font-size:2.28rem}.brand small{display:none}.hero-media{min-height:270px}}
+
+.marketing-visual{display:grid;place-items:center;padding:38px;background:radial-gradient(circle at 82% 14%,rgb(35 181 168/.36),transparent 33%),linear-gradient(145deg,#071a2d,#0b4650)}
+.plan-preview{width:100%;max-width:470px;padding:34px;background:rgb(255 255 255/.08);border:1px solid rgb(255 255 255/.18);border-radius:20px;color:#fff;backdrop-filter:blur(10px)}
+.plan-preview h2{font-size:clamp(2rem,3vw,3rem);line-height:1.05;letter-spacing:-.035em;margin:12px 0 28px}
+.plan-preview ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.plan-preview li{display:flex;gap:15px;align-items:flex-start;padding:17px;background:rgb(255 255 255/.1);border-radius:13px}
+.plan-preview li>span{font-size:.75rem;font-weight:900;color:#7fe0d6;letter-spacing:.08em}
+.plan-preview li strong,.plan-preview li small{display:block}
+.plan-preview li small{margin-top:3px;color:#c9d9df;line-height:1.45}
+.plan-preview>p{display:flex;gap:9px;align-items:flex-start;margin:25px 0 0;color:#c9d9df;font-size:.88rem}
+.plan-preview>p svg{flex:none;color:#7fe0d6;margin-top:3px}
+.consult-benefits{display:grid;gap:12px;margin-top:28px}
+.consult-benefits p{display:flex;gap:10px;align-items:flex-start;margin:0;color:#425966;font-weight:650}
+.consult-benefits svg{width:20px;flex:none;color:#0e8278;margin-top:3px}
+@media(max-width:620px){.marketing-visual{padding:18px}.plan-preview{padding:24px}.plan-preview h2{font-size:2rem}.plan-preview li{padding:14px}}
