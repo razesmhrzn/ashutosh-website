@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ashutosh-trade.adept-gnat-6575.chatgpt.site"),
+  metadataBase: new URL("https://ashutosh-trade.fionahd683.chatgpt.site"),
   title: { default: "Ashutosh Trade | Housekeeping & Facility Supplies in Kathmandu", template: "%s" },
   description: "Explore housekeeping supplies, facility products and cleaning machinery for organizations in Kathmandu, Nepal.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
