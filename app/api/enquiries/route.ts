@@ -22,12 +22,18 @@ export async function POST(request:NextRequest) {
   const category=clean(body.category,100); const product=clean(body.product,100);
   if (category && category !== "none" && !categoryBySlug[category]) return NextResponse.json({error:"Please select a valid product category."},{status:422});
   if (product && product !== "none" && !productById[product]) return NextResponse.json({error:"Please select a valid product."},{status:422});
-  if (kind === "consultation" && (!clean(body.businessType,120) || !clean(body.preferredDate,20) || !clean(body.preferredTime,20))) return NextResponse.json({error:"Please complete the business type, preferred date and preferred time."},{status:422});
+  if (kind === "consultation" && (!clean(body.businessType,120) || !clean(body.preferredDate,20) || !clean(body.preferredTime,20) || !clean(body.productCategories,1000) || clean(body.consent,10) !== "true")) return NextResponse.json({error:"Please complete the business type, product interests, preferred date and time, and consent field."},{status:422});
   if (!env.DB) return NextResponse.json({error:"The enquiry service is not connected in this environment. Please try again after the site administrator configures storage."},{status:503});
 
   try {
+    const requestNotes = [
+      clean(body.additionalNotes,2000),
+      clean(body.productCategories,1000) ? `Product interests: ${clean(body.productCategories,1000)}` : "",
+      clean(body.preferredContact,80) ? `Preferred contact: ${clean(body.preferredContact,80)}` : "",
+      kind === "consultation" ? "Consent to contact: confirmed" : "",
+    ].filter(Boolean).join("\n");
     await env.DB.prepare(`INSERT INTO enquiries (client_token, kind, full_name, organization, email, phone, enquiry_type, category, product, business_type, business_website, message, preferred_date, preferred_time, timezone, additional_notes, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-      .bind(clientToken,kind,fullName,organization,email,phone||null,clean(body.enquiryType,100)||null,category==="none"?null:category||null,product==="none"?null:product||null,clean(body.businessType,120)||null,clean(body.businessWebsite,300)||null,message,clean(body.preferredDate,20)||null,clean(body.preferredTime,20)||null,kind==="consultation"?"Asia/Kathmandu":null,clean(body.additionalNotes,2000)||null,new Date().toISOString()).run();
+      .bind(clientToken,kind,fullName,organization,email,phone||null,clean(body.enquiryType,100)||null,category==="none"?null:category||null,product==="none"?null:product||null,clean(body.businessType,120)||null,clean(body.businessWebsite,300)||null,message,clean(body.preferredDate,20)||null,clean(body.preferredTime,20)||null,kind==="consultation"?"Asia/Kathmandu":null,requestNotes||null,new Date().toISOString()).run();
     return NextResponse.json({accepted:true,kind,status:kind==="consultation"?"request_received":"received"},{status:201});
   } catch (error) {
     const detail=error instanceof Error?error.message:"";
