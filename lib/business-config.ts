@@ -7,7 +7,6 @@ export const business = {
   whatsapp: null as string | null,
   streetAddress: null as string | null,
   mapUrl: null as string | null,
-  cataloguePdfUrl: null as string | null,
   liveSchedulingUrl: null as string | null,
   socialLinks: [] as Array<{ label: string; url: string }>,
 };

@@ -76,13 +76,12 @@ categoryBySlug["cleaning-tools-equipments"] = categoryBySlug["cleaning-tools-equ
 categoryBySlug["linens-guest-apparels"] = categoryBySlug["linens-guest-apparel"];
 export const productById = Object.fromEntries(products.map(product => [product.id, product]));
 
-export const mainRoutes = ["/", "/about-us", "/about", "/products", "/catalogue", "/contact"];
+export const mainRoutes = ["/", "/about-us", "/about", "/products", "/contact"];
 
 export function routeMeta(pathname:string) {
   if (pathname === "/") return { title:"Ashutosh Trade | Housekeeping & Facility Supplies in Nepal", description:"Explore housekeeping supplies, facility products, cleaning machinery and related product categories from Ashutosh Trade in Kathmandu, Nepal." };
   if (pathname === "/about-us" || pathname === "/about") return { title:"About Ashutosh Trade | Facility Supplies in Nepal", description:"Learn how Ashutosh Trade helps organizations compare branded and generic housekeeping, facility and cleaning-supply options." };
   if (pathname === "/products") return { title:"Product Categories | Ashutosh Trade", description:"Explore ten housekeeping, facility, hygiene, machinery and hospitality supply categories." };
-  if (pathname === "/catalogue") return { title:"Searchable Product Catalogue | Ashutosh Trade", description:"Search illustrative product categories and request verified product information or a tailored quotation." };
   if (pathname === "/contact") return { title:"Contact Ashutosh Trade | Product Enquiries", description:"Contact Ashutosh Trade in Kathmandu, Nepal about housekeeping supplies, facility products, cleaning machinery or a tailored quotation." };
   const category = categoryBySlug[pathname.replace("/products/","")];
   if (category) return { title:`${category.shortName} | Ashutosh Trade`, description:`Explore illustrative ${category.shortName.toLowerCase()} and request suitable branded or generic options in Kathmandu, Nepal.` };
