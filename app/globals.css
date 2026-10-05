@@ -205,7 +205,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .social-icons img{width:22px;height:22px;object-fit:contain}
 .product-range-section .category-card:hover{background:#ceca5e;border-color:#ceca5e}
 .product-range-section .category-card:hover h3{color:#fff}
-.industry-card:hover{background:rgb(206 202 94/.15)}
+.industry-card:hover{background:#ceca5e}
 .brand-match-section .feature-list article{background:rgb(69 153 213/.1)}
 .guidance-section .feature-list article{background:rgb(206 202 94/.15)}
 .footer-main-links>a{text-transform:uppercase}
