@@ -236,62 +236,6 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-weight:700;
 }
 
-/* A tiny cleaning mascot playfully sweeps across the floating navigation bar. */
-.site-header{overflow:hidden}
-.nav-cleaning-mascot{
-  position:absolute;
-  z-index:0;
-  left:-70px;
-  bottom:1px;
-  width:64px;
-  height:30px;
-  pointer-events:none;
-  color:#2f785a;
-  animation:nav-cleaning-run 11s cubic-bezier(.44,.05,.55,.95) 1.2s infinite;
-}
-.site-header>.brand,.site-header>nav,.site-header>.menu-button,.site-header>[data-slot="sheet-trigger"]{position:relative;z-index:1}
-.nav-cleaning-tool{
-  position:absolute;
-  left:23px;
-  bottom:2px;
-  display:grid;
-  place-items:center;
-  width:30px;
-  height:24px;
-  border-radius:12px 12px 8px 8px;
-  background:#fff;
-  box-shadow:0 3px 0 rgb(206 202 94/.85),0 5px 10px rgb(47 120 90/.18);
-  animation:nav-cleaning-hop .72s ease-in-out infinite;
-}
-.nav-cleaning-spark{
-  position:absolute;
-  right:0;
-  top:0;
-  color:#4599d5;
-  animation:nav-cleaning-twinkle .72s ease-in-out infinite alternate;
-}
-.nav-cleaning-bubble{
-  position:absolute;
-  bottom:5px;
-  border:2px solid rgb(69 153 213/.65);
-  border-radius:50%;
-  animation:nav-bubble-pop 1.15s ease-out infinite;
-}
-.bubble-one{left:15px;width:7px;height:7px}
-.bubble-two{left:5px;width:10px;height:10px;animation-delay:-.38s}
-.bubble-three{left:-4px;width:5px;height:5px;animation-delay:-.76s}
-@keyframes nav-cleaning-run{
-  0%{left:-70px;transform:rotate(-4deg)}
-  43%{left:calc(50% - 30px);transform:rotate(2deg)}
-  47%{left:calc(50% - 30px);transform:rotate(-8deg) scaleX(.92)}
-  51%{left:calc(50% - 30px);transform:rotate(5deg) scaleX(1.05)}
-  55%{left:calc(50% - 30px);transform:rotate(0)}
-  100%{left:calc(100% + 10px);transform:rotate(4deg)}
-}
-@keyframes nav-cleaning-hop{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-5px) rotate(7deg)}}
-@keyframes nav-cleaning-twinkle{from{opacity:.25;transform:scale(.55) rotate(0)}to{opacity:1;transform:scale(1.15) rotate(18deg)}}
-@keyframes nav-bubble-pop{0%{opacity:0;transform:translate(8px,0) scale(.45)}40%{opacity:1}100%{opacity:0;transform:translate(-10px,-15px) scale(1.15)}}
-@media(max-width:620px){.nav-cleaning-mascot{animation-duration:8.5s;transform:scale(.86)}}
 .hero .button.primary.consult-primary,.hero .button.primary.consult-primary:hover{background:#fff;color:#ceca5e;border:1px solid #ceca5e;box-shadow:none}
 .hero .explore-products,.hero .explore-products:hover{background:#fff;color:#4599d5;border:1px solid #4599d5}
 @media(max-width:760px){.footer-intro>p{padding-left:84px}}
