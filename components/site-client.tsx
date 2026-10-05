@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
@@ -116,7 +116,7 @@ function Home({openConsult}:{openConsult:()=>void}) {
     <section className="hero shell">
       <div className="hero-copy"><h1>The right supplies for a cleaner, safer facility.</h1><p className="lead">Ashutosh Trade helps organizations in Kathmandu source housekeeping products, hygiene essentials, cleaning machinery, spare parts and everyday consumables—with branded and economical options matched to real needs.</p>
         <div className="hero-actions"><button className="button primary consult-primary" onClick={openConsult}>Book a free call</button><Link className="button secondary explore-products" href="/products">Explore Products</Link></div><p className="consult-note"><MapPin size={16}/> Kathmandu-based support for institutional and commercial buyers.</p><div className="proof-row"><span><Check/> Tailored recommendations</span><span><Check/> Branded or generic</span><span><Check/> Dependable support</span></div></div>
-      <div className="hero-media supply-visual" aria-label="Ashutosh Trade product range"><div className="hero-carousel-track">{[...scrollingImages,...scrollingImages].map((src,index)=><div className="hero-carousel-slide" key={`${src}-${index}`} aria-hidden={index>=scrollingImages.length}><Image src={src} fill priority={index===0} sizes="(max-width: 1000px) 100vw, 48vw" alt={index<scrollingImages.length?`Ashutosh Trade product category ${index+1}`:""}/></div>)}</div></div>
+      <MouseDrivenHeroGallery/>
     </section>
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="" title={<><span className="title-line">Supplies that fit</span><span className="title-line">the way your facility works</span></>} copy="Different spaces have different standards, routines and purchasing pressures. We start with the facility, usage and budget—not a one-size-fits-all list."/><div className="industry-grid">{sectors.map(([I,title,copy])=><article className="industry-card" key={title}><I/><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
     <section className="section shell product-range-section"><SectionHead eyebrow="" title={<><span className="title-line">Everything your facility</span><span className="title-line">needs to stay ready</span></>} copy="Browse ten practical categories, from daily housekeeping essentials to specialist machinery and replacement parts." action={<Link className="button secondary" href="/products">View all categories</Link>}/><CategoryGrid/></section>
@@ -126,6 +126,58 @@ function Home({openConsult}:{openConsult:()=>void}) {
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="" title="Testimonials coming soon" copy="Genuine customer testimonials have not yet been supplied. This section is reserved for verified feedback from institutional buyers."/><div className="testimonial-placeholder"><MessageSquareText/><p>Have you worked with Ashutosh Trade? Verified customer feedback can be added here once approved.</p></div></div></section>
     <section className="section shell action-strip final-action"><div><h2>Ready for clearer product options?</h2><p>Explore the product categories, request a quotation or book your free consultation call.</p></div><div><Link className="button secondary" href="/products">Browse Products</Link></div></section>
   </>;
+}
+
+function MouseDrivenHeroGallery() {
+  const mediaRef=useRef<HTMLDivElement>(null);
+  const trackRef=useRef<HTMLDivElement>(null);
+  const offset=useRef(0);
+  const speed=useRef(0);
+  const targetSpeed=useRef(0);
+  const loopWidth=useRef(1);
+  const lastPointer=useRef<{x:number,y:number,time:number}|null>(null);
+
+  useEffect(()=>{
+    const media=mediaRef.current;
+    const track=trackRef.current;
+    if(!media||!track)return;
+    const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const measure=()=>{loopWidth.current=Math.max(1,media.clientWidth*10);offset.current%=loopWidth.current};
+    measure();
+    const resizeObserver=new ResizeObserver(measure);
+    resizeObserver.observe(media);
+    let frame=0;
+    let previous=performance.now();
+    const move=(now:number)=>{
+      const elapsed=Math.min((now-previous)/16.667,2.5);
+      previous=now;
+      if(!reducedMotion){
+        speed.current+=(targetSpeed.current-speed.current)*.16;
+        targetSpeed.current*=.91;
+        if(targetSpeed.current<.03)targetSpeed.current=0;
+        offset.current=(offset.current+speed.current*elapsed)%loopWidth.current;
+        track.style.transform=`translate3d(${-offset.current}px,0,0)`;
+      }
+      frame=requestAnimationFrame(move);
+    };
+    frame=requestAnimationFrame(move);
+    return()=>{cancelAnimationFrame(frame);resizeObserver.disconnect()};
+  },[]);
+
+  const handlePointerMove=(event:ReactPointerEvent<HTMLDivElement>)=>{
+    if(event.pointerType!=="mouse")return;
+    const now=performance.now();
+    const previous=lastPointer.current;
+    if(previous){
+      const distance=Math.hypot(event.clientX-previous.x,event.clientY-previous.y);
+      const elapsed=Math.max(8,now-previous.time);
+      const velocity=distance/elapsed*16.667;
+      targetSpeed.current=Math.min(44,Math.max(targetSpeed.current,velocity*2.15));
+    }
+    lastPointer.current={x:event.clientX,y:event.clientY,time:now};
+  };
+
+  return <div ref={mediaRef} className="hero-media supply-visual mouse-gallery" aria-label="Ashutosh Trade product range. Move the mouse over the images to scroll faster." onPointerMove={handlePointerMove} onPointerLeave={()=>{lastPointer.current=null;targetSpeed.current=0}}><div ref={trackRef} className="hero-carousel-track">{[...scrollingImages,...scrollingImages].map((src,index)=><div className="hero-carousel-slide" key={`${src}-${index}`} aria-hidden={index>=scrollingImages.length}><Image src={src} fill priority={index===0} sizes="(max-width: 1000px) 100vw, 48vw" alt={index<scrollingImages.length?`Ashutosh Trade product category ${index+1}`:""}/></div>)}</div></div>;
 }
 
 function About({openConsult}:{openConsult:()=>void}) { return <>
