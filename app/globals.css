@@ -238,4 +238,13 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .social-icons img{width:22px;height:22px;object-fit:contain}
 .product-range-section .category-card:hover{background:#ceca5e;border-color:#ceca5e}
 .product-range-section .category-card:hover h3{color:#fff}
+.industry-card:nth-child(3n+1):hover{background:rgb(242 118 98/.1)}
+.industry-card:nth-child(3n+2):hover{background:rgb(246 196 83/.1)}
+.industry-card:nth-child(3n):hover{background:rgb(120 199 230/.1)}
+.brand-match-section .feature-list article{background:rgb(69 153 213/.1)}
+.guidance-section .feature-list article{background:rgb(206 202 94/.1)}
+.footer-main-links>a{text-transform:uppercase}
+.footer-category-links{grid-template-columns:1fr}
+.footer-category-links a{position:relative;padding-left:14px;white-space:nowrap;font-family:var(--site-font);font-weight:600}
+.footer-category-links a::before{content:"•";position:absolute;left:0;color:#ceca5e;font-weight:900}
 @media(max-width:760px){.footer-intro>p{padding-left:84px}}
