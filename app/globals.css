@@ -213,6 +213,28 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-category-links{grid-template-columns:1fr}
 .footer-category-links a{position:relative;padding-left:14px;white-space:nowrap;font-family:var(--site-font);font-weight:600}
 .footer-category-links a::before{content:"•";position:absolute;left:0;top:.45em;color:#ceca5e;font-size:50%;font-weight:900}
+
+/* Facility cards: typography and a single, clean hover motion. */
+.industry-card h3{font-size:calc(1.05rem + 3pt)}
+.industry-card h3 span{display:block;white-space:nowrap}
+.industry-card p{font-size:calc(.9rem + 2pt)}
+.industry-card:hover,
+.industry-card:nth-child(even):hover{
+  transform:translateY(-15px);
+  background:#fff;
+  box-shadow:none;
+}
+.industry-card:nth-child(3n+1):hover{border-top-color:var(--coral)}
+.industry-card:nth-child(3n+2):hover{border-top-color:var(--sunny)}
+.industry-card:nth-child(3n):hover{border-top-color:var(--sky)}
+
+/* Footer main-page links. */
+.footer-main-links>a{
+  font-family:var(--site-font);
+  font-size:calc(.9rem + 1pt)!important;
+  font-style:normal;
+  font-weight:700;
+}
 .hero .button.primary.consult-primary,.hero .button.primary.consult-primary:hover{background:#fff;color:#ceca5e;border:1px solid #ceca5e;box-shadow:none}
 .hero .explore-products,.hero .explore-products:hover{background:#fff;color:#4599d5;border:1px solid #4599d5}
 @media(max-width:760px){.footer-intro>p{padding-left:84px}}
