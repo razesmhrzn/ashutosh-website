@@ -207,7 +207,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .product-range-section .category-card:hover h3{color:#fff}
 .industry-card:hover{background:rgb(206 202 94/.15)}
 .brand-match-section .feature-list article{background:rgb(69 153 213/.1)}
-.guidance-section .feature-list article{background:rgb(206 202 94/.1)}
+.guidance-section .feature-list article{background:rgb(206 202 94/.15)}
 .footer-main-links>a{text-transform:uppercase}
 .footer-main-links>a{font-size:calc(.9rem + 2pt)!important}
 .footer-category-links{grid-template-columns:1fr}
