@@ -84,6 +84,13 @@ function Header({pathname,openConsult}:{pathname:string,openConsult:()=>void}) {
     <a className="skip-link" href="#main-content">Skip to main content</a>
     <header className="site-header">
       <Link className="brand logo-brand" href="/" aria-label="Ashutosh Trade home"><Image src="/assets/ashutosh-trade-logo.png" width={652} height={179} priority alt="Ashutosh Trade"/></Link>
+      <div className="nav-cleaning-mascot" aria-hidden="true">
+        <span className="nav-cleaning-tool"><BrushCleaning size={19}/></span>
+        <span className="nav-cleaning-spark"><Sparkles size={14}/></span>
+        <span className="nav-cleaning-bubble bubble-one"/>
+        <span className="nav-cleaning-bubble bubble-two"/>
+        <span className="nav-cleaning-bubble bubble-three"/>
+      </div>
       <nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/" aria-current={pathname==="/"?"page":undefined}>Home</Link>
         <Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined}>About Us</Link>
