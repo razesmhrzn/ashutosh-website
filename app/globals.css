@@ -191,7 +191,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Streamlined labels, scrolling hero gallery and updated footer assets. */
 .eyebrow,.eyebrow.light,.process-section .eyebrow,.consult-band .eyebrow{padding:0;border-radius:0;background:transparent;box-shadow:none}
 .hero-media{background:#eef4f5}
-.hero-carousel-track{display:flex;width:2000%;height:100%;animation:hero-scroll 60s linear infinite;will-change:transform}
+.hero-carousel-track{position:absolute;inset:0;display:flex;width:2000%;height:100%;animation:hero-scroll 60s linear infinite;will-change:transform}
 .hero-carousel-slide{position:relative;flex:0 0 5%;height:100%}
 .hero-carousel-slide img{object-fit:cover;object-position:center}
 @keyframes hero-scroll{to{transform:translateX(-50%)}}
