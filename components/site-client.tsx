@@ -20,7 +20,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 const iconMap = { FlaskConical, BrushCleaning, Cog, ScrollText, PanelTop, Hand, Wind, BedDouble, Shirt, ShieldCheck };
 const Icon = ({ name, size=22 }:{name:string,size?:number}) => { const Component = iconMap[name as keyof typeof iconMap] || Box; return <Component size={size}/>; };
 const mainLinks = [["/","Home"],["/about-us","About Us"],["/products","Products"],["/contact","Contact"]];
-const scrollingImages = Array.from({length:10},(_,index)=>`/assets/${String(index+1).padStart(2,"0")}.jpg`);
+const scrollingImages = Array.from({length:10},(_,index)=>`/assets/srollingimage${String(index+1).padStart(2,"0")}.jpg`);
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
 
 declare global { interface Document { modelContext?: { registerTool:(tool:unknown, options?:{signal?:AbortSignal})=>void|Promise<void> } } }
