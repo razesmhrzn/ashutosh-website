@@ -197,10 +197,13 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @keyframes hero-scroll{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.hero-carousel-track{animation-play-state:paused}}
 .product-range-section .category-card h3{font-family:var(--site-font);font-style:normal;font-weight:700}
-.footer-intro>p{padding-left:87px}
+.footer-intro>p{padding-left:90px}
 .footer-grid h2{color:#ceca5e}
 .footer-main-links>a:hover{color:#4599d5!important}
 .footer-category-links a{font-family:var(--site-font);font-weight:600}
-.social-icons span{overflow:hidden;background:transparent;border:0}
+.social-icons span{overflow:hidden;background:transparent;border:0;transition:transform .2s ease,filter .2s ease}
+.social-icons span:hover{transform:translateY(-4px) scale(1.14);filter:drop-shadow(0 7px 7px rgb(0 0 0/.28))}
 .social-icons img{width:22px;height:22px;object-fit:contain}
-@media(max-width:760px){.footer-intro>p{padding-left:81px}}
+.product-range-section .category-card:hover{background:#ceca5e;border-color:#ceca5e}
+.product-range-section .category-card:hover h3{color:#fff}
+@media(max-width:760px){.footer-intro>p{padding-left:84px}}
