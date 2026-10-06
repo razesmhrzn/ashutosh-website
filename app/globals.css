@@ -283,6 +283,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-size:.86rem;
   font-weight:700;
 }
+.footer-legal-links span{transition:transform .2s ease}
+.footer-legal-links span:hover{transform:translateY(-5pt)}
 .footer-legal-links+.footer-bottom{margin-top:0}
 
 .hero .button.primary.consult-primary,.hero .button.primary.consult-primary:hover{background:#fff;color:#ceca5e;border:1px solid #ceca5e;box-shadow:none}
