@@ -236,6 +236,15 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-weight:700;
 }
 
+/* Home product categories: nine wider cards in a balanced 3 × 3 grid. */
+.product-range-section .category-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+.product-range-section .category-card{min-height:250px}
+@media(max-width:760px){.product-range-section .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.product-range-section .category-grid{grid-template-columns:1fr}}
+
 .hero .button.primary.consult-primary,.hero .button.primary.consult-primary:hover{background:#fff;color:#ceca5e;border:1px solid #ceca5e;box-shadow:none}
 .hero .explore-products,.hero .explore-products:hover{background:#fff;color:#4599d5;border:1px solid #4599d5}
 @media(max-width:760px){.footer-intro>p{padding-left:84px}}
