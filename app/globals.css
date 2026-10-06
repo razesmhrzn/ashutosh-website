@@ -242,8 +242,12 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   gap:22px;
 }
 .product-range-section .category-card{
-  aspect-ratio:1 / 1;
+  aspect-ratio:4 / 5;
   min-height:0;
+}
+.product-range-section .category-media{
+  height:55%;
+  flex:none;
 }
 .product-range-section .category-card h3{
   display:flex;
@@ -252,6 +256,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   min-height:3.1em;
   margin-inline:auto;
   text-align:center;
+}
+.product-range-section .category-card .card-button{
+  align-self:center;
+  width:50%;
 }
 @media(max-width:760px){.product-range-section .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.product-range-section .category-grid{grid-template-columns:1fr}}
