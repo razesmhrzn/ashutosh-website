@@ -261,6 +261,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-size:clamp(.78rem,1.18vw,1.05rem);
   line-height:1.15;
   white-space:nowrap;
+  transform:translateY(6px);
 }
 .product-range-section .category-card .card-button{
   align-self:center;
@@ -285,9 +286,11 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-size:.86rem;
   font-weight:700;
 }
-.footer-legal-links span{transition:transform .2s ease}
-.footer-legal-links span:hover{transform:translateY(-5pt)}
+.footer-legal-links a{transition:transform .2s ease}
+.footer-legal-links a:hover{transform:translateY(-5pt)}
 .footer-legal-links+.footer-bottom{margin-top:0}
+
+.section-head h2+p,.brand-match-section h2+p,.final-action h2+p{margin-top:10px}
 
 .hero .button.primary.consult-primary,.hero .button.primary.consult-primary:hover{background:#fff;color:#ceca5e;border:1px solid #ceca5e;box-shadow:none}
 .hero .explore-products,.hero .explore-products:hover{background:#fff;color:#4599d5;border:1px solid #4599d5}
