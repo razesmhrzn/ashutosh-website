@@ -254,7 +254,7 @@ function CategoryGrid({detailed=false,homepage=false}:{detailed?:boolean,homepag
     const imageNumber=String(index+1).padStart(2,"0");
     const displayName=homepage&&c.slug==="linens-guest-apparel"?"Room Amenities & Guest Apparel":detailed?c.name:c.shortName;
     const headingLines=homepageCategoryHeadings[c.slug];
-    const heading=homepage&&headingLines?<><span>{headingLines[0]}</span><span>{headingLines[1]}</span></>:displayName;
+    const heading=homepage&&headingLines?headingLines.join(" "):displayName;
     return <article className="category-card" key={c.slug}><Link className={`category-media tone-${index%5}`} href={`/products/${c.slug}`} aria-label={`View ${displayName}`}><Image src={`/assets/${imageNumber}.jpg`} fill sizes={detailed?"(max-width: 760px) 100vw, 33vw":"(max-width: 520px) 100vw, (max-width: 760px) 50vw, 33vw"} alt={`${displayName} product examples`}/>{detailed&&<span className="category-icon"><Icon name={c.icon} size={32}/></span>}</Link><h3>{heading}</h3>{!homepage&&<p>{c.description}</p>}{detailed&&<p className="examples"><strong>May include:</strong> {c.examples.join(", ")}.</p>}<Link className="button secondary card-button" href={`/products/${c.slug}`}>View Products</Link></article>
   })}</div>;
 }
