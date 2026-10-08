@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Playfair+Display:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap");
+@font-face{
+  font-family:"Playfair Display";
+  src:url("/fonts/playfair-display-700-italic-latin.woff2") format("woff2");
+  font-style:italic;
+  font-weight:700;
+  font-display:block;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
