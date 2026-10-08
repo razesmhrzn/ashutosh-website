@@ -34,7 +34,7 @@ const homepageCategoryHeadings:Record<string,[string,string]> = {
   "pest-control-solutions":["PEST CONTROL","SOLUTIONS"]
 };
 const scrollingImages = Array.from({length:10},(_,index)=>`/assets/srollingimage${String(index+1).padStart(2,"0")}.jpg`);
-const formSubmitEndpoint = "https://formsubmit.co/ajax/info@ashutoshtrade.com.np";
+const formSubmitEndpoint = "https://formsubmit.co/ajax/aashutoshtrade@gmail.com";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
 
 async function sendFormSubmission(payload:Record<string,unknown>) {
