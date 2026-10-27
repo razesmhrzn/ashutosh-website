@@ -323,3 +323,11 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   text-transform:uppercase;
 }
 @media(max-width:760px){.footer-intro>p{padding-left:84px}}
+
+/* Footer spacing, hierarchy and contrast refinements. */
+@media(min-width:1101px){.footer-grid{grid-template-columns:1.19fr .6fr 1fr .7fr}}
+.footer-intro>p{max-width:332px;color:#000!important}
+.footer-main-links{gap:10px!important}
+.footer-main-links>a{font-size:calc(.9rem + 2pt)!important}
+.footer-grid>div:last-child>p{color:#fff!important}
+.footer-product-links h2,.footer-grid>div:last-child h2{font-size:calc(.85rem + 3pt)}
