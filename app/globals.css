@@ -340,3 +340,14 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .social-icons .social-icon-color{opacity:0;transform:scale(.82)}
 .social-icons span:hover .social-icon-white{opacity:0;transform:scale(.82)}
 .social-icons span:hover .social-icon-color{opacity:1;transform:scale(1)}
+
+/* Final footer sizing and alignment adjustments. */
+.site-footer{background:#2e795a}
+.footer-main-links{top:-10px}
+.footer-main-links>a{line-height:1.5}
+.footer-grid>div:last-child>p{font-size:calc(1rem + 1pt)}
+.social-icons span{width:34.5px;height:34.5px}
+.social-icons .social-icon-white,.social-icons .social-icon-color{inset:auto;left:50%;top:50%;width:25.3px!important;height:25.3px!important;transform:translate(-50%,-50%) scale(1)}
+.social-icons .social-icon-color{transform:translate(-50%,-50%) scale(.82)}
+.social-icons span:hover .social-icon-white{transform:translate(-50%,-50%) scale(.82)}
+.social-icons span:hover .social-icon-color{transform:translate(-50%,-50%) scale(1)}
