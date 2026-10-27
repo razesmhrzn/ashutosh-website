@@ -148,8 +148,8 @@
 @media(max-width:520px){.category-media{height:165px}.category-grid.detailed .category-media{height:175px}.product-meta{grid-template-columns:1fr}.product-file{padding:20px;gap:14px}.product-file .panel-icon{width:44px;height:44px}}
 
 /* Ashutosh Trade's cream, navy and aqua identity. */
-html{background:#fffaf0}
-body{background-color:#fffaf0;background-image:radial-gradient(circle at 8% 16%,rgb(120 199 230/.16) 0 7rem,transparent 7.1rem),radial-gradient(circle at 95% 8%,rgb(246 196 83/.2) 0 5rem,transparent 5.1rem),radial-gradient(circle at 88% 44%,rgb(242 118 98/.09) 0 3.5rem,transparent 3.6rem);background-attachment:fixed}
+html{background:#eaf8ff}
+body{background-color:#eaf8ff;background-image:linear-gradient(135deg,#f5fcff 0%,#d9f3ff 42%,#9edcff 100%);background-attachment:fixed}
 main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.site-header{position:sticky;top:0}
 .header-cta{font-size:.85rem;padding-inline:16px;white-space:nowrap}.supply-visual{animation:tilt-in .75s cubic-bezier(.18,.84,.25,1) both}.supply-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgb(8 29 50/.2));pointer-events:none}.supply-visual .hero-caption{z-index:2;justify-content:flex-start;align-items:center}.supply-visual .hero-caption>span{display:grid;place-items:center;width:44px;height:44px;border-radius:14px 8px 14px 8px;background:#dff1ef;color:#0e756d;flex:none}.supply-visual .hero-caption small{display:block;color:#5a6b78}
 .category-media{background:radial-gradient(circle at 74% 24%,rgb(255 255 255/.8) 0 2.3rem,transparent 2.4rem),linear-gradient(145deg,#bcece7,#dff4f2)!important}.category-media.tone-1{background:radial-gradient(circle at 76% 22%,rgb(255 255 255/.75) 0 2rem,transparent 2.1rem),linear-gradient(145deg,#ffd8d0,#fff0e8)!important}.category-media.tone-2{background:radial-gradient(circle at 74% 24%,rgb(255 255 255/.75) 0 2.2rem,transparent 2.3rem),linear-gradient(145deg,#ffe7a8,#fff4cf)!important}.category-media.tone-3{background:radial-gradient(circle at 78% 25%,rgb(255 255 255/.76) 0 2.2rem,transparent 2.3rem),linear-gradient(145deg,#cdeafa,#e9f6fc)!important}.category-media.tone-4{background:radial-gradient(circle at 76% 22%,rgb(255 255 255/.75) 0 2.1rem,transparent 2.2rem),linear-gradient(145deg,#dcd7ff,#f0eeff)!important}.category-media::after{background:linear-gradient(135deg,transparent 50%,rgb(12 39 68/.06))}.category-media .category-icon{left:18px;bottom:18px;width:56px;height:56px}.product-visual{background:radial-gradient(circle at 72% 25%,rgb(246 196 83/.35) 0 2.2rem,transparent 2.3rem),linear-gradient(145deg,#dff1ef,#f8fbfb)}.product-visual::after{background:linear-gradient(145deg,transparent 50%,rgb(14 130 120/.08))}.product-visual>.product-icon{position:relative;left:auto;bottom:auto;width:76px;height:76px}
@@ -179,7 +179,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .process-list span{font-size:3rem;line-height:1;color:#fff;letter-spacing:-.04em}
 .process-list p{color:#374750}
 .process-list li:hover{background:rgb(255 255 255/.18)}
-.site-footer{background:#4f4f4f}
+.site-footer{background:#2c795a}
 .footer-brand{padding:0;background:transparent;border-radius:0;box-shadow:none;transform:none}
 .footer-grid h2{font-family:var(--site-font);font-style:normal;font-size:calc(.85rem + 2pt);font-weight:700}
 .footer-main-links>a:hover{color:#ceca5e!important}
