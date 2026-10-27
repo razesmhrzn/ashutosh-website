@@ -77,7 +77,30 @@ export function SiteClient({ pathname }:{pathname:string}) {
     return () => observer.disconnect();
   },[pathname]);
 
+  useEffect(() => {
+    let frame = 0;
+    const updateBackground = () => {
+      frame = 0;
+      const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
+      document.documentElement.style.setProperty("--background-scroll-progress", String(progress));
+    };
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateBackground);
+    };
+    updateBackground();
+    window.addEventListener("scroll", requestUpdate, { passive:true });
+    window.addEventListener("resize", requestUpdate);
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+      document.documentElement.style.removeProperty("--background-scroll-progress");
+    };
+  },[pathname]);
+
   return <>
+    <div className="page-background" aria-hidden="true"/>
     <Header pathname={pathname} openConsult={openConsult}/>
     <main id="main-content">
       {pathname === "/" && <Home openConsult={openConsult}/>} 
