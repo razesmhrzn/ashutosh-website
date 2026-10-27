@@ -335,3 +335,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-category-links a:hover{color:#fff!important}
 .footer-main-links{position:relative;top:-5px;gap:12.5px!important}
 .footer-main-links>a{font-family:var(--site-font);font-size:calc(.9rem + 4pt)!important;font-weight:300;line-height:2}
+.social-icons span{position:relative}
+.social-icons .social-icon-white,.social-icons .social-icon-color{position:absolute;inset:4px;transition:opacity .2s ease,transform .2s ease}
+.social-icons .social-icon-color{opacity:0;transform:scale(.82)}
+.social-icons span:hover .social-icon-white{opacity:0;transform:scale(.82)}
+.social-icons span:hover .social-icon-color{opacity:1;transform:scale(1)}
