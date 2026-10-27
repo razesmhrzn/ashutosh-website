@@ -83,7 +83,7 @@ export function SiteClient({ pathname }:{pathname:string}) {
       frame = 0;
       const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
-      document.documentElement.style.setProperty("--background-position-y", `${progress * 50}%`);
+      document.documentElement.style.setProperty("--background-position-y", `${progress * 25}%`);
     };
     const requestUpdate = () => {
       if (!frame) frame = window.requestAnimationFrame(updateBackground);
