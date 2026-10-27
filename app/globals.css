@@ -359,3 +359,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Footer copy sizing. */
 .footer-intro>p{font-size:calc(1rem + 1pt)}
 .footer-grid>div:last-child>p{font-size:1rem}
+
+/* Top navigation type and compact Products dropdown control. */
+.desktop-nav>a,.desktop-nav .nav-combo>a{font-weight:400;letter-spacing:normal;font-kerning:normal}
+.desktop-nav .nav-combo>button{width:18px;height:18px}
+.desktop-nav .nav-combo>button svg{width:13px;height:13px}
