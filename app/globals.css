@@ -364,3 +364,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .desktop-nav>a,.desktop-nav .nav-combo>a{font-weight:400;letter-spacing:normal;font-kerning:normal}
 .desktop-nav .nav-combo>button{width:18px;height:18px}
 .desktop-nav .nav-combo>button svg{width:13px;height:13px}
+
+/* Move the active navigation bar to the menu item being hovered. */
+.desktop-nav a{transition:color .18s ease,border-color .18s ease}
+.desktop-nav:has(a:hover) a[aria-current],.desktop-nav:has(.nav-products:hover) a[aria-current]{border-color:transparent}
+.desktop-nav a:hover,.desktop-nav .nav-products:hover .nav-combo>a{color:#0e8278;border-color:#0e8278}
