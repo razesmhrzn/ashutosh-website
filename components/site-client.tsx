@@ -79,16 +79,26 @@ export function SiteClient({ pathname }:{pathname:string}) {
 
   useEffect(() => {
     let frame = 0;
-    const updateBackground = () => {
-      frame = 0;
+    let currentPosition = 0;
+    let targetPosition = 0;
+    const readTarget = () => {
       const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
-      document.documentElement.style.setProperty("--background-position-y", `${progress * 25}%`);
+      targetPosition = progress * 25;
+    };
+    const animateBackground = () => {
+      currentPosition += (targetPosition - currentPosition) * 0.12;
+      if (Math.abs(targetPosition - currentPosition) < 0.01) currentPosition = targetPosition;
+      document.documentElement.style.setProperty("--background-position-y", `${currentPosition}%`);
+      frame = currentPosition === targetPosition ? 0 : window.requestAnimationFrame(animateBackground);
     };
     const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateBackground);
+      readTarget();
+      if (!frame) frame = window.requestAnimationFrame(animateBackground);
     };
-    updateBackground();
+    readTarget();
+    currentPosition = targetPosition;
+    document.documentElement.style.setProperty("--background-position-y", `${currentPosition}%`);
     window.addEventListener("scroll", requestUpdate, { passive:true });
     window.addEventListener("resize", requestUpdate);
     return () => {

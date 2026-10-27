@@ -331,3 +331,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-main-links>a{font-size:calc(.9rem + 2pt)!important}
 .footer-grid>div:last-child>p{color:#fff!important}
 .footer-product-links h2,.footer-grid>div:last-child h2{font-size:calc(.85rem + 3pt)}
+.footer-category-links a{color:#e2e2e2!important}
+.footer-category-links a:hover{color:#fff!important}
+.footer-main-links{position:relative;top:-5px;gap:12.5px!important}
+.footer-main-links>a{font-family:var(--site-font);font-size:calc(.9rem + 4pt)!important;font-weight:300;line-height:2}
