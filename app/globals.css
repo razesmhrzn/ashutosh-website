@@ -369,3 +369,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .desktop-nav a{transition:color .18s ease,border-color .18s ease}
 .desktop-nav:has(a:hover) a[aria-current],.desktop-nav:has(.nav-products:hover) a[aria-current]{border-color:transparent}
 .desktop-nav a:hover,.desktop-nav .nav-products:hover .nav-combo>a{color:#0e8278;border-color:#0e8278}
+
+/* Footer contact icons. */
+.footer-contact-line{display:flex;align-items:flex-start;gap:10px;margin-block:0}
+.footer-contact-line svg{flex:none;width:20px;height:20px;margin-top:3px;color:#ceca5e;stroke-width:2}
