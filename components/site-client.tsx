@@ -83,7 +83,7 @@ export function SiteClient({ pathname }:{pathname:string}) {
       frame = 0;
       const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
-      document.documentElement.style.setProperty("--background-scroll-progress", String(progress));
+      document.documentElement.style.setProperty("--background-position-y", `${progress * 100}%`);
     };
     const requestUpdate = () => {
       if (!frame) frame = window.requestAnimationFrame(updateBackground);
@@ -95,7 +95,7 @@ export function SiteClient({ pathname }:{pathname:string}) {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
-      document.documentElement.style.removeProperty("--background-scroll-progress");
+      document.documentElement.style.removeProperty("--background-position-y");
     };
   },[pathname]);
 
