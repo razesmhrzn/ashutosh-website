@@ -353,7 +353,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .social-icons span:hover .social-icon-color{transform:translate(-50%,-50%) scale(1)}
 
 /* Circular Products dropdown control on hover. */
-.desktop-nav .nav-combo>button{display:grid;place-items:center;width:32px;height:32px;padding:0;border-radius:50%;transition:background-color .18s ease,color .18s ease}
+.desktop-nav .nav-combo>button{display:grid;place-items:center;width:24px;height:24px;padding:0;border-radius:50%;transition:background-color .18s ease,color .18s ease}
 .desktop-nav .nav-combo>button:hover{background:#2e795a;color:#fff}
 
 /* Footer copy sizing. */
