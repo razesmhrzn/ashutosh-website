@@ -466,6 +466,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Final hero, product reveal and footer refinements. */
 .hero-enquire,.hero-enquire:hover{border:1px solid #fff;background:transparent;color:#fff;box-shadow:none}
+.final-action .hero-enquire{margin-top:0}
 .product-range-section .category-hover-copy{top:96px;font-size:clamp(.76rem,.85vw,.88rem);line-height:1.4}
 .product-range-section .category-hover-copy p{margin:0;color:#fff!important}
 .product-range-section .category-hover-copy>p:first-child{font-size:calc(1em + 2pt)}
