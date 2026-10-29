@@ -570,7 +570,20 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
 .products-page-grid{padding-top:95px}
-.simplified-category-page{min-height:58vh;padding-top:118px}
+.simplified-category-page{min-height:58vh;padding-top:68px}
+.page-display-title,
+.simplified-category-page h1.page-display-title{
+  max-width:1000px;
+  margin:0 auto 42px;
+  color:#fff;
+  font-family:var(--site-font);
+  font-size:clamp(2.5rem,5vw,5rem);
+  font-style:normal;
+  font-weight:600;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  text-align:center
+}
 .simplified-category-page h1{
   margin:0 0 42px;
   font-family:var(--site-font);
@@ -600,15 +613,25 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .static-category-range .category-card:hover h3{color:#4f4f4f;transform:none}
 .cleaning-placeholder-grid .category-card:hover::after,
 .cleaning-placeholder-grid .category-card:focus-within::after{display:none;transform:none}
+.cleaning-placeholder-grid .category-media img{
+  transition:transform .65s cubic-bezier(.22,1,.36,1),filter .4s ease
+}
+.cleaning-placeholder-grid .category-card h3{
+  justify-content:center;
+  text-align:center
+}
 .cleaning-placeholder-grid .category-card:hover .category-media img,
-.cleaning-placeholder-grid .category-card:focus-within .category-media img{transform:none}
+.cleaning-placeholder-grid .category-card:focus-within .category-media img{transform:scale(1.06)}
 .cleaning-placeholder-grid .category-card:hover h3,
 .cleaning-placeholder-grid .category-card:focus-within h3{
   bottom:0;
   color:#4f4f4f;
-  background:rgb(255 255 255/.96);
-  transform:none
+  background:transparent;
+  opacity:0;
+  transform:none;
+  transition:opacity .2s ease
 }
+@media(max-width:760px){.page-display-title,.simplified-category-page h1.page-display-title{font-size:clamp(2.25rem,11vw,3.6rem)}}
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
