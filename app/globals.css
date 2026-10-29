@@ -625,7 +625,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:rgb(0 0 0/.76);
+  background:rgb(149 149 149/.82);
   backdrop-filter:blur(4px) contrast(1.08) saturate(.85);
   -webkit-backdrop-filter:blur(4px) contrast(1.08) saturate(.85)
 }
@@ -637,7 +637,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-card:focus-within h3{
   bottom:0;
   color:#fff;
-  background:rgb(0 0 0/.76);
+  background:rgb(149 149 149/.82);
   opacity:0;
   transform:none;
   transition:opacity .2s ease
