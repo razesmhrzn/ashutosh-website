@@ -555,6 +555,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .about-page-hero .about-hero-copy p{max-width:none;margin:0;color:#fff;font-size:1.05rem;line-height:1.72}
 .about-page-hero .about-hero-copy p+p{margin-top:18px}
 .about-page-hero .hero-actions{justify-content:center;margin-bottom:0}
+.about-purpose-section{max-width:920px}
 .about-page-hero .about-hero-action,
 .about-page-hero .about-hero-action:hover{border:1px solid #fff;background:transparent;color:#fff;box-shadow:none}
 @media(max-width:760px){
