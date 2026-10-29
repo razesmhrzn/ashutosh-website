@@ -426,3 +426,40 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   .product-range-section .category-card h3{min-height:72px;font-size:1.05rem}
 }
 @media(prefers-reduced-motion:reduce){.hero-slide.active img{animation:none}.hero-overlay h1{animation:none}.product-range-section .category-card::after{transition:none}}
+
+/* Final hero timing and PSS-style vertical text rotation. */
+.hero-slide.active img{animation-duration:5s}
+.hero-overlay h1.hero-rotator{display:grid;place-items:center;overflow:hidden;width:100%;max-width:1100px;min-height:2.15em;padding:8px 0 12px;animation:none}
+.hero-rotator-single{grid-area:1/1;width:100%;opacity:0;text-align:center;pointer-events:none}
+.hero-rotator-single.is-visible{opacity:1;animation:hero-headline-slide-in .6s both}
+.hero-rotator-single.is-hidden{animation:hero-headline-slide-out .6s both}
+@keyframes hero-headline-slide-in{0%{opacity:0;transform:translateY(-100%)}60%{opacity:1;transform:translateY(20%)}100%{opacity:1;transform:translateY(0)}}
+@keyframes hero-headline-slide-out{0%{opacity:1;transform:translateY(0)}60%{opacity:0;transform:translateY(120%)}100%{opacity:0;transform:translateY(100%)}}
+.hero-proof{position:absolute;right:0;bottom:24px;align-items:flex-start;flex-direction:column;gap:8px;margin:0;padding:15px 18px;border:1px solid rgb(255 255 255/.24);background:rgb(5 21 35/.34);text-align:left;backdrop-filter:blur(5px)}
+
+/* Facility cards: lighter neutral accents and clearer hover feedback. */
+.industry-card,.industry-card:nth-child(n){border-top-color:#e1e1e1}
+.industry-card>svg{color:#e1e1e1;transition:color .22s ease}
+.industry-card h3{transition:color .22s ease}
+.industry-card:hover>svg{color:#959595}
+.industry-card:hover h3{color:#2d795b}
+
+/* Heatons-inspired product range reveal: image first, then full-panel details. */
+.product-range-section .category-card{position:relative;display:block}
+.product-range-section .category-media{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.product-range-section .category-card::after{z-index:1;background:rgb(45 121 91/.95)}
+.product-range-section .category-card h3{position:absolute;left:0;right:0;bottom:0;z-index:2;width:auto;min-height:76px;padding:16px 20px;background:rgb(255 255 255/.96);pointer-events:none;transition:color .3s ease,background-color .3s ease,bottom .35s cubic-bezier(.2,.8,.2,1),transform .3s ease}
+.product-range-section .category-hover-copy{position:absolute;z-index:2;top:112px;left:22px;right:22px;margin:0;color:#fff;font-size:clamp(.9rem,1vw,1rem);line-height:1.58;opacity:0;pointer-events:none;transform:translateY(18px);transition:opacity .25s ease .09s,transform .3s ease .09s}
+.product-range-section .category-card:hover h3,.product-range-section .category-card:focus-within h3{bottom:calc(100% - 94px);background:transparent;color:#fff;transform:none}
+.product-range-section .category-card:hover .category-hover-copy,.product-range-section .category-card:focus-within .category-hover-copy{opacity:1;transform:translateY(0)}
+.product-range-section .category-card:focus-within::after{transform:translateY(0)}
+.product-range-section .category-card:focus-within .category-media img{filter:saturate(.8);transform:scale(1.08)}
+
+@media(max-width:760px){
+  .hero-overlay h1.hero-rotator{min-height:3.25em}
+  .hero-proof{position:static;align-self:flex-end;margin-top:32px}
+  .product-range-section .category-card h3{min-height:72px}
+  .product-range-section .category-card:hover h3,.product-range-section .category-card:focus-within h3{bottom:calc(100% - 88px)}
+  .product-range-section .category-hover-copy{top:104px;font-size:.92rem}
+}
+@media(prefers-reduced-motion:reduce){.hero-rotator-single.is-visible,.hero-rotator-single.is-hidden{animation:none}.hero-rotator-single.is-visible{opacity:1}}
