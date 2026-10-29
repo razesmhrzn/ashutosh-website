@@ -469,7 +469,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .product-range-section .category-hover-copy{top:96px;font-size:clamp(.76rem,.85vw,.88rem);line-height:1.4}
 .product-range-section .category-hover-copy p{margin:0;color:#fff!important}
 .product-range-section .category-hover-copy>p:first-child{font-size:calc(1em + 2pt)}
-.product-range-section .category-hover-examples{margin-top:12px!important}
+.product-range-section .category-hover-examples{margin-top:4.2em!important}
 .product-range-section .category-hover-examples strong{display:block;margin-bottom:3px;color:#fff;font-weight:700}
 .footer-contact-line svg{color:#5d9880}
 .footer-product-links h2,.footer-grid>div:last-child h2{font-kerning:normal;letter-spacing:normal}
@@ -478,5 +478,6 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-proof{display:flex;align-items:center;justify-content:flex-end;gap:18px;color:#fff;font-size:.82rem;font-weight:700;white-space:nowrap}
 .footer-proof span{display:flex;align-items:center;gap:5px}
 .footer-proof svg{width:15px;height:15px;color:#ceca5e}
+.product-range-section .category-card:hover h3,.product-range-section .category-card:focus-within h3{color:#cfca5c}
 @media(max-width:900px){.footer-bottom{align-items:flex-start}.footer-proof{flex-wrap:wrap;justify-content:flex-start;white-space:normal}}
 @media(max-width:760px){.product-range-section .category-hover-copy{top:88px;font-size:clamp(.78rem,3.1vw,.9rem);line-height:1.36}}
