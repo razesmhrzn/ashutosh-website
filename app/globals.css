@@ -569,7 +569,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
-.products-page-grid{padding-top:37px}
+.products-page-grid{padding-top:36px}
 .simplified-category-page{min-height:58vh;padding-top:36px}
 .page-display-title,
 .simplified-category-page h1.page-display-title{
@@ -618,6 +618,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .static-category-range .category-card:hover h3{color:#4f4f4f;transform:none}
 .cleaning-placeholder-grid .category-card:hover::after,
 .cleaning-placeholder-grid .category-card:focus-within::after{display:none;transform:none}
+.cleaning-placeholder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .cleaning-placeholder-grid .category-media img{
   transition:transform .65s cubic-bezier(.22,1,.36,1),filter .4s ease
 }
@@ -649,7 +650,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .clc-lightbox-close:hover{background:#2c795a;transform:scale(1.06)}
 .clc-lightbox-close svg{width:24px;height:24px}
 @keyframes clc-lightbox-in{from{opacity:0}to{opacity:1}}
-@media(max-width:620px){.clc-lightbox{inset:72px 0 0}}
+@media(max-width:620px){.cleaning-placeholder-grid{grid-template-columns:1fr;gap:18px}.clc-lightbox{inset:72px 0 0}}
 @media(prefers-reduced-motion:reduce){.clc-lightbox{animation:none}}
 @media(max-width:760px){#products-page-title,.simplified-category-page h1.page-display-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}}
 .contact-layout{padding-top:142px}
