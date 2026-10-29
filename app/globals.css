@@ -569,7 +569,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
-.products-page-grid{padding-top:45px}
+.products-page-grid{padding-top:40px}
 .simplified-category-page{min-height:58vh;padding-top:36px}
 .page-display-title,
 .simplified-category-page h1.page-display-title{
@@ -588,6 +588,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .simplified-category-page h1.page-display-title{
   font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
+#products-page-title{color:#4f4f4f}
 .simplified-category-page h1{
   margin:0 0 42px;
   font-family:var(--site-font);
