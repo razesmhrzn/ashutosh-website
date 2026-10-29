@@ -570,6 +570,19 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
 .products-page-grid{padding-top:72px}
+.simplified-category-page{min-height:58vh;display:flex;align-items:flex-start}
+.simplified-category-page h1{
+  margin:0;
+  font-family:var(--site-font);
+  font-size:clamp(2rem,4vw,3.15rem);
+  font-style:normal;
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:normal;
+  text-transform:none;
+  transition:none
+}
+.simplified-category-page h1:hover{color:inherit;transform:none}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
 .products-requirement .products-enquire{
