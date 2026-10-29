@@ -377,3 +377,52 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Footer heading and contact-icon refinements. */
 .footer-contact-line svg{color:#959595}
 .footer-product-links h2,.footer-grid>div:last-child h2{font-size:calc(.85rem + 4pt);font-weight:600}
+
+/* Cinematic home hero with a three-second image and headline rotation. */
+.hero.hero-slideshow{display:block;width:100%;max-width:none;padding:0;min-height:0}
+.hero-showcase{position:relative;min-height:clamp(560px,72vh,760px);overflow:hidden;background:#102033;color:#fff}
+.hero-slides,.hero-slide,.hero-shade{position:absolute;inset:0}
+.hero-slide{opacity:0;overflow:hidden;transition:opacity .8s ease}
+.hero-slide.active{z-index:1;opacity:1}
+.hero-slide img{object-fit:cover;transform:scale(1.15)}
+.hero-slide.active img{animation:hero-ken-burns 3s linear both}
+.hero-shade{z-index:2;background:linear-gradient(90deg,rgb(5 21 35/.7),rgb(5 21 35/.28) 55%,rgb(5 21 35/.48))}
+.hero-overlay{position:relative;z-index:3;display:flex;min-height:clamp(560px,72vh,760px);flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero-overlay h1{max-width:1000px;margin:0;color:#fff;font-family:var(--site-font);font-size:clamp(2.5rem,5vw,5rem);font-style:normal;font-weight:600;letter-spacing:-.02em;line-height:1.05;animation:hero-copy-in .65s ease both}
+.hero-overlay>p{max-width:780px;margin:24px auto 0;color:#fff;font-size:1.15rem}
+.hero-enquire{margin-top:28px;border:1px solid #fff;background:#fff;color:#2d795b}
+.hero-enquire:hover{border-color:#2d795b;background:#2d795b;color:#fff}
+.hero-proof{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-top:30px;padding-top:20px;border-top:1px solid rgb(255 255 255/.35);font-weight:700}
+.hero-proof span{display:flex;align-items:center;gap:7px}
+.hero-proof svg{width:17px;color:#ceca5e}
+@keyframes hero-ken-burns{from{transform:scale(1.15)}to{transform:scale(1)}}
+@keyframes hero-copy-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Facility cards: neutral stripe and icons, green response on hover. */
+.industry-card,.industry-card:nth-child(n){border-top-color:#959595}
+.industry-card:hover,.industry-card:nth-child(n):hover{border-top-color:#2d795b;background:#fff}
+.industry-card>svg{width:36px;height:36px;color:#959595}
+
+/* Image-led square product tiles with a sliding green reveal. */
+.product-range-section .category-card{position:relative;isolation:isolate;aspect-ratio:1;height:auto;min-height:0;padding:0;border-radius:0;overflow:hidden;background:#fff;transform:none}
+.product-range-section .category-card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgb(45 121 91/.9);transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.product-range-section .category-card:hover{border-color:#2d795b;background:#fff;box-shadow:0 18px 36px rgb(17 48 68/.16);transform:none}
+.product-range-section .category-card:hover::after{transform:translateY(0)}
+.product-range-section .category-media{z-index:0;flex:none;height:calc(100% - 76px);margin:0;border-radius:0}
+.product-range-section .category-media img{transition:transform .6s ease,filter .35s ease}
+.product-range-section .category-card:hover .category-media img{filter:saturate(.8);transform:scale(1.08)}
+.product-range-section .category-card h3{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-start;width:100%;min-height:76px;margin:0;padding:14px 18px;color:#2d795b;font-size:clamp(.975rem,1.475vw,1.3125rem);line-height:1.2;text-align:left;text-transform:none;white-space:normal;transform:none;transition:color .25s ease,transform .25s ease}
+.product-range-section .category-card:hover h3{color:#fff;transform:translateX(7px)}
+.social-icons>a{display:block;color:inherit}
+
+@media(max-width:760px){
+  .hero-showcase,.hero-overlay{min-height:600px}
+  .hero-overlay{padding-block:72px}
+  .hero-overlay h1{font-size:clamp(2.25rem,11vw,3.6rem)}
+  .hero-overlay>p{font-size:1rem}
+  .hero-proof{gap:12px;font-size:.82rem}
+  .product-range-section .category-card{aspect-ratio:1;height:auto}
+  .product-range-section .category-media{height:calc(100% - 72px)}
+  .product-range-section .category-card h3{min-height:72px;font-size:1.05rem}
+}
+@media(prefers-reduced-motion:reduce){.hero-slide.active img{animation:none}.hero-overlay h1{animation:none}.product-range-section .category-card::after{transition:none}}

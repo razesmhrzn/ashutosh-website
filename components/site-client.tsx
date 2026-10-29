@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
@@ -23,17 +23,25 @@ const mainLinks = [["/","Home"],["/about-us","About Us"],["/products","Products"
 const productNavigationCategories = categories.filter(category=>category.slug!=="guest-room-amenities");
 const navigationCategoryName = (slug:string,name:string) => slug==="linens-guest-apparel"?"Room Amenities & Guest Apparel":name;
 const homepageCategoryHeadings:Record<string,[string,string]> = {
-  "cleaning-laundry-chemicals":["CLEANING & LAUNDRY","CHEMICALS"],
-  "cleaning-tools-equipment":["CLEANING TOOLS","& EQUIPMENTS"],
-  "machinery-spare-parts":["MACHINERY &","SPARE PARTS"],
-  "papers-disposables":["PAPERS &","DISPOSABLES"],
-  "dispensing-systems":["DISPENSING","SYSTEMS"],
-  "hand-hygiene-soaps":["HAND HYGIENE","& SOAPS"],
-  "air-care-fresheners":["AIR CARE &","FRESHNERS"],
-  "linens-guest-apparel":["ROOM AMENITIES &","GUEST APPARELS"],
-  "pest-control-solutions":["PEST CONTROL","SOLUTIONS"]
+  "cleaning-laundry-chemicals":["Cleaning & Laundry Chemicals",""],
+  "cleaning-tools-equipment":["Cleaning Tools & Equipment",""],
+  "machinery-spare-parts":["Machinery & Spare Parts",""],
+  "papers-disposables":["Papers & Disposables",""],
+  "dispensing-systems":["Dispensing Systems",""],
+  "hand-hygiene-soaps":["Hand Hygiene & Soaps",""],
+  "air-care-fresheners":["Air Care & Fresheners",""],
+  "linens-guest-apparel":["Room Amenities & Guest Apparel",""],
+  "pest-control-solutions":["Pest Control Solutions",""]
 };
 const scrollingImages = Array.from({length:10},(_,index)=>`/assets/srollingimage${String(index+1).padStart(2,"0")}.jpg`);
+const heroHeadlines = [
+  "The right Supplies for a Cleaner, Safer Facility",
+  "Supplies that fit the way your Facility works",
+  "Everything your Facility needs to stay ready",
+  "Branded or Generic—matched to your needs",
+  "A practical Supply Partner for you"
+];
+const heroFocalPoints = ["50% 34%","68% 46%","38% 56%","62% 38%","45% 50%","58% 42%","52% 58%","35% 45%","65% 52%","48% 40%"];
 const formSubmitEndpoint = "https://formsubmit.co/ajax/aashutoshtrade@gmail.com";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
 
@@ -168,11 +176,7 @@ function Home({openConsult}:{openConsult:()=>void}) {
     [BriefcaseBusiness,"Corporate","Offices","Reliable everyday supplies that keep workplaces clean and presentable."],
   ] as const;
   return <>
-    <section className="hero shell">
-      <div className="hero-copy"><h1>The right supplies for a cleaner, safer facility.</h1><p className="lead">Ashutosh Trade helps organizations in Kathmandu source housekeeping products, hygiene essentials, cleaning machinery, spare parts and everyday consumables—with branded and economical options matched to real needs.</p>
-        <div className="hero-actions"><button className="button primary consult-primary" onClick={openConsult}>ENQUIRE NOW</button><Link className="button secondary explore-products" href="/products">Explore Products</Link></div><p className="consult-note"><MapPin size={16}/> Kathmandu-based support for institutional and commercial buyers.</p><div className="proof-row"><span><Check/> Tailored recommendations</span><span><Check/> Branded or generic</span><span><Check/> Dependable support</span></div></div>
-      <MouseDrivenHeroGallery/>
-    </section>
+    <section className="hero hero-slideshow"><HeroSlideshow openConsult={openConsult}/></section>
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="" title={<><span className="title-line">Supplies that fit</span><span className="title-line">the way your facility works</span></>} copy="Different spaces have different standards, routines and purchasing pressures. We start with the facility, usage and budget—not a one-size-fits-all list."/><div className="industry-grid">{sectors.map(([I,titleLineOne,titleLineTwo,copy])=><article className="industry-card" key={`${titleLineOne} ${titleLineTwo}`}><I/><h3><span>{titleLineOne}</span><span>{titleLineTwo}</span></h3><p>{copy}</p></article>)}</div></div></section>
     <section className="section shell product-range-section"><SectionHead eyebrow="" title={<><span className="title-line">Everything your facility</span><span className="title-line">needs to stay ready</span></>} copy="Browse nine practical categories, from daily housekeeping essentials to specialist machinery and replacement parts." action={<Link className="button secondary" href="/products">View all Products</Link>}/><CategoryGrid homepage/></section>
     <section className="section shell split-feature brand-match-section"><div><h2>Branded or generic—matched to your needs</h2><p>Not every task needs the same product or price point. Share your facility type, usage volume and budget, and we’ll help you compare appropriate branded products with cost-effective generic alternatives.</p><Link className="text-link" href="/about-us">How we work <ArrowUpRight size={16}/></Link></div><div className="feature-list">{[[ShieldCheck,"Fit for purpose","Recommendations based on the task, surface, setting and usage."],[PackageSearch,"Options for your budget","Compare established branded choices with practical alternatives."],[Cog,"Machinery support","Discuss equipment, compatible accessories and replacement-part needs."],[ClipboardList,"Simpler procurement","Bring related categories together in one clear enquiry."]].map(([I,t,c])=><article key={t as string}><span><I/></span><div><h3>{t as string}</h3><p>{c as string}</p></div></article>)}</div></section>
@@ -183,56 +187,18 @@ function Home({openConsult}:{openConsult:()=>void}) {
   </>;
 }
 
-function MouseDrivenHeroGallery() {
-  const mediaRef=useRef<HTMLDivElement>(null);
-  const trackRef=useRef<HTMLDivElement>(null);
-  const offset=useRef(0);
-  const speed=useRef(0);
-  const targetSpeed=useRef(0);
-  const loopWidth=useRef(1);
-  const lastPointer=useRef<{x:number,y:number,time:number}|null>(null);
-
+function HeroSlideshow({openConsult}:{openConsult:()=>void}) {
+  const [active,setActive]=useState(0);
   useEffect(()=>{
-    const media=mediaRef.current;
-    const track=trackRef.current;
-    if(!media||!track)return;
-    const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const measure=()=>{loopWidth.current=Math.max(1,media.clientWidth*10);offset.current%=loopWidth.current};
-    measure();
-    const resizeObserver=new ResizeObserver(measure);
-    resizeObserver.observe(media);
-    let frame=0;
-    let previous=performance.now();
-    const move=(now:number)=>{
-      const elapsed=Math.min((now-previous)/16.667,2.5);
-      previous=now;
-      if(!reducedMotion){
-        speed.current+=(targetSpeed.current-speed.current)*.16;
-        targetSpeed.current*=.91;
-        if(targetSpeed.current<.03)targetSpeed.current=0;
-        offset.current=(offset.current+speed.current*elapsed)%loopWidth.current;
-        track.style.transform=`translate3d(${-offset.current}px,0,0)`;
-      }
-      frame=requestAnimationFrame(move);
-    };
-    frame=requestAnimationFrame(move);
-    return()=>{cancelAnimationFrame(frame);resizeObserver.disconnect()};
+    const timer=window.setInterval(()=>setActive(current=>(current+1)%scrollingImages.length),3000);
+    return()=>window.clearInterval(timer);
   },[]);
-
-  const handlePointerMove=(event:ReactPointerEvent<HTMLDivElement>)=>{
-    if(event.pointerType!=="mouse")return;
-    const now=performance.now();
-    const previous=lastPointer.current;
-    if(previous){
-      const distance=Math.hypot(event.clientX-previous.x,event.clientY-previous.y);
-      const elapsed=Math.max(8,now-previous.time);
-      const velocity=distance/elapsed*16.667;
-      targetSpeed.current=Math.min(44,Math.max(targetSpeed.current,velocity*2.15));
-    }
-    lastPointer.current={x:event.clientX,y:event.clientY,time:now};
-  };
-
-  return <div ref={mediaRef} className="hero-media supply-visual mouse-gallery" aria-label="Ashutosh Trade product range. Move the mouse over the images to scroll faster." onPointerMove={handlePointerMove} onPointerLeave={()=>{lastPointer.current=null;targetSpeed.current=0}}><div ref={trackRef} className="hero-carousel-track">{[...scrollingImages,...scrollingImages].map((src,index)=><div className="hero-carousel-slide" key={`${src}-${index}`} aria-hidden={index>=scrollingImages.length}><Image src={src} fill priority={index===0} sizes="(max-width: 1000px) 100vw, 48vw" alt={index<scrollingImages.length?`Ashutosh Trade product category ${index+1}`:""}/></div>)}</div></div>;
+  const headline=heroHeadlines[active%heroHeadlines.length];
+  return <div className="hero-showcase" aria-roledescription="carousel" aria-label="Ashutosh Trade facility supply highlights">
+    <div className="hero-slides" aria-hidden="true">{scrollingImages.map((src,index)=><div className={`hero-slide ${index===active?"active":""}`} key={src}><Image src={src} fill priority={index===0} sizes="100vw" alt="" style={{objectPosition:heroFocalPoints[index]}}/></div>)}</div>
+    <div className="hero-shade"/>
+    <div className="hero-overlay shell"><h1 key={headline}>{headline}</h1><p>Ashutosh Trade helps organizations source practical housekeeping products, hygiene essentials, cleaning machinery, spare parts and everyday consumables.</p><button className="button hero-enquire" onClick={openConsult}>ENQUIRE NOW</button><div className="hero-proof"><span><Check/> Tailored recommendations</span><span><Check/> Branded or generic</span><span><Check/> Dependable support</span></div></div>
+  </div>;
 }
 
 function About({openConsult}:{openConsult:()=>void}) { return <>
@@ -294,7 +260,7 @@ function CategoryGrid({detailed=false,homepage=false}:{detailed?:boolean,homepag
     const imageNumber=String(index+1).padStart(2,"0");
     const displayName=homepage&&c.slug==="linens-guest-apparel"?"Room Amenities & Guest Apparel":detailed?c.name:c.shortName;
     const headingLines=homepageCategoryHeadings[c.slug];
-    const heading=homepage&&headingLines?headingLines.join(" "):displayName;
+    const heading=homepage&&headingLines?headingLines.filter(Boolean).join(" "):displayName;
     return <article className="category-card" key={c.slug}><Link className={`category-media tone-${index%5}`} href={`/products/${c.slug}`} aria-label={`View ${displayName}`}><Image src={`/assets/${imageNumber}.jpg`} fill sizes={detailed?"(max-width: 760px) 100vw, 33vw":"(max-width: 520px) 100vw, (max-width: 760px) 50vw, 33vw"} alt={`${displayName} product examples`}/>{detailed&&<span className="category-icon"><Icon name={c.icon} size={32}/></span>}</Link><h3>{heading}</h3>{!homepage&&<p>{c.description}</p>}{detailed&&<p className="examples"><strong>May include:</strong> {c.examples.join(", ")}.</p>}{!homepage&&<Link className="button secondary card-button" href={`/products/${c.slug}`}>View Products</Link>}</article>
   })}</div>;
 }
@@ -309,7 +275,7 @@ function LegalPage({kind}:{kind:"privacy"|"terms"}) {
   return <PageHero eyebrow="Ashutosh Trade" title={privacy?"Privacy Policy":"Terms"} copy={privacy?"For information about how details submitted through this website are handled, please contact Ashutosh Trade directly.":"For the current terms that apply to quotations, products, delivery and support, please contact Ashutosh Trade directly."} actions={<Link className="button secondary" href="/contact">Contact Us</Link>}/>;
 }
 
-function Footer() {return <footer className="site-footer"><div className="shell footer-grid"><div className="footer-intro"><Link className="brand logo-brand footer-brand" href="/" aria-label="Ashutosh Trade home"><Image src="/assets/ashutosh-trade-logo-white.png" width={668} height={203} alt="Ashutosh Trade"/></Link><p>A Nepal-based supplier of housekeeping products, facility essentials, cleaning machinery and related consumables, accessories and spare parts.</p></div><div className="footer-main-links">{mainLinks.filter(([h])=>h!=="/contact").map(([h,l])=><Link href={h} key={h}>{l}</Link>)}</div><div className="footer-product-links"><h2>Product Categories</h2><div className="footer-category-links">{categories.filter(c=>c.slug!=="guest-room-amenities").map(c=><Link href={`/products/${c.slug}`} key={c.slug}>{navigationCategoryName(c.slug,c.shortName)}</Link>)}</div></div><div><h2>Contact</h2><p className="footer-contact-line"><MapPin aria-hidden="true"/><span>{business.location}</span></p><p className="footer-contact-line"><Phone aria-hidden="true"/><span>{business.phone||"Phone number not yet supplied."}, 9715556165</span></p><p className="footer-contact-line"><Mail aria-hidden="true"/><span>{business.email||"Email address not yet supplied."}</span></p><p className="footer-contact-line"><Clock aria-hidden="true"/><span>{business.businessHours||"Operating hours not yet supplied."}</span></p><div className="social-icons" aria-label="Social media channels">{[["WhatsApp","whatsappw.png","whatsapp.png"],["Facebook","facebookw.png","facebook.png"],["Instagram","instagramw.png","instagram.png"],["TikTok","tiktokw.png","tiktok.png"]].map(([label,whiteFile,colorFile])=><span aria-label={label} title={label} key={label}><Image className="social-icon-white" src={`/assets/${whiteFile}`} width={22} height={22} alt=""/><Image className="social-icon-color" src={`/assets/${colorFile}`} width={22} height={22} alt=""/></span>)}</div></div></div><div className="shell footer-legal-links"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms">Terms</Link></div><div className="shell footer-bottom"><span>© {new Date().getFullYear()} Ashutosh Trade. All rights reserved.</span><span>Branded and generic options based on customer requirements.</span></div></footer>}
+function Footer() {return <footer className="site-footer"><div className="shell footer-grid"><div className="footer-intro"><Link className="brand logo-brand footer-brand" href="/" aria-label="Ashutosh Trade home"><Image src="/assets/ashutosh-trade-logo-white.png" width={668} height={203} alt="Ashutosh Trade"/></Link><p>A Nepal-based supplier of housekeeping products, facility essentials, cleaning machinery and related consumables, accessories and spare parts.</p></div><div className="footer-main-links">{mainLinks.filter(([h])=>h!=="/contact").map(([h,l])=><Link href={h} key={h}>{l}</Link>)}</div><div className="footer-product-links"><h2>Product Categories</h2><div className="footer-category-links">{categories.filter(c=>c.slug!=="guest-room-amenities").map(c=><Link href={`/products/${c.slug}`} key={c.slug}>{navigationCategoryName(c.slug,c.shortName)}</Link>)}</div></div><div><h2>Contact</h2><p className="footer-contact-line"><MapPin aria-hidden="true"/><span>{business.location}</span></p><p className="footer-contact-line"><Phone aria-hidden="true"/><span>{business.phone||"Phone number not yet supplied."}, 9715556165</span></p><p className="footer-contact-line"><Mail aria-hidden="true"/><span>{business.email||"Email address not yet supplied."}</span></p><p className="footer-contact-line"><Clock aria-hidden="true"/><span>{business.businessHours||"Operating hours not yet supplied."}</span></p><div className="social-icons" aria-label="Social media channels">{[["WhatsApp","whatsappw.png","whatsapp.png","https://wa.me/9779715556165"],["Facebook","facebookw.png","facebook.png","https://facebook.com/ashutosh.trade"],["Instagram","instagramw.png","instagram.png","https://instagram.com/ashutosh.trade"],["TikTok","tiktokw.png","tiktok.png","https://tiktok.com/@ashutosh.trade"]].map(([label,whiteFile,colorFile,url])=><a href={url} target="_blank" rel="noopener noreferrer" aria-label={label} title={label} key={label}><span><Image className="social-icon-white" src={`/assets/${whiteFile}`} width={22} height={22} alt=""/><Image className="social-icon-color" src={`/assets/${colorFile}`} width={22} height={22} alt=""/></span></a>)}</div></div></div><div className="shell footer-legal-links"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms">Terms</Link></div><div className="shell footer-bottom"><span>© {new Date().getFullYear()} Ashutosh Trade. All rights reserved.</span><span>Branded and generic options based on customer requirements.</span></div></footer>}
 
 function Field({label,name,type="text",required,placeholder,min}:{label:string,name:string,type?:string,required?:boolean,placeholder?:string,min?:string}) {return <label className="field"><span>{label}</span><input name={name} type={type} required={required} placeholder={placeholder} min={min}/></label>}
 function SelectField({label,value,onChange,options,labels={},className=""}:{label:string,value:string,onChange:(v:string)=>void,options:string[],labels?:Record<string,string>,className?:string}) {return <div className={`field ${className}`}><span>{label}</span><Select value={value} onValueChange={v=>onChange(v??options[0])}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent>{options.map(o=><SelectItem key={o} value={o}>{labels[o]||o}</SelectItem>)}</SelectContent></Select></div>}
