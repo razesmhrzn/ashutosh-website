@@ -140,7 +140,7 @@
 .contact-detail-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .contact-detail-list li{display:flex;gap:13px;align-items:flex-start;padding:18px;background:#fff;border:1px solid var(--border);border-radius:14px}
 .contact-detail-list li>svg{flex:none;color:#0e756d;margin-top:7px}.contact-detail-list strong,.contact-detail-list span{display:block;font-size:calc(1rem + 5pt);line-height:1.35}.contact-detail-list span{margin-top:5px;color:#5e717d}
-.contact-social-icons{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px}.contact-social-icons a{display:grid;place-items:center;width:48px;height:48px;transition:transform .2s ease}.contact-social-icons a:hover{transform:translateY(-4px) scale(1.08)}.contact-social-icons img{width:36px;height:36px;object-fit:contain}
+.contact-social-icons{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:51px}.contact-social-icons a{display:grid;place-items:center;width:48px;height:48px;transition:transform .2s ease}.contact-social-icons a:hover{transform:translateY(-4px) scale(1.08)}.contact-social-icons img{width:36px;height:36px;object-fit:contain}
 .form-shell{max-width:900px}.form-shell .form-card{box-shadow:0 18px 40px rgb(17 48 68/.08)}
 .footer-category-links{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px}.footer-category-links a{line-height:1.35}.footer-contact-link{color:#79ddd3!important;margin-top:5px}
 @media(max-width:1000px){.mega-menu{right:-220px}.product-file{margin-top:46px}.footer-category-links{grid-template-columns:1fr}}
@@ -569,8 +569,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
-.products-page-grid{padding-top:95px}
-.simplified-category-page{min-height:58vh;padding-top:68px}
+.products-page-grid{padding-top:45px}
+.simplified-category-page{min-height:58vh;padding-top:36px}
 .page-display-title,
 .simplified-category-page h1.page-display-title{
   max-width:1000px;
@@ -583,6 +583,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   letter-spacing:-.02em;
   line-height:1.05;
   text-align:center
+}
+#products-page-title,
+.simplified-category-page h1.page-display-title{
+  font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
 .simplified-category-page h1{
   margin:0 0 42px;
@@ -631,7 +635,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   transform:none;
   transition:opacity .2s ease
 }
-@media(max-width:760px){.page-display-title,.simplified-category-page h1.page-display-title{font-size:clamp(2.25rem,11vw,3.6rem)}}
+@media(max-width:760px){#products-page-title,.simplified-category-page h1.page-display-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}}
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
