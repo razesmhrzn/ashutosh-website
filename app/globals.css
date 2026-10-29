@@ -624,6 +624,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   justify-content:center;
   text-align:center
 }
+.cleaning-placeholder-grid button.category-card{cursor:zoom-in;font:inherit}
+.cleaning-placeholder-grid button.category-card:focus-visible{outline:3px solid #cfca5c;outline-offset:4px}
 .cleaning-placeholder-grid .category-card:hover .category-media img,
 .cleaning-placeholder-grid .category-card:focus-within .category-media img{transform:scale(1.06)}
 .cleaning-placeholder-grid .category-card:hover h3,
@@ -635,6 +637,14 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   transform:none;
   transition:opacity .2s ease
 }
+.clc-lightbox{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:3vh 3vw;background:rgb(3 12 18/.94);cursor:zoom-out;animation:clc-lightbox-in .22s ease-out}
+.clc-lightbox-frame{position:relative;width:94vw;height:94vh;cursor:default}
+.clc-lightbox-frame>img{object-fit:contain}
+.clc-lightbox-close{position:absolute;top:8px;right:8px;z-index:1;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgb(255 255 255/.7);border-radius:50%;background:rgb(0 0 0/.55);color:#fff;cursor:pointer;transition:background-color .2s ease,transform .2s ease}
+.clc-lightbox-close:hover{background:#2c795a;transform:scale(1.06)}
+.clc-lightbox-close svg{width:24px;height:24px}
+@keyframes clc-lightbox-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.clc-lightbox{animation:none}}
 @media(max-width:760px){#products-page-title,.simplified-category-page h1.page-display-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}}
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
