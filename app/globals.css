@@ -589,7 +589,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
 #products-page-title{color:#4f4f4f}
-.simplified-category-page h1.page-display-title{width:100%;max-width:none;margin:0 0 42px auto;color:#2c795a;text-align:right}
+.simplified-category-page h1.page-display-title{width:100%;max-width:none;margin:0 0 42px auto;color:#2c795a;font-size:clamp(.9375rem,1.875vw,1.875rem);text-align:right}
 .simplified-category-page h1{
   margin:0 0 42px;
   font-family:var(--site-font);
@@ -641,8 +641,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   height:auto;
   aspect-ratio:1;
   overflow:hidden;
-  border:1px solid #959595;
-  border-bottom:0;
+  border:0;
   background:#fff
 }
 .cleaning-placeholder-grid .category-media img{
@@ -685,7 +684,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @keyframes clc-lightbox-in{from{opacity:0}to{opacity:1}}
 @media(max-width:620px){.cleaning-placeholder-grid{grid-template-columns:1fr;gap:18px}.clc-lightbox{inset:72px 0 0}}
 @media(prefers-reduced-motion:reduce){.clc-lightbox{animation:none}}
-@media(max-width:760px){#products-page-title,.simplified-category-page h1.page-display-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}}
+@media(max-width:760px){#products-page-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}.simplified-category-page h1.page-display-title{font-size:clamp(.84375rem,4.125vw,1.35rem)}}
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
