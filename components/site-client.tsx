@@ -247,13 +247,22 @@ function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
 
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
-  if(slug==="cleaning-laundry-chemicals") return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby="cleaning-laundry-title"><h1 id="cleaning-laundry-title">Cleaning &amp; Laundry Chemicals</h1><CategoryGrid homepage staticDisplay/></section>;
+  if(slug==="cleaning-laundry-chemicals") return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby="cleaning-laundry-title"><h1 id="cleaning-laundry-title">Cleaning &amp; Laundry Chemicals</h1><CleaningLaundryGrid/></section>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
     <section className="section shell category-layout"><aside className="use-panel"><h2>Typical applications</h2><ul>{category.uses.map(u=><li key={u}><Check size={17}/>{u}</li>)}</ul><h3>Common product examples</h3><p>{category.examples.join(", ")}.</p><h3>Suitable for</h3><p>Hotels, hospitals, schools, offices, restaurants, commercial buildings and facility-management teams, depending on the product.</p><h3>Buying considerations</h3><p>Consider the task, surface or equipment compatibility, usage volume, packaging size, storage, staff routines and budget.</p><p className="sample-note">Branded and generic options can be discussed. Examples do not confirm inventory, specifications or performance.</p></aside><div><div className="category-products-heading"><div><span className="eyebrow">Illustrative products</span><h2>Product types in this category</h2></div><div className="filter-field"><label>Option type</label><Select value={type} onValueChange={v=>setType(v??"all")}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All options</SelectItem><SelectItem value="Branded option">Branded option</SelectItem><SelectItem value="Generic option">Generic option</SelectItem></SelectContent></Select></div></div><ProductGrid items={items}/></div></section>
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="Related categories" title="Continue exploring"/><div className="related-links">{category.related.map(r=>{const c=categoryBySlug[r];return <Link key={r} href={`/products/${r}`}><span><Icon name={c.icon}/></span><strong>{c.shortName}</strong><ArrowUpRight/></Link>})}</div></div></section>
     <section className="section shell action-strip"><div><h2>Have a product requirement?</h2><p>Share the use case and ask for relevant branded or generic options.</p></div><div><Link className="button primary" href="https://www.ashutoshtrade.com.np/contact?type=quote#enquiry-form">Request a Quote</Link><Link className="button secondary" href="/contact">Contact Us</Link></div></section>
   </>;
+}
+
+function CleaningLaundryGrid() {
+  return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:15},(_,index)=>{
+    const productNumber=index+1;
+    const imageNumber=productNumber<=10?productNumber:productNumber-10;
+    const imageFile=String(imageNumber).padStart(2,"0");
+    return <article className="category-card" key={productNumber}><div className="category-media"><Image src={`/assets/${imageFile}.jpg`} fill sizes="(max-width: 520px) 100vw, (max-width: 760px) 50vw, 33vw" alt={`CLC-${productNumber} placeholder product`}/></div><h3>{`CLC-${productNumber}`}</h3></article>;
+  })}</div>;
 }
 
 function Contact({openConsult}:{openConsult:()=>void}) {
