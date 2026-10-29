@@ -570,11 +570,11 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Products overview: homepage-style range cards and a light enquiry band. */
 .products-page-grid{padding-top:72px}
-.simplified-category-page{min-height:58vh;padding-top:95px}
+.simplified-category-page{min-height:58vh}
 .simplified-category-page h1{
   margin:0 0 42px;
   font-family:var(--site-font);
-  font-size:clamp(1.4rem,2.8vw,2.205rem);
+  font-size:clamp(2rem,4vw,3.15rem);
   font-style:normal;
   font-weight:600;
   line-height:1.08;
@@ -589,17 +589,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .static-category-range .category-media img,
 .static-category-range .category-card h3{transition:none;animation:none}
 .static-category-range .category-card::after{display:none}
-.static-category-range .category-card{aspect-ratio:auto;height:auto}
-.static-category-range .category-media{height:auto;aspect-ratio:1/1.04}
-.static-category-range .category-card h3{
-  color:#4f4f4f;
-  font-family:var(--site-font);
-  font-style:normal;
-  font-weight:400
-}
 .static-category-range .category-card:hover{transform:none;border-color:var(--border);box-shadow:none;background:#fff}
 .static-category-range .category-card:hover .category-media img{transform:none;filter:saturate(.9) contrast(1.02)}
-.static-category-range .category-card:hover h3{color:#4f4f4f;transform:none}
+.static-category-range .category-card:hover h3{color:#2d795b;transform:none}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
 .products-requirement .products-enquire{
