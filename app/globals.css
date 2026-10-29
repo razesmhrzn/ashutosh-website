@@ -589,6 +589,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
 #products-page-title{color:#4f4f4f}
+.simplified-category-page h1.page-display-title{color:#2c795a}
 .simplified-category-page h1{
   margin:0 0 42px;
   font-family:var(--site-font);
@@ -601,7 +602,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   color:#fff;
   transition:none
 }
-.simplified-category-page h1:hover{color:#fff;transform:none}
+.simplified-category-page h1:hover{color:#2c795a;transform:none}
 .static-category-range .category-card,
 .static-category-range .category-card::after,
 .static-category-range .category-media img,
@@ -626,7 +627,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:rgb(149 149 149/.82);
+  background:rgb(0 0 0/.85);
   backdrop-filter:blur(4px) contrast(1.08) saturate(.85);
   -webkit-backdrop-filter:blur(4px) contrast(1.08) saturate(.85)
 }
@@ -638,7 +639,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-card:focus-within h3{
   bottom:0;
   color:#fff;
-  background:rgb(149 149 149/.82);
+  background:rgb(0 0 0/.85);
   opacity:0;
   transform:none;
   transition:opacity .2s ease
