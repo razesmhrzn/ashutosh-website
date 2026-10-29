@@ -66,6 +66,7 @@ const homepageCategoryExamples:Record<string,string> = {
 };
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
+const resetPageScroll = () => window.scrollTo({top:0,left:0,behavior:"auto"});
 
 async function sendFormSubmission(payload:Record<string,unknown>) {
   const response=await fetch(formSubmitEndpoint,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)});
@@ -78,6 +79,13 @@ declare global { interface Document { modelContext?: { registerTool:(tool:unknow
 export function SiteClient({ pathname }:{pathname:string}) {
   const [consultOpen,setConsultOpen] = useState(false);
   const openConsult = () => setConsultOpen(true);
+
+  useEffect(() => {
+    if (window.location.hash) return;
+    resetPageScroll();
+    const frame=window.requestAnimationFrame(resetPageScroll);
+    return () => window.cancelAnimationFrame(frame);
+  },[pathname]);
 
   useEffect(() => {
     const context = document.modelContext;
@@ -170,18 +178,18 @@ function Header({pathname,openConsult}:{pathname:string,openConsult:()=>void}) {
     <header className="site-header">
       <Link className="brand logo-brand" href="/" aria-label="Ashutosh Trade home"><Image src="/assets/ashutosh-trade-logo.png" width={652} height={179} priority alt="Ashutosh Trade"/></Link>
       <nav className="desktop-nav" aria-label="Main navigation">
-        <Link href="/" aria-current={pathname==="/"?"page":undefined}>HOME</Link>
-        <Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined}>ABOUT US</Link>
+        <Link href="/" aria-current={pathname==="/"?"page":undefined} onClick={resetPageScroll}>HOME</Link>
+        <Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined} onClick={resetPageScroll}>ABOUT US</Link>
         <div className="nav-products" ref={productsMenu}>
-          <div className="nav-combo"><Link href="/products" aria-current={isCurrent(pathname,"/products")?"page":undefined}>PRODUCTS</Link><button type="button" aria-label="Show product categories" aria-expanded={productsOpen} aria-controls="product-mega-menu" onClick={()=>setProductsOpen(v=>!v)}><ChevronDown size={17}/></button></div>
+          <div className="nav-combo"><Link href="/products" aria-current={isCurrent(pathname,"/products")?"page":undefined} onClick={resetPageScroll}>PRODUCTS</Link><button type="button" aria-label="Show product categories" aria-expanded={productsOpen} aria-controls="product-mega-menu" onClick={()=>setProductsOpen(v=>!v)}><ChevronDown size={17}/></button></div>
           {productsOpen&&<div className="mega-menu" id="product-mega-menu"><div><p className="menu-kicker">Product categories</p><h2>Explore the full range</h2><p>Browse illustrative product types, then request verified options for your requirements.</p></div><div className="mega-links">{productNavigationCategories.map(c=><Link key={c.slug} href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined} onClick={()=>setProductsOpen(false)}><span className="category-mini"><Icon name={c.icon} size={17}/></span>{navigationCategoryName(c.slug,c.shortName)}</Link>)}</div></div>}
         </div>
-        <Link href="/contact" aria-current={pathname==="/contact"?"page":undefined}>CONTACT</Link>
+        <Link href="/contact" aria-current={pathname==="/contact"?"page":undefined} onClick={resetPageScroll}>CONTACT</Link>
       </nav>
       <Sheet>
         <SheetTrigger asChild><button className="menu-button" aria-label="Open navigation"><Menu/></button></SheetTrigger>
         <SheetContent className="mobile-sheet"><SheetHeader><SheetTitle>Ashutosh Trade</SheetTitle><SheetDescription>Housekeeping, facility and cleaning-supply information for organizations in Nepal.</SheetDescription></SheetHeader>
-          <nav className="mobile-nav" aria-label="Mobile navigation"><SheetClose asChild><Link href="/" aria-current={pathname==="/"?"page":undefined}>HOME</Link></SheetClose><SheetClose asChild><Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined}>ABOUT US</Link></SheetClose><details open={pathname.startsWith("/products")}><summary>PRODUCTS <ChevronDown size={17}/></summary><div>{productNavigationCategories.map(c=><SheetClose asChild key={c.slug}><Link href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined}>{navigationCategoryName(c.slug,c.shortName)}</Link></SheetClose>)}</div></details><SheetClose asChild><Link href="/contact" aria-current={pathname==="/contact"?"page":undefined}>CONTACT</Link></SheetClose>
+          <nav className="mobile-nav" aria-label="Mobile navigation"><SheetClose asChild><Link href="/" aria-current={pathname==="/"?"page":undefined} onClick={resetPageScroll}>HOME</Link></SheetClose><SheetClose asChild><Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined} onClick={resetPageScroll}>ABOUT US</Link></SheetClose><details open={pathname.startsWith("/products")}><summary>PRODUCTS <ChevronDown size={17}/></summary><div>{productNavigationCategories.map(c=><SheetClose asChild key={c.slug}><Link href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined}>{navigationCategoryName(c.slug,c.shortName)}</Link></SheetClose>)}</div></details><SheetClose asChild><Link href="/contact" aria-current={pathname==="/contact"?"page":undefined} onClick={resetPageScroll}>CONTACT</Link></SheetClose>
           </nav>
         </SheetContent>
       </Sheet>
