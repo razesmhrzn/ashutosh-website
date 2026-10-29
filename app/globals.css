@@ -625,9 +625,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:rgb(44 121 90/.9);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px)
+  background:rgb(0 0 0/.76);
+  backdrop-filter:blur(4px) contrast(1.08) saturate(.85);
+  -webkit-backdrop-filter:blur(4px) contrast(1.08) saturate(.85)
 }
 .cleaning-placeholder-grid button.category-card{cursor:zoom-in;font:inherit}
 .cleaning-placeholder-grid button.category-card:focus-visible{outline:3px solid #cfca5c;outline-offset:4px}
@@ -637,7 +637,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-card:focus-within h3{
   bottom:0;
   color:#fff;
-  background:rgb(44 121 90/.9);
+  background:rgb(0 0 0/.76);
   opacity:0;
   transform:none;
   transition:opacity .2s ease
