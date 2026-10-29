@@ -468,6 +468,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .hero-enquire,.hero-enquire:hover{border:1px solid #fff;background:transparent;color:#fff;box-shadow:none}
 .product-range-section .category-hover-copy{top:96px;font-size:clamp(.76rem,.85vw,.88rem);line-height:1.4}
 .product-range-section .category-hover-copy p{margin:0;color:#fff!important}
+.product-range-section .category-hover-copy>p:first-child{font-size:calc(1em + 2pt)}
 .product-range-section .category-hover-examples{margin-top:12px!important}
 .product-range-section .category-hover-examples strong{display:block;margin-bottom:3px;color:#fff;font-weight:700}
 .footer-contact-line svg{color:#5d9880}
