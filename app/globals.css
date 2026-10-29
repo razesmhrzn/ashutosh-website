@@ -600,32 +600,23 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .static-category-range .category-card:hover h3{color:#4f4f4f;transform:none}
 .cleaning-placeholder-grid .category-card:hover::after,
 .cleaning-placeholder-grid .category-card:focus-within::after{display:none;transform:none}
-.cleaning-placeholder-grid .category-card{
-  align-self:start;
-  height:auto;
-  aspect-ratio:auto;
-  overflow:hidden
-}
-.cleaning-placeholder-grid .category-media{
-  height:0;
-  padding-bottom:80%;
-  flex:none;
-  transition:padding-bottom .45s cubic-bezier(.22,1,.36,1)
-}
-.cleaning-placeholder-grid .category-card:hover .category-media,
-.cleaning-placeholder-grid .category-card:focus-within .category-media{padding-bottom:104%}
 .cleaning-placeholder-grid .category-card:hover .category-media img,
-.cleaning-placeholder-grid .category-card:focus-within .category-media img{transform:none}
-.cleaning-placeholder-grid .category-card h3,
+.cleaning-placeholder-grid .category-card:focus-within .category-media img{
+  transform:scaleY(1.3);
+  transform-origin:top center
+}
+.cleaning-placeholder-grid .category-media img{
+  transform-origin:top center;
+  transition:transform .45s cubic-bezier(.22,1,.36,1)
+}
 .cleaning-placeholder-grid .category-card:hover h3,
 .cleaning-placeholder-grid .category-card:focus-within h3{
-  position:static;
-  min-height:76px;
-  margin:0;
+  bottom:0;
   color:#4f4f4f;
-  background:rgb(255 255 255/.96);
-  opacity:1;
-  transform:none
+  background:transparent;
+  opacity:0;
+  transform:none;
+  transition:opacity .2s ease
 }
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
