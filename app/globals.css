@@ -514,3 +514,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   .product-range-section .category-card h3,
   .product-range-section .category-hover-copy{transition:none}
 }
+
+/* Mobile product-title sizing and footer reading order. */
+@media(max-width:760px){
+  .product-range-section .category-card h3{font-size:calc(1.05rem + 2pt)}
+  .footer-bottom .footer-proof{order:1}
+  .footer-bottom>span{order:2}
+}
