@@ -481,3 +481,36 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .product-range-section .category-card:hover h3,.product-range-section .category-card:focus-within h3{color:#cfca5c}
 @media(max-width:900px){.footer-bottom{align-items:flex-start}.footer-proof{flex-wrap:wrap;justify-content:flex-start;white-space:normal}}
 @media(max-width:760px){.product-range-section .category-hover-copy{top:88px;font-size:clamp(.78rem,3.1vw,.9rem);line-height:1.36}}
+
+/* Smooth, coordinated product-card hover choreography. */
+.product-range-section .category-card{
+  transition:border-color .45s ease,box-shadow .55s cubic-bezier(.22,1,.36,1)
+}
+.product-range-section .category-card::after{
+  transition:transform .58s cubic-bezier(.22,1,.36,1);
+  will-change:transform
+}
+.product-range-section .category-media img{
+  transition:transform .85s cubic-bezier(.22,1,.36,1),filter .55s ease;
+  will-change:transform,filter
+}
+.product-range-section .category-card:hover .category-media img,
+.product-range-section .category-card:focus-within .category-media img{
+  transform:scale(1.06)
+}
+.product-range-section .category-card h3{
+  transition:color .4s ease,background-color .4s ease,bottom .58s cubic-bezier(.22,1,.36,1),transform .48s cubic-bezier(.22,1,.36,1);
+  will-change:bottom,transform
+}
+.product-range-section .category-hover-copy{
+  transform:translateY(24px);
+  transition:opacity .42s ease .16s,transform .55s cubic-bezier(.22,1,.36,1) .12s;
+  will-change:opacity,transform
+}
+@media(prefers-reduced-motion:reduce){
+  .product-range-section .category-card,
+  .product-range-section .category-card::after,
+  .product-range-section .category-media img,
+  .product-range-section .category-card h3,
+  .product-range-section .category-hover-copy{transition:none}
+}
