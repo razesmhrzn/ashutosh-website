@@ -30,29 +30,36 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const response = await fetch(recipientEndpoint, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...payload, _captcha: "false" }),
-      signal: AbortSignal.timeout(15_000),
-    });
+    let serviceMessage = "The email service is temporarily unavailable. Please try again shortly.";
 
-    const result = (await response.json().catch(() => ({}))) as {
-      success?: boolean;
-      message?: string;
-    };
+    for (const delay of [0, 1_500, 3_000]) {
+      if (delay) await new Promise(resolve => setTimeout(resolve, delay));
 
-    if (!response.ok || result.success === false) {
-      return NextResponse.json(
-        { message: result.message || "The enquiry service could not accept your message." },
-        { status: 502 }
-      );
+      const response = await fetch(recipientEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...payload, _captcha: "false" }),
+        signal: AbortSignal.timeout(10_000),
+      });
+
+      const result = (await response.json().catch(() => ({}))) as {
+        success?: boolean;
+        message?: string;
+        detail?: string;
+      };
+
+      if (response.ok && result.success !== false) {
+        return NextResponse.json({ success: true }, { status: 200 });
+      }
+
+      serviceMessage = result.message || result.detail || serviceMessage;
+      if (response.status < 500) break;
     }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ message: serviceMessage }, { status: 502 });
   } catch (error) {
     console.error("FormSubmit forwarding failed", error);
     return NextResponse.json(
