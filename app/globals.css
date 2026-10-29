@@ -570,13 +570,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
 .products-requirement .products-enquire{
-  margin-top:30px;
-  border:1px solid #2d795b;
-  background:transparent;
-  color:#2d795b;
-  box-shadow:none
+  margin-top:30px
 }
-.products-requirement .products-enquire:hover{border-color:#2d795b;background:#2d795b;color:#fff}
 
 /* Footer policy links. */
 .footer-legal-links a{color:#95bcac}

@@ -220,7 +220,7 @@ function HeroSlideshow({openConsult}:{openConsult:()=>void}) {
   return <div className="hero-showcase" aria-roledescription="carousel" aria-label="Ashutosh Trade facility supply highlights">
     <div className="hero-slides" aria-hidden="true">{heroImages.map((src,index)=><div className={`hero-slide ${index===active?"active":""}`} key={src}><Image src={src} fill priority={index===0} sizes="100vw" alt="" style={{objectPosition:heroFocalPoints[index]}}/></div>)}</div>
     <div className="hero-shade"/>
-    <div className="hero-overlay shell"><h1 className="hero-rotator" aria-live="polite">{heroHeadlines.map((headline,index)=><span className={`hero-rotator-single ${index===headlineIndex?"is-visible":index===previousHeadlineIndex?"is-hidden":""}`} aria-hidden={index!==headlineIndex} key={headline}>{headline}</span>)}</h1><p>Ashutosh Trade helps organizations source practical housekeeping products, hygiene essentials, cleaning machinery, spare parts and everyday consumables.</p><button className="button hero-enquire" onClick={openConsult}>ENQUIRE NOW</button></div>
+    <div className="hero-overlay shell"><h1 className="hero-rotator" aria-live="polite">{heroHeadlines.map((headline,index)=><span className={`hero-rotator-single ${index===headlineIndex?"is-visible":index===previousHeadlineIndex?"is-hidden":""}`} aria-hidden={index!==headlineIndex} key={headline}>{headline}</span>)}</h1><p>Ashutosh Trade helps organizations source practical housekeeping products, hygiene essentials, cleaning machinery, spare parts and everyday consumables.</p><Link className="button hero-enquire" href="/products">EXPLORE PRODUCTS</Link></div>
   </div>;
 }
 
@@ -242,7 +242,7 @@ function About({openConsult}:{openConsult:()=>void}) { return <>
 
 function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
   <section className="section shell product-range-section products-page-grid" aria-label="Product categories"><CategoryGrid homepage/></section>
-  <section className="section requirement-band products-requirement"><div className="shell two-column"><div><span className="eyebrow">Matched to your requirement</span><h2>Packaging, specifications, brands and alternatives can vary.</h2></div><div><p>Tell us what the product will be used for, expected usage volume and whether you want branded, generic or both kinds of options. We’ll discuss relevant choices and verify availability before quoting.</p><Link className="button products-enquire" href="https://www.ashutoshtrade.com.np/contact?type=quote#enquiry-form">Request a Quote</Link></div></div></section>
+  <section className="section requirement-band products-requirement"><div className="shell two-column"><div><span className="eyebrow">Matched to your requirement</span><h2>Packaging, specifications, brands and alternatives can vary.</h2></div><div><p>Tell us what the product will be used for, expected usage volume and whether you want branded, generic or both kinds of options. We’ll discuss relevant choices and verify availability before quoting.</p><Link className="button hero-enquire products-enquire" href="https://www.ashutoshtrade.com.np/contact?type=quote#enquiry-form">ENQUIRE NOW</Link></div></div></section>
 </>; }
 
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
