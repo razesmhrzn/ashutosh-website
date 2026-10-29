@@ -198,7 +198,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-category-links a:hover{background:transparent}
 .final-action .button.secondary{background:#4599d5;color:#fff;border-color:#4599d5}
 .final-action .button.secondary:hover{background:#fff;color:#000;border-color:#4599d5}
-.social-icons{display:flex;align-items:center;gap:9px;margin-top:6px}
+.social-icons{display:flex;align-items:center;gap:9px;margin-top:29px}
 .social-icons span{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgb(255 255 255/.3);border-radius:50%;color:#fff;background:rgb(255 255 255/.08)}
 .social-icons svg{width:16px;height:16px}
 @media(max-width:760px){.footer-intro>p{padding-left:72px}.desktop-nav{gap:25px}}
