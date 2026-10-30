@@ -22,6 +22,17 @@ const Icon = ({ name, size=22, strokeWidth=2 }:{name:string,size?:number,strokeW
 const mainLinks = [["/","Home"],["/about-us","About Us"],["/products","Products"],["/contact","Contact"]];
 const productNavigationCategories = categories.filter(category=>category.slug!=="guest-room-amenities");
 const navigationCategoryName = (slug:string,name:string) => slug==="linens-guest-apparel"?"Room Amenities & Guest Apparel":name;
+const placeholderCategoryPages:Record<string,{title:string,prefix:string}> = {
+  "cleaning-laundry-chemicals":{title:"Cleaning & Laundry Chemicals",prefix:"CLC"},
+  "machinery-spare-parts":{title:"Machinery & Spare Parts",prefix:"MSP"},
+  "dispensing-systems":{title:"Dispensing Systems",prefix:"DS"},
+  "air-care-fresheners":{title:"Air Care & Fresheners",prefix:"AF"},
+  "pest-control-solutions":{title:"Pest Control Solutions",prefix:"PCS"},
+  "cleaning-tools-equipment":{title:"Cleaning Tools & Equipment",prefix:"CTE"},
+  "papers-disposables":{title:"Papers & Disposables",prefix:"PD"},
+  "hand-hygiene-soaps":{title:"Hand Hygiene & Soaps",prefix:"HHS"},
+  "linens-guest-apparel":{title:"Room Amenities & Guest Apparel",prefix:"RAGA"},
+};
 const homepageCategoryHeadings:Record<string,[string,string]> = {
   "cleaning-laundry-chemicals":["Cleaning & Laundry Chemicals",""],
   "cleaning-tools-equipment":["Cleaning Tools & Equipment",""],
@@ -249,13 +260,14 @@ function About({openConsult}:{openConsult:()=>void}) { return <>
   </>; }
 
 function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
-  <section className="section shell product-range-section products-page-grid" aria-labelledby="products-page-title"><h1 className="page-display-title" id="products-page-title">Product categories</h1><CategoryGrid homepage/></section>
+  <section className="section shell product-range-section products-page-grid" aria-labelledby="products-page-title"><h1 className="page-display-title" id="products-page-title">Product Categories</h1><CategoryGrid homepage/></section>
   <section className="section requirement-band products-requirement"><div className="shell two-column"><div><span className="eyebrow">Matched to your requirement</span><h2>Packaging, specifications, brands and alternatives can vary.</h2></div><div><p>Tell us what the product will be used for, expected usage volume and whether you want branded, generic or both kinds of options. We’ll discuss relevant choices and verify availability before quoting.</p><button className="button hero-enquire products-enquire" type="button" onClick={openConsult}>ENQUIRE NOW</button></div></div></section>
 </>; }
 
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
-  if(slug==="cleaning-laundry-chemicals") return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby="cleaning-laundry-title"><h1 className="page-display-title" id="cleaning-laundry-title">Cleaning &amp; Laundry Chemicals</h1><CleaningLaundryGrid/></section>;
+  const placeholderPage=placeholderCategoryPages[slug];
+  if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix}/></section>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
     <section className="section shell category-layout"><aside className="use-panel"><h2>Typical applications</h2><ul>{category.uses.map(u=><li key={u}><Check size={17}/>{u}</li>)}</ul><h3>Common product examples</h3><p>{category.examples.join(", ")}.</p><h3>Suitable for</h3><p>Hotels, hospitals, schools, offices, restaurants, commercial buildings and facility-management teams, depending on the product.</p><h3>Buying considerations</h3><p>Consider the task, surface or equipment compatibility, usage volume, packaging size, storage, staff routines and budget.</p><p className="sample-note">Branded and generic options can be discussed. Examples do not confirm inventory, specifications or performance.</p></aside><div><div className="category-products-heading"><div><span className="eyebrow">Illustrative products</span><h2>Product types in this category</h2></div><div className="filter-field"><label>Option type</label><Select value={type} onValueChange={v=>setType(v??"all")}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All options</SelectItem><SelectItem value="Branded option">Branded option</SelectItem><SelectItem value="Generic option">Generic option</SelectItem></SelectContent></Select></div></div><ProductGrid items={items}/></div></section>
@@ -264,10 +276,10 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   </>;
 }
 
-function CleaningLaundryGrid() {
+function CategoryPlaceholderGrid({prefix}:{prefix:string}) {
   return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:15},(_,index)=>{
     const productNumber=index+1;
-    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"/><h3>{`CLC-${productNumber}`}</h3></article>;
+    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"/><h3>{`${prefix}-${productNumber}`}</h3></article>;
   })}</div>;
 }
 
