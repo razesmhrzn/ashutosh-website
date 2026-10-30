@@ -26,7 +26,7 @@ const placeholderCategoryPages:Record<string,{title:string,prefix:string}> = {
   "cleaning-laundry-chemicals":{title:"Cleaning & Laundry Chemicals",prefix:"CLC"},
   "machinery-spare-parts":{title:"Machinery & Spare Parts",prefix:"MSP"},
   "dispensing-systems":{title:"Dispensing Systems",prefix:"DS"},
-  "air-care-fresheners":{title:"Air Care & Fresheners",prefix:"AF"},
+  "air-care-fresheners":{title:"Air Care & Fresheners",prefix:"ACF"},
   "pest-control-solutions":{title:"Pest Control Solutions",prefix:"PCS"},
   "cleaning-tools-equipment":{title:"Cleaning Tools & Equipment",prefix:"CTE"},
   "papers-disposables":{title:"Papers & Disposables",prefix:"PD"},
