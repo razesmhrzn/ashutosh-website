@@ -588,7 +588,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .simplified-category-page h1.page-display-title{
   font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
-#products-page-title{color:#4f4f4f}
+#products-page-title{margin:0 0 42px;color:#4f4f4f;font-family:var(--site-font);font-size:clamp(.9375rem,1.875vw,1.875rem);font-weight:900;letter-spacing:-.05em;text-align:left}
+.products-page-grid .category-card{aspect-ratio:100/121}
+.products-page-grid .category-card h3{font-family:var(--site-font);font-weight:400}
 .simplified-category-page h1.page-display-title{width:100%;max-width:none;margin:0 0 42px auto;color:#2c795a;font-size:clamp(.703125rem,1.40625vw,1.40625rem);letter-spacing:-.025em;text-align:right}
 .simplified-category-page h1{
   margin:0 0 42px;
@@ -638,8 +640,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   position:relative;
   inset:auto;
   width:100%;
-  height:min(578px,calc((100vw - 64px)/2));
+  height:min(433.5px,calc((100vw - 64px)*.375));
   aspect-ratio:auto;
+  margin:0!important;
   overflow:hidden;
   border:0;
   background:#fff
@@ -668,9 +671,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   transform:none;
   transition:none
 }
-@media(max-width:900px){.cleaning-placeholder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cleaning-placeholder-grid .category-media{height:auto;aspect-ratio:1}}
+@media(max-width:900px){.cleaning-placeholder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cleaning-placeholder-grid .category-media{height:auto;aspect-ratio:4/3}}
 @media(max-width:620px){.cleaning-placeholder-grid{grid-template-columns:1fr;gap:18px}}
-@media(max-width:760px){#products-page-title{font-size:clamp(1.125rem,5.5vw,1.8rem)}.simplified-category-page h1.page-display-title{font-size:clamp(.6328125rem,3.09375vw,1.0125rem)}}
+@media(max-width:760px){#products-page-title{font-size:clamp(.84375rem,4.125vw,1.35rem)}.simplified-category-page h1.page-display-title{font-size:clamp(.6328125rem,3.09375vw,1.0125rem)}}
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
