@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap");
 @font-face{
   font-family:"Playfair Display";
   src:url("/fonts/playfair-display-upright-latin.woff2") format("woff2");
@@ -370,6 +370,56 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .desktop-nav:has(a:hover) a[aria-current],.desktop-nav:has(.nav-products:hover) a[aria-current]{border-color:transparent}
 .desktop-nav a:hover,.desktop-nav .nav-products:hover .nav-combo>a{color:#0e8278;border-color:#0e8278}
 
+/* Vertella-inspired category flyout: compact single-line rows with directional hover motion. */
+.mega-menu{
+  right:-180px;
+  width:min(1080px,92vw);
+  display:block;
+  padding:22px 26px 26px;
+  border-radius:0;
+  box-shadow:0 22px 48px rgb(13 36 58/.15)
+}
+.mega-links{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  column-gap:34px;
+  row-gap:0
+}
+.mega-links a{
+  min-width:0;
+  padding:14px 4px!important;
+  border:0!important;
+  border-bottom:1px solid #e4e9e7!important;
+  display:flex!important;
+  align-items:center;
+  gap:12px;
+  border-radius:0;
+  font-family:var(--site-font);
+  font-size:.75rem;
+  font-weight:600;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:visible;
+  transition:color .28s ease,background-color .28s ease
+}
+.mega-links a:hover{background:transparent;color:#2e795a}
+.mega-link-label{display:block;transition:transform .42s cubic-bezier(.22,1,.36,1)}
+.mega-links a:hover .mega-link-label{transform:translateX(12px)}
+.category-mini{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  flex:none;
+  border-radius:50%;
+  background:#eef5f2;
+  color:#2e795a;
+  transition:transform .42s cubic-bezier(.22,1,.36,1),background-color .28s ease
+}
+.mega-links a:hover .category-mini{transform:rotate(12deg);background:#dfece6}
+.category-mini svg{stroke-width:1.35}
+@media(max-width:1120px){.mega-menu{right:-100px;width:min(960px,94vw)}.mega-links{column-gap:20px}.mega-links a{font-size:.7rem}}
+
 /* Footer contact icons. */
 .footer-contact-line{display:flex;align-items:flex-start;gap:10px;margin-block:0}
 .footer-contact-line svg{flex:none;width:20px;height:20px;margin-top:3px;color:#ceca5e;stroke-width:2}
@@ -588,9 +638,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .simplified-category-page h1.page-display-title{
   font-size:clamp(1.25rem,2.5vw,2.5rem)
 }
-#products-page-title{margin:0 0 42px;color:#4f4f4f;font-family:var(--site-font);font-size:clamp(.9375rem,1.875vw,1.875rem);font-weight:900;letter-spacing:-.05em;text-align:left}
+#products-page-title{margin:0 0 42px;color:#4f4f4f;font-family:var(--site-font);font-size:clamp(.9375rem,1.875vw,1.875rem);font-weight:800;letter-spacing:-.05em;text-align:left}
 .products-page-grid .category-card{aspect-ratio:100/121}
-.products-page-grid .category-card h3{font-family:var(--site-font);font-weight:400}
+.products-page-grid .category-card h3{font-family:var(--site-font);font-weight:600}
 .simplified-category-page h1.page-display-title{width:100%;max-width:none;margin:0 0 42px auto;color:#2c795a;font-size:clamp(.703125rem,1.40625vw,1.40625rem);letter-spacing:-.025em;text-align:right}
 .simplified-category-page h1{
   margin:0 0 42px;
