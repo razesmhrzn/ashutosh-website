@@ -374,7 +374,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .mega-menu{
   top:85px;
   right:-140px;
-  width:min(289px,calc(100vw - 40px));
+  width:min(332px,calc(100vw - 40px));
   display:block;
   padding:16px 24px 20px;
   background:#fff;
@@ -408,8 +408,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 .mega-links a:hover{background:transparent;color:#2e795a}
 .mega-links a:last-child{border-bottom:0!important}
-.mega-link-label{display:block;flex:1;text-align:left;transition:transform .42s cubic-bezier(.22,1,.36,1)}
-.mega-links a:hover .mega-link-label{text-align:right;transform:none}
+.mega-link-label{position:relative;left:0;display:block;flex:1;text-align:left;transition:left .35s cubic-bezier(.68,-.13,.3,1.26)}
+.mega-links a:hover .mega-link-label{left:12px}
 .category-mini{
   width:28px;
   height:28px;
@@ -419,11 +419,11 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   border-radius:0;
   background:transparent;
   color:#2e795a;
-  transition:transform .42s cubic-bezier(.22,1,.36,1),background-color .28s ease
+  transition:transform .35s cubic-bezier(.68,-.13,.3,1.26),background-color .3s ease
 }
-.mega-links a:hover .category-mini{transform:rotate(12deg);background:transparent}
+.mega-links a:hover .category-mini{transform:rotate(-10deg) scale(1.2);background:transparent}
 .category-mini svg{stroke-width:1.35}
-@media(max-width:1120px){.mega-menu{right:-80px;width:min(276px,calc(100vw - 28px))}.mega-links{column-gap:0}.mega-links a{font-size:.905625rem}}
+@media(max-width:1120px){.mega-menu{right:-80px;width:min(317px,calc(100vw - 28px))}.mega-links{column-gap:0}.mega-links a{font-size:.905625rem}}
 
 /* Footer contact icons. */
 .footer-contact-line{display:flex;align-items:flex-start;gap:10px;margin-block:0}
