@@ -7,7 +7,7 @@ import {
   ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
   School, Search, ShieldCheck, Shirt, Sparkles, ScrollText, Send, SlidersHorizontal,
-  Wind, BriefcaseBusiness, PackageSearch, MapPin, Box, CheckCircle2, AlertCircle, Mail, Phone, X
+  Wind, BriefcaseBusiness, PackageSearch, MapPin, Box, CheckCircle2, AlertCircle, Mail, Phone
 } from "lucide-react";
 import { categories, categoryBySlug, consultationMessage, productById, products, type Product } from "@/lib/site-data";
 import { business } from "@/lib/business-config";
@@ -265,21 +265,10 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
 }
 
 function CleaningLaundryGrid() {
-  const [openProduct,setOpenProduct]=useState<number|null>(null);
-  useEffect(()=>{
-    if(openProduct===null)return;
-    const previousOverflow=document.body.style.overflow;
-    const closeOnEscape=(event:KeyboardEvent)=>{if(event.key==="Escape")setOpenProduct(null)};
-    document.body.style.overflow="hidden";
-    window.addEventListener("keydown",closeOnEscape);
-    return()=>{document.body.style.overflow=previousOverflow;window.removeEventListener("keydown",closeOnEscape)};
-  },[openProduct]);
-  const imageFileFor=(productNumber:number)=>String(productNumber<=10?productNumber:productNumber-10).padStart(2,"0");
-  return <><div className="category-grid cleaning-placeholder-grid">{Array.from({length:15},(_,index)=>{
+  return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:15},(_,index)=>{
     const productNumber=index+1;
-    const imageFile=imageFileFor(productNumber);
-    return <button type="button" className="category-card" key={productNumber} onClick={()=>setOpenProduct(productNumber)} aria-label={`Open CLC-${productNumber} image`}><div className="category-media"><Image src={`/assets/${imageFile}.jpg`} fill sizes="(max-width: 520px) 100vw, (max-width: 760px) 50vw, 33vw" alt={`CLC-${productNumber} placeholder product`}/></div><h3>{`CLC-${productNumber}`}</h3></button>;
-  })}</div>{openProduct!==null&&<div className="clc-lightbox" role="dialog" aria-modal="true" aria-label={`CLC-${openProduct} image preview`} onMouseDown={()=>setOpenProduct(null)}><div className="clc-lightbox-frame" onMouseDown={event=>event.stopPropagation()}><Image src={`/assets/${imageFileFor(openProduct)}.jpg`} fill priority sizes="100vw" alt={`CLC-${openProduct} enlarged product`}/><button type="button" className="clc-lightbox-close" onClick={()=>setOpenProduct(null)} aria-label="Close image preview"><X aria-hidden="true"/></button></div></div>}</>;
+    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"/><h3>{`CLC-${productNumber}`}</h3></article>;
+  })}</div>;
 }
 
 function Contact({openConsult}:{openConsult:()=>void}) {
