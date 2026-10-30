@@ -372,8 +372,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Vertella-inspired category flyout: compact single-line rows with directional hover motion. */
 .mega-menu{
+  top:82px;
   right:-140px;
-  width:min(460px,calc(100vw - 40px));
+  width:min(345px,calc(100vw - 40px));
   display:block;
   padding:16px 24px 20px;
   border-radius:0;
@@ -418,7 +419,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 .mega-links a:hover .category-mini{transform:rotate(12deg);background:transparent}
 .category-mini svg{stroke-width:1.35}
-@media(max-width:1120px){.mega-menu{right:-80px;width:min(440px,calc(100vw - 28px))}.mega-links{column-gap:0}.mega-links a{font-size:.8625rem}}
+@media(max-width:1120px){.mega-menu{right:-80px;width:min(330px,calc(100vw - 28px))}.mega-links{column-gap:0}.mega-links a{font-size:.8625rem}}
 
 /* Footer contact icons. */
 .footer-contact-line{display:flex;align-items:flex-start;gap:10px;margin-block:0}
@@ -640,7 +641,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 }
 #products-page-title{margin:0 0 42px;color:#4f4f4f;font-family:var(--site-font);font-size:clamp(.9375rem,1.875vw,1.875rem);font-weight:700;letter-spacing:-.05em;text-align:left}
 .products-page-grid .category-card{aspect-ratio:100/121}
-.products-page-grid .category-card h3{font-family:var(--site-font);font-size:calc(clamp(.975rem,1.475vw,1.3125rem) + 2pt);font-weight:600;letter-spacing:-.025em}
+.products-page-grid .category-card h3{font-family:var(--site-font);font-size:calc(clamp(.975rem,1.475vw,1.3125rem) + 1pt);font-weight:600;letter-spacing:-.025em}
 .simplified-category-page h1.page-display-title{width:100%;max-width:none;margin:0 0 42px auto;color:#2c795a;font-size:clamp(.703125rem,1.40625vw,1.40625rem);letter-spacing:-.025em;text-align:right}
 .simplified-category-page h1{
   margin:0 0 42px;
