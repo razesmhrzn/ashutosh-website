@@ -193,7 +193,7 @@ function Header({pathname,openConsult}:{pathname:string,openConsult:()=>void}) {
         <Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined} onClick={resetPageScroll}>ABOUT US</Link>
         <div className="nav-products" ref={productsMenu} onMouseLeave={()=>setProductsOpen(false)}>
           <div className="nav-combo"><Link href="/products" aria-current={isCurrent(pathname,"/products")?"page":undefined} onClick={resetPageScroll}>PRODUCTS</Link><button type="button" aria-label="Show product categories" aria-expanded={productsOpen} aria-controls="product-mega-menu" onMouseEnter={()=>setProductsOpen(true)} onFocus={()=>setProductsOpen(true)} onClick={()=>setProductsOpen(true)}><ChevronDown size={17}/></button></div>
-          {productsOpen&&<div className="mega-menu" id="product-mega-menu"><div className="mega-links">{productNavigationCategories.map(c=><Link key={c.slug} href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined} onClick={()=>setProductsOpen(false)}><span className="category-mini"><Icon name={c.icon} size={19} strokeWidth={1.35}/></span><span className="mega-link-label">{navigationCategoryName(c.slug,c.shortName)}</span></Link>)}</div></div>}
+          {productsOpen&&<div className="mega-menu" id="product-mega-menu"><div className="mega-links">{productNavigationCategories.map(c=><Link key={c.slug} href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined} onClick={()=>setProductsOpen(false)}><span className="category-mini"><Icon name={c.icon} size={19} strokeWidth={1.35}/></span><span className="mega-link-label"><span>{navigationCategoryName(c.slug,c.shortName)}</span></span></Link>)}</div></div>}
         </div>
         <Link href="/contact" aria-current={pathname==="/contact"?"page":undefined} onClick={resetPageScroll}>CONTACT</Link>
       </nav>
@@ -267,7 +267,7 @@ function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
   const placeholderPage=placeholderCategoryPages[slug];
-  if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix}/></section>;
+  if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix} count={placeholderPage.prefix==="CLC"?30:15}/></section>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
     <section className="section shell category-layout"><aside className="use-panel"><h2>Typical applications</h2><ul>{category.uses.map(u=><li key={u}><Check size={17}/>{u}</li>)}</ul><h3>Common product examples</h3><p>{category.examples.join(", ")}.</p><h3>Suitable for</h3><p>Hotels, hospitals, schools, offices, restaurants, commercial buildings and facility-management teams, depending on the product.</p><h3>Buying considerations</h3><p>Consider the task, surface or equipment compatibility, usage volume, packaging size, storage, staff routines and budget.</p><p className="sample-note">Branded and generic options can be discussed. Examples do not confirm inventory, specifications or performance.</p></aside><div><div className="category-products-heading"><div><span className="eyebrow">Illustrative products</span><h2>Product types in this category</h2></div><div className="filter-field"><label>Option type</label><Select value={type} onValueChange={v=>setType(v??"all")}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All options</SelectItem><SelectItem value="Branded option">Branded option</SelectItem><SelectItem value="Generic option">Generic option</SelectItem></SelectContent></Select></div></div><ProductGrid items={items}/></div></section>
@@ -276,8 +276,8 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   </>;
 }
 
-function CategoryPlaceholderGrid({prefix}:{prefix:string}) {
-  return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:15},(_,index)=>{
+function CategoryPlaceholderGrid({prefix,count=15}:{prefix:string,count?:number}) {
+  return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:count},(_,index)=>{
     const productNumber=index+1;
     return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"/><h3>{`${prefix}-${productNumber}`}</h3></article>;
   })}</div>;
