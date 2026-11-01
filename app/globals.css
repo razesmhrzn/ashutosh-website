@@ -406,13 +406,13 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   line-height:1.2;
   white-space:nowrap;
   overflow:visible;
-  transition:color .28s ease,background-color .28s ease
+  transition:color .3s ease,background-color .3s ease
 }
-.mega-links a:hover{background:transparent;color:#2e795a}
+.mega-links a:hover{background:#2e795a;color:#fff}
 .mega-links a:last-child{border-bottom:0!important}
 .mega-link-label{position:relative;display:block;align-self:stretch;flex:1;min-width:0;color:inherit}
 .mega-link-label>span{position:absolute;top:50%;left:0;white-space:nowrap;transform:translateY(-50%);transition:left .35s cubic-bezier(.68,-.13,.3,1.26),transform .35s cubic-bezier(.68,-.13,.3,1.26)}
-.mega-links a:hover .mega-link-label{color:#2e795a}
+.mega-links a:hover .mega-link-label{color:#fff}
 .mega-links a:hover .mega-link-label>span{left:100%;transform:translate(-100%,-50%)}
 .category-mini{
   width:28px;
@@ -425,7 +425,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   color:#2e795a;
   transition:transform .35s cubic-bezier(.68,-.13,.3,1.26),background-color .3s ease
 }
-.mega-links a:hover .category-mini{color:#4f4f4f;transform:rotate(-10deg) scale(1.2);background:transparent}
+.mega-links a:hover .category-mini{color:#959595;transform:rotate(-10deg) scale(1.2);background:transparent}
 .category-mini svg{stroke-width:1.35}
 @media(max-width:1120px){.mega-menu{right:-80px;width:min(317px,calc(100vw - 28px))}.mega-links{column-gap:0}.mega-links a{font-size:.905625rem}}
 
