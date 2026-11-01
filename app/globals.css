@@ -499,6 +499,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .industry-card,.industry-card:nth-child(n){border-top-color:#e1e1e1}
 .industry-card>svg{color:#e1e1e1;transition:color .22s ease}
 .industry-card h3{transition:color .22s ease}
+.industry-card:hover,.industry-card:nth-child(n):hover{background:#f8f7e7;box-shadow:0 12px 28px rgb(17 48 68/.25)}
 .industry-card:hover>svg{color:#959595}
 .industry-card:hover h3{color:#2d795b}
 
