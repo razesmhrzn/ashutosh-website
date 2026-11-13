@@ -833,11 +833,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @media(max-width:760px){.tools-category-page .products-index-hero{padding:21px 0 25px}.tools-category-page .products-index-hero-art{width:min(32vw,115px)}}
 
 .products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 2pt)}
-.tools-category-page .products-index-hero{overflow:visible}
-.tools-category-page .products-index-hero-layout{position:sticky;top:82px;z-index:2;border-radius:28px 28px 12px 12px;box-shadow:0 18px 30px -28px rgb(5 34 27/.55)}
-.tools-category-page .products-index-hero-layout::after{content:"";position:absolute;inset:auto 0 -28px;height:38px;z-index:-1;background:linear-gradient(180deg,rgb(46 121 90/.28),transparent);filter:blur(8px);pointer-events:none}
-.tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:14px}
-@media(max-width:760px){.tools-category-page .products-index-hero-layout{top:68px;border-radius:22px 22px 10px 10px}.tools-category-page .products-index-hero-copy h1{gap:7px}}
+.tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:.3em}
 
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
