@@ -773,7 +773,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @media(max-width:520px){.clc-detail-page .cleaning-placeholder-grid{grid-template-columns:1fr}.clc-hero-copy h1{font-size:clamp(2.8rem,15vw,4.3rem)}.clc-count strong{font-size:3rem}}
 
 /* Products index: the category-page visual language, without touching the nine cards. */
-.products-index-page{position:relative;background:#f4f1e8;color:#17352f}
+.products-index-page{position:relative;background:#d1d1d1;color:#17352f}
 .products-index-hero{position:relative;isolation:isolate;min-height:590px;padding:106px 0 150px;overflow:hidden;background:linear-gradient(132deg,#12372f 0%,#205c49 46%,#2e795a 100%);color:#fff}
 .products-index-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 12% 18%,rgb(255 255 255/.13) 0 3px,transparent 4px),radial-gradient(circle at 72% 20%,rgb(255 255 255/.1) 0 8px,transparent 9px),radial-gradient(circle at 88% 72%,rgb(255 255 255/.12) 0 5px,transparent 6px);background-size:190px 190px,310px 310px,230px 230px;opacity:.8}
 .products-index-hero-layout{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(360px,.82fr);gap:70px;align-items:center}
@@ -810,8 +810,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-index-hero-art{width:min(100%,260px)}
 .products-index-catalogue{padding-top:39px}
 .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
-.products-index-page .products-index-catalogue .category-card,.products-index-page .products-index-catalogue .category-card h3,.products-index-page .products-index-catalogue .category-media{background:#d1d1d1!important}
-.static-category-range[aria-labelledby="cleaning-tools-equipment-title"] h1.page-display-title{font-size:clamp(2.8125rem,5.625vw,5.625rem)}
+.static-category-range[aria-labelledby="cleaning-tools-equipment-title"] h1.page-display-title{font-size:clamp(1.40625rem,2.8125vw,2.8125rem)}
 @media(max-width:760px){.products-index-hero{padding:48px 0 60px}.products-index-hero-art{width:min(68vw,260px)}}
 
 .contact-layout{padding-top:142px}
