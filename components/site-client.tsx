@@ -269,7 +269,6 @@ function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <div cl
       </div>
       <div className="products-index-hero-art" aria-hidden="true">
         <span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/>
-        <span className="products-index-number">09</span>
         <span className="products-index-icon"><PackageSearch/></span>
         <span className="products-index-dot products-index-dot-one"/><span className="products-index-dot products-index-dot-two"/><span className="products-index-dot products-index-dot-three"/>
       </div>

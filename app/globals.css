@@ -808,8 +808,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Final products-index refinements. */
 .products-index-hero{min-height:0;padding:64px 0 74px}
 .products-index-hero-art{width:min(100%,260px)}
+.products-index-catalogue{padding-top:39px}
 .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
-.products-index-page .products-index-catalogue .category-media{background:#d1d1d1!important}
+.products-index-page .products-index-catalogue .category-card,.products-index-page .products-index-catalogue .category-card h3,.products-index-page .products-index-catalogue .category-media{background:#d1d1d1!important}
+.static-category-range[aria-labelledby="cleaning-tools-equipment-title"] h1.page-display-title{font-size:clamp(2.8125rem,5.625vw,5.625rem)}
 @media(max-width:760px){.products-index-hero{padding:48px 0 60px}.products-index-hero-art{width:min(68vw,260px)}}
 
 .contact-layout{padding-top:142px}
