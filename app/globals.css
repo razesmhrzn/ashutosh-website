@@ -826,6 +826,12 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .tools-category-page .products-index-hero-copy h1{font-size:clamp(1.28rem,2.56vw,2.68rem)}
 @media(max-width:760px){.products-index-hero{padding:28px 0 34px}.products-index-hero-art{width:min(44vw,150px)}.products-index-hero-copy #products-page-title{font-size:clamp(1.68rem,9vw,2.58rem)}.tools-category-page .products-index-hero-copy h1{font-size:clamp(1.12rem,6vw,1.72rem)}}
 
+/* Latest spacing and kerning refinements. */
+.products-index-page .products-page-grid .category-card h3{letter-spacing:-.05em}
+.tools-category-page .products-index-hero{padding:24px 0 28px}
+.tools-category-page .products-index-hero-art{width:min(100%,115px)}
+@media(max-width:760px){.tools-category-page .products-index-hero{padding:21px 0 25px}.tools-category-page .products-index-hero-art{width:min(32vw,115px)}}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}

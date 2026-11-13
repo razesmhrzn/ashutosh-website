@@ -315,7 +315,6 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
       <div className="shell products-index-hero-layout">
         <div className="products-index-hero-copy">
           <h1 id="cleaning-tools-equipment-title"><span>Cleaning Tools</span><span>&amp; Equipment</span></h1>
-          <p>Practical tools and equipment that support cleaning teams across different spaces and routines.</p>
         </div>
         <div className="products-index-hero-art" aria-hidden="true">
           <span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/>
