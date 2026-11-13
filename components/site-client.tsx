@@ -283,7 +283,7 @@ function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <div cl
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
   const placeholderPage=placeholderCategoryPages[slug];
-  if(slug==="cleaning-laundry-chemicals") return <div className="clc-detail-page">
+  if(false && slug==="cleaning-laundry-chemicals") return <div className="clc-detail-page">
     <section className="clc-category-hero" aria-labelledby="cleaning-laundry-chemicals-title">
       <div className="shell clc-hero-layout">
         <div className="clc-hero-copy">
@@ -327,7 +327,15 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
       <CategoryPlaceholderGrid prefix="CTE" count={15}/>
     </section>
   </div>;
-  if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix} count={placeholderPage.prefix==="CLC"?30:15}/></section>;
+  if(placeholderPage) return <div className="products-index-page tools-category-page">
+    <section className="products-index-hero" aria-labelledby={`${slug}-title`}>
+      <div className="shell products-index-hero-layout">
+        <div className="products-index-hero-copy"><h1 id={`${slug}-title`}>{placeholderPage.title}</h1></div>
+        <div className="products-index-hero-art" aria-hidden="true"><span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/><span className="products-index-icon"><Icon name={category.icon}/></span><span className="products-index-dot products-index-dot-one"/><span className="products-index-dot products-index-dot-two"/><span className="products-index-dot products-index-dot-three"/></div>
+      </div>
+    </section>
+    <section className="section shell product-range-section products-page-grid products-index-catalogue simplified-category-page static-category-range tools-category-catalogue" aria-label={`${placeholderPage.title} product spaces`}><CategoryPlaceholderGrid prefix={placeholderPage.prefix} count={placeholderPage.prefix==="CLC"?30:15}/></section>
+  </div>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
     <section className="section shell category-layout"><aside className="use-panel"><h2>Typical applications</h2><ul>{category.uses.map(u=><li key={u}><Check size={17}/>{u}</li>)}</ul><h3>Common product examples</h3><p>{category.examples.join(", ")}.</p><h3>Suitable for</h3><p>Hotels, hospitals, schools, offices, restaurants, commercial buildings and facility-management teams, depending on the product.</p><h3>Buying considerations</h3><p>Consider the task, surface or equipment compatibility, usage volume, packaging size, storage, staff routines and budget.</p><p className="sample-note">Branded and generic options can be discussed. Examples do not confirm inventory, specifications or performance.</p></aside><div><div className="category-products-heading"><div><span className="eyebrow">Illustrative products</span><h2>Product types in this category</h2></div><div className="filter-field"><label>Option type</label><Select value={type} onValueChange={v=>setType(v??"all")}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All options</SelectItem><SelectItem value="Branded option">Branded option</SelectItem><SelectItem value="Generic option">Generic option</SelectItem></SelectContent></Select></div></div><ProductGrid items={items}/></div></section>
