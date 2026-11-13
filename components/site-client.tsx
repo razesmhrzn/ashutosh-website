@@ -267,6 +267,33 @@ function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
   const placeholderPage=placeholderCategoryPages[slug];
+  if(slug==="cleaning-laundry-chemicals") return <div className="clc-detail-page">
+    <section className="clc-category-hero" aria-labelledby="cleaning-laundry-chemicals-title">
+      <div className="shell clc-hero-layout">
+        <div className="clc-hero-copy">
+          <nav className="clc-breadcrumbs" aria-label="Breadcrumb"><Link href="/products">Products</Link><span>/</span><span aria-current="page">Cleaning & Laundry</span></nav>
+          <span className="clc-kicker">Category 01 · Professional care</span>
+          <h1 id="cleaning-laundry-chemicals-title"><span>Cleaning &</span><span>Laundry Chemicals</span></h1>
+          <p>A focused collection for everyday cleaning routines, laundry operations and demanding facility-care environments.</p>
+          <div className="clc-hero-tags" aria-label="Category highlights"><span>Cleaning</span><span>Laundry</span><span>Institutional use</span></div>
+        </div>
+        <div className="clc-hero-art" aria-hidden="true">
+          <span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/>
+          <span className="clc-hero-number">01</span>
+          <span className="clc-hero-icon"><FlaskConical/></span>
+          <span className="clc-bubble clc-bubble-one"/><span className="clc-bubble clc-bubble-two"/><span className="clc-bubble clc-bubble-three"/>
+        </div>
+      </div>
+      <div className="clc-wave" aria-hidden="true"/>
+    </section>
+    <section className="clc-catalogue-section" aria-labelledby="clc-catalogue-title">
+      <div className="shell">
+        <div className="clc-catalogue-heading"><div><span className="clc-kicker">Product catalogue</span><h2 id="clc-catalogue-title">Explore the collection</h2></div><div className="clc-count"><strong>30</strong><span>product spaces</span></div></div>
+        <CategoryPlaceholderGrid prefix="CLC" count={30}/>
+      </div>
+    </section>
+    <section className="clc-enquiry-band"><div className="shell"><div><span className="clc-kicker">Need help choosing?</span><h2>Tell us what the product needs to do.</h2></div><Link className="clc-enquiry-link" href="/contact?type=quote&category=cleaning-laundry-chemicals">Request recommendations <ArrowUpRight/></Link></div></section>
+  </div>;
   if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix} count={placeholderPage.prefix==="CLC"?30:15}/></section>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
@@ -279,7 +306,7 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
 function CategoryPlaceholderGrid({prefix,count=15}:{prefix:string,count?:number}) {
   return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:count},(_,index)=>{
     const productNumber=index+1;
-    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"/><h3>{`${prefix}-${productNumber}`}</h3></article>;
+    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"><span className="placeholder-sequence">{String(productNumber).padStart(2,"0")}</span></div><h3>{`${prefix}-${productNumber}`}</h3></article>;
   })}</div>;
 }
 
