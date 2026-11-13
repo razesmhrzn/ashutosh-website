@@ -811,6 +811,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-index-catalogue{padding-top:39px}
 .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
 .static-category-range[aria-labelledby="cleaning-tools-equipment-title"] h1.page-display-title{font-size:clamp(1.40625rem,2.8125vw,2.8125rem)}
+.tools-category-page .products-index-hero-copy h1{max-width:780px;margin:18px 0 24px;color:#fff;font-family:var(--site-font);font-size:clamp(3.2rem,6.4vw,6.7rem);font-weight:700;letter-spacing:-.065em;line-height:.86;text-align:left}
+.tools-category-page .products-index-hero-copy h1 span{display:block}.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:clamp(0px,5vw,72px);color:#f4f1e8}
+.tools-category-page .products-index-hero-copy>p{max-width:630px;margin:0;color:rgb(255 255 255/.76);font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.7}
+@media(max-width:760px){.tools-category-page .products-index-hero-copy h1{font-size:clamp(2.8rem,15vw,4.3rem)}.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:0}}
 @media(max-width:760px){.products-index-hero{padding:48px 0 60px}.products-index-hero-art{width:min(68vw,260px)}}
 
 .contact-layout{padding-top:142px}

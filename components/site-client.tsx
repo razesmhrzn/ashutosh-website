@@ -310,6 +310,24 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
     </section>
     <section className="clc-enquiry-band"><div className="shell"><div><span className="clc-kicker">Need help choosing?</span><h2>Tell us what the product needs to do.</h2></div><Link className="clc-enquiry-link" href="/contact?type=quote&category=cleaning-laundry-chemicals">Request recommendations <ArrowUpRight/></Link></div></section>
   </div>;
+  if(slug==="cleaning-tools-equipment") return <div className="products-index-page tools-category-page">
+    <section className="products-index-hero" aria-labelledby="cleaning-tools-equipment-title">
+      <div className="shell products-index-hero-layout">
+        <div className="products-index-hero-copy">
+          <h1 id="cleaning-tools-equipment-title"><span>Cleaning Tools</span><span>&amp; Equipment</span></h1>
+          <p>Practical tools and equipment that support cleaning teams across different spaces and routines.</p>
+        </div>
+        <div className="products-index-hero-art" aria-hidden="true">
+          <span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/>
+          <span className="products-index-icon"><BrushCleaning/></span>
+          <span className="products-index-dot products-index-dot-one"/><span className="products-index-dot products-index-dot-two"/><span className="products-index-dot products-index-dot-three"/>
+        </div>
+      </div>
+    </section>
+    <section className="section shell product-range-section products-page-grid products-index-catalogue simplified-category-page static-category-range tools-category-catalogue" aria-label="Cleaning Tools & Equipment product spaces">
+      <CategoryPlaceholderGrid prefix="CTE" count={15}/>
+    </section>
+  </div>;
   if(placeholderPage) return <section className="section shell product-range-section products-page-grid simplified-category-page static-category-range" aria-labelledby={`${slug}-title`}><h1 className="page-display-title" id={`${slug}-title`}>{placeholderPage.title}</h1><CategoryPlaceholderGrid prefix={placeholderPage.prefix} count={placeholderPage.prefix==="CLC"?30:15}/></section>;
   const items=products.filter(p=>p.category===slug && (type==="all"||p.type===type));
   return <><section className="page-hero"><div className="shell"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/products">Products</Link><span>/</span><span aria-current="page">{category.shortName}</span></nav><div className="page-hero-grid"><div><span className="eyebrow">Product category</span><h1>{category.name}</h1><p>{category.intro}</p><div className="hero-actions"><Link className="button primary" href={`/contact?type=quote&category=${category.slug}`}>Ask About This Category</Link></div></div><span className="large-icon"><Icon name={category.icon} size={50}/></span></div></div></section>
