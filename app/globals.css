@@ -833,7 +833,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @media(max-width:760px){.tools-category-page .products-index-hero{padding:21px 0 25px}.tools-category-page .products-index-hero-art{width:min(32vw,115px)}}
 
 .products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 2pt)}
-.tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:.3em}
+.tools-category-page .products-index-hero{position:sticky;top:82px;z-index:10}
+.tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:.12em;font-style:normal}
+@media(max-width:760px){.tools-category-page .products-index-hero{top:68px}}
 
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
