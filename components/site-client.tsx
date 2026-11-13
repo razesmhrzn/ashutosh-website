@@ -259,10 +259,30 @@ function About({openConsult}:{openConsult:()=>void}) { return <>
   <section className="section shell two-column"><div><span className="eyebrow">Industries served</span><h2><span className="title-line">Different facilities.</span><span className="title-line">One practical way to buy.</span></h2></div><div><p>Product enquiries are welcome from hospitals and healthcare facilities, schools and colleges, hotels and resorts, restaurants, corporate offices, commercial buildings, shopping complexes and facility-management companies.</p><p>Our mission is simple: help organizations keep facilities clean, safe and presentable through practical advice, suitable products and dependable supply relationships.</p></div></section>
   </>; }
 
-function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <>
-  <section className="section shell product-range-section products-page-grid" aria-labelledby="products-page-title"><h1 className="page-display-title" id="products-page-title">Product Categories</h1><CategoryGrid homepage/></section>
-  <section className="section requirement-band products-requirement"><div className="shell two-column"><div><span className="eyebrow">Matched to your requirement</span><h2>Packaging, specifications, brands and alternatives can vary.</h2></div><div><p>Tell us what the product will be used for, expected usage volume and whether you want branded, generic or both kinds of options. We’ll discuss relevant choices and verify availability before quoting.</p><button className="button hero-enquire products-enquire" type="button" onClick={openConsult}>ENQUIRE NOW</button></div></div></section>
-</>; }
+function ProductsOverview({openConsult}:{openConsult:()=>void}) { return <div className="products-index-page">
+  <section className="products-index-hero" aria-labelledby="products-page-title">
+    <div className="shell products-index-hero-layout">
+      <div className="products-index-hero-copy">
+        <span className="clc-kicker">Ashutosh Trade · Product range</span>
+        <h1 id="products-page-title"><span>Product</span><span>Categories</span></h1>
+        <p>Nine practical supply categories for cleaner, safer and better-prepared facilities—from everyday essentials to specialist equipment.</p>
+        <div className="clc-hero-tags" aria-label="Product range highlights"><span>Nine categories</span><span>Facility focused</span><span>Branded &amp; generic</span></div>
+      </div>
+      <div className="products-index-hero-art" aria-hidden="true">
+        <span className="clc-orbit clc-orbit-one"/><span className="clc-orbit clc-orbit-two"/>
+        <span className="products-index-number">09</span>
+        <span className="products-index-icon"><PackageSearch/></span>
+        <span className="products-index-dot products-index-dot-one"/><span className="products-index-dot products-index-dot-two"/><span className="products-index-dot products-index-dot-three"/>
+      </div>
+    </div>
+    <div className="clc-wave" aria-hidden="true"/>
+  </section>
+  <section className="section shell product-range-section products-page-grid products-index-catalogue" aria-labelledby="products-catalogue-title">
+    <div className="products-index-catalogue-heading"><div><span className="clc-kicker">Browse the range</span><h2 id="products-catalogue-title">Choose a category</h2></div><div className="clc-count"><strong>09</strong><span>core categories</span></div></div>
+    <CategoryGrid homepage/>
+  </section>
+  <section className="section requirement-band products-requirement products-index-enquiry"><div className="shell two-column"><div><span className="clc-kicker">Matched to your requirement</span><h2>Packaging, specifications, brands and alternatives can vary.</h2></div><div><p>Tell us what the product will be used for, expected usage volume and whether you want branded, generic or both kinds of options. We’ll discuss relevant choices and verify availability before quoting.</p><button className="button hero-enquire products-enquire" type="button" onClick={openConsult}>ENQUIRE NOW</button></div></div></section>
+</div>; }
 
 function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
   const category=categoryBySlug[slug]; const [type,setType]=useState("all"); if(!category)return null;
