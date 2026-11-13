@@ -805,6 +805,13 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .floating-whatsapp img{width:38px;height:38px;object-fit:contain}.floating-whatsapp:hover{background:#20bd5a;box-shadow:0 18px 42px rgb(7 42 28/.4);transform:translateY(-4px) scale(1.04)}.floating-whatsapp:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media(max-width:760px){.floating-whatsapp{right:18px;bottom:18px;width:62px;height:62px}.floating-whatsapp img{width:33px;height:33px}}
 
+/* Final products-index refinements. */
+.products-index-hero{min-height:0;padding:64px 0 74px}
+.products-index-hero-art{width:min(100%,260px)}
+.products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
+.products-index-page .products-index-catalogue .category-media{background:#d1d1d1!important}
+@media(max-width:760px){.products-index-hero{padding:48px 0 60px}.products-index-hero-art{width:min(68vw,260px)}}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
