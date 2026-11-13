@@ -817,6 +817,15 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @media(max-width:760px){.tools-category-page .products-index-hero-copy h1{font-size:clamp(2.8rem,15vw,4.3rem)}.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:0}}
 @media(max-width:760px){.products-index-hero{padding:48px 0 60px}.products-index-hero-art{width:min(68vw,260px)}}
 
+/* Latest hero and category-label scale refinements. */
+.products-index-hero{padding:32px 0 38px}
+.products-index-hero-art{width:min(100%,150px)}
+.products-index-hero-copy #products-page-title{font-size:clamp(1.92rem,3.84vw,4.02rem)}
+.products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 4pt);letter-spacing:-.03em}
+.tools-category-page .products-index-hero{background:linear-gradient(132deg,#4f4f4f 0%,#5f766b 48%,#2e795a 100%)}
+.tools-category-page .products-index-hero-copy h1{font-size:clamp(1.28rem,2.56vw,2.68rem)}
+@media(max-width:760px){.products-index-hero{padding:28px 0 34px}.products-index-hero-art{width:min(44vw,150px)}.products-index-hero-copy #products-page-title{font-size:clamp(1.68rem,9vw,2.58rem)}.tools-category-page .products-index-hero-copy h1{font-size:clamp(1.12rem,6vw,1.72rem)}}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
