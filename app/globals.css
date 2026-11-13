@@ -834,7 +834,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 .products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 2pt)}
 .tools-category-page .products-index-hero{position:sticky;top:82px;z-index:10}
+.tools-category-page{background:#fff}
+.tools-category-page .products-index-catalogue{background:#fff}
 .tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:.12em;font-style:normal}
+.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:0}
 @media(max-width:760px){.tools-category-page .products-index-hero{top:68px}}
 
 .contact-layout{padding-top:142px}
