@@ -832,6 +832,15 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .tools-category-page .products-index-hero-art{width:min(100%,115px)}
 @media(max-width:760px){.tools-category-page .products-index-hero{padding:21px 0 25px}.tools-category-page .products-index-hero-art{width:min(32vw,115px)}}
 
+/* Latest tools-card and category-label refinements. */
+.products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 3pt)}
+.tools-category-page .products-index-hero{background:#d1d1d1;padding:30px 0 34px}
+.tools-category-page .products-index-hero-layout{padding:28px 46px;background:linear-gradient(132deg,#4f4f4f 0%,#5f766b 48%,#2e795a 100%);border-radius:28px;box-shadow:0 22px 48px rgb(23 53 47/.2)}
+.tools-category-page .products-index-hero-copy h1{display:flex;align-items:baseline;gap:16px;max-width:none;margin:0;color:#fff;font-size:clamp(1.8rem,3.2vw,3.3rem);font-style:normal;font-weight:600;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.tools-category-page .products-index-hero-copy h1 span{display:inline}.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:0;color:#f4f1e8}
+.tools-category-page .products-index-hero-copy>p{display:none}
+@media(max-width:760px){.tools-category-page .products-index-hero{padding:22px 0 26px}.tools-category-page .products-index-hero-layout{padding:24px 22px;border-radius:22px}.tools-category-page .products-index-hero-copy h1{gap:7px;font-size:clamp(1.28rem,5.8vw,2rem)}}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
