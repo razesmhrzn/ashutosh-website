@@ -797,6 +797,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-requirement.products-index-enquiry p{color:rgb(23 53 47/.76)}
 .products-index-enquiry .products-enquire{border-color:#17352f;background:#17352f;color:#fff}
 .products-index-enquiry .products-enquire:hover{border-color:#2e795a;background:#2e795a;color:#fff}
+.products-index-enquiry .products-enquire{border:1px solid #fff;background:transparent;color:#fff}
+.products-index-enquiry .products-enquire:hover{border-color:#fff;background:rgb(255 255 255/.12);color:#fff}
 @media(max-width:1050px){.products-index-hero-layout{grid-template-columns:1fr .7fr;gap:35px}}
 @media(max-width:760px){.products-index-hero{min-height:auto;padding:72px 0 116px}.products-index-hero-layout{grid-template-columns:1fr}.products-index-hero-copy #products-page-title span:last-child{margin-left:0}.products-index-hero-art{width:min(78vw,330px)}.products-index-catalogue-heading{align-items:flex-start;flex-direction:column}}
 @media(max-width:520px){.products-index-hero-copy #products-page-title{font-size:clamp(2.8rem,15vw,4.3rem)}.products-index-catalogue{padding-top:62px;padding-bottom:78px}}
