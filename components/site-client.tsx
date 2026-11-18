@@ -239,14 +239,24 @@ function Home({openConsult}:{openConsult:()=>void}) {
 
 function PopularBrands() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const targetShift = useRef(0);
+  const currentShift = useRef(0);
+  const frameRef = useRef<number | null>(null);
+  const animate = () => {
+    currentShift.current += (targetShift.current - currentShift.current) * 0.12;
+    if (trackRef.current) trackRef.current.style.transform = `translate3d(${currentShift.current}px, 0, 0)`;
+    frameRef.current = requestAnimationFrame(animate);
+  };
+  useEffect(() => () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); }, []);
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
-    const progress = (event.clientX - bounds.left) / bounds.width;
-    const shift = (progress - 0.5) * -72;
-    if (trackRef.current) trackRef.current.style.transform = `translate3d(${shift}px, 0, 0)`;
+    const progress = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+    const maxShift = Math.max(0, (trackRef.current?.scrollWidth ?? 0) - bounds.width + 60);
+    targetShift.current = -progress * maxShift;
+    if (frameRef.current === null) frameRef.current = requestAnimationFrame(animate);
   };
-  const resetPosition = () => { if (trackRef.current) trackRef.current.style.transform = "translate3d(0, 0, 0)"; };
-  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image src={`/assets/brands/${file}`} width={180} height={96} alt={name} /></div>)}</div></div></div></section>;
+  const resetPosition = () => { targetShift.current = 0; };
+  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image src={`/assets/brands/${file}`} width={140} height={140} alt={name} /></div>)}</div></div></div></section>;
 }
 
 function HeroSlideshow({openConsult}:{openConsult:()=>void}) {
