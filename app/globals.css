@@ -706,6 +706,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   border:0;
   background:#fff
 }
+.tools-category-catalogue .category-media img{object-fit:contain;filter:none;background:#fff}
 .cleaning-placeholder-grid .category-card h3{
   position:relative;
   inset:auto;

@@ -33,6 +33,9 @@ const placeholderCategoryPages:Record<string,{title:string,prefix:string}> = {
   "hand-hygiene-soaps":{title:"Hand Hygiene & Soaps",prefix:"HHS"},
   "linens-guest-apparel":{title:"Room Amenities & Guest Apparel",prefix:"RAGA"},
 };
+const clcPlaceholders = [
+  ["CLC-1 ARIEL MATIC.jpg","ARIEL MATIC"],["CLC-2 LAUNDRY DETERGENT.jpg","LAUNDRY DETERGENT"],["CLC-3 BATHROOM CLEANER CUM SANITIZER.jpg","BATHROOM CLEANER CUM SANITIZER"],["CLC-4 HARPIC.jpg","HARPIC"],["CLC-5 CARPET CLEANER.jpg","CARPET CLEANER"],["CLC-6 LIQUID DETERGENT.jpg","LIQUID DETERGENT"],["CLC-7 CHLORINE BLEACH.jpg","CHLORINE BLEACH"],["CLC-8 COMFORT FABRIC CONDITIONER.jpg","COMFORT FABRIC CONDITIONER"],["CLC-9 DISH WASH.jpg","DISH WASH"],["CLC-10 GLASS CLEANER.JPG","GLASS CLEANER"],["CLC-11 DISH WASH.jpg","DISH WASH"],["CLC-12 SURF EXCEL MATIC.jpg","SURF EXCEL MATIC"],["CLC-13 SURF EXCEL MATIC.jpg","SURF EXCEL MATIC"],["CLC-14 LAUNDRY DETERGENT.jpg","LAUNDRY DETERGENT"],["CLC-15 FABRIC SOFTNER.jpg","FABRIC SOFTNER"],["CLC-16 SURF EXCEL EASY WASH.jpg","SURF EXCEL EASY WASH"],["CLC-17 GLASS CLEANER.jpg","GLASS CLEANER"],["CLC-18 LIQUID DETERGENT.jpg","LIQUID DETERGENT"],["CLC-19 LIQUID DETERGENT.jpg","LIQUID DETERGENT"],["CLC-20 DISINFECTANT SURFACE CLEANER.jpg","DISINFECTANT SURFACE CLEANER"],["CLC-21 SHAMPOO EC.jpg","SHAMPOO EC"],["CLC-22 STERIMOP.jpg","STERIMOP"],["CLC-23 OVEN & GRILL CLEANER.jpg","OVEN & GRILL CLEANER"],["CLC-24 MULTI SURFACE CLEANER.jpg","MULTI SURFACE CLEANER"],["CLC-25 FLOOR CLEANER.jpg","FLOOR CLEANER"],["CLC-26 FURNITURE POLISH.jpg","FURNITURE POLISH"],["CLC-27 ECO DESCALER.jpg","ECO DESCALER"],["CLC-28 HARD SURFACE CLEANER.jpg","HARD SURFACE CLEANER"],["CLC-29 DRAIN CLEANER.jpg","DRAIN CLEANER"],["CLC-30 STEEL POLISH.jpg","STEEL POLISH"],["CLC-31 SURFACE DISINFECTANT.jpg","SURFACE DISINFECTANT"],["CLC-32 TILE CLEANER.jpg","TILE CLEANER"],["CLC-33 TOILET BOWL CLEANER.jpg","TOILET BOWL CLEANER"],["CLC-34 UPHOLSTERY CLEANER.jpg","UPHOLSTERY CLEANER"]
+] as const;
 const homepageCategoryHeadings:Record<string,[string,string]> = {
   "cleaning-laundry-chemicals":["Cleaning & Laundry Chemicals",""],
   "cleaning-tools-equipment":["Cleaning Tools & Equipment",""],
@@ -388,7 +391,8 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
 function CategoryPlaceholderGrid({prefix,count=15}:{prefix:string,count?:number}) {
   return <div className="category-grid cleaning-placeholder-grid">{Array.from({length:count},(_,index)=>{
     const productNumber=index+1;
-    return <article className="category-card" key={productNumber}><div className="category-media" aria-hidden="true"><span className="placeholder-sequence">{String(productNumber).padStart(2,"0")}</span></div><h3>{`${prefix}-${productNumber}`}</h3></article>;
+    const clc=prefix==="CLC"?clcPlaceholders[index]:null;
+    return <article className="category-card" key={productNumber}><div className="category-media">{clc?<Image src={`/assets/clc/${clc[0]}`} fill sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 25vw" alt={clc[1]}/>:<span className="placeholder-sequence">{String(productNumber).padStart(2,"0")}</span>}</div><h3>{clc?clc[1]:`${prefix}-${productNumber}`}</h3></article>;
   })}</div>;
 }
 
