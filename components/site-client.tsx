@@ -88,6 +88,11 @@ const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
   "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical"
 };
+const popularBrandScales:Record<string,number> = {
+  "ariel-logo.png":.8, "Artboard_1PeeSafeBlack11-01_417x.png":.75, "Dettol-Logo-2010-2019.png":.9,
+  "diversey-holdings-logo-png_seekl.png":.85, "latest.png":.85, "logo.png":.85, "Mr-Muscles-logo-1.png":.9,
+  "Tide-Logo.png":.85, "softylogo2.png":.9, "Unilever-Logo.png":.9, "3840px-Godrej_Logo.svg.png":.9
+};
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
 const resetPageScroll = () => window.scrollTo({top:0,left:0,behavior:"auto"});
@@ -262,7 +267,7 @@ function PopularBrands() {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(animate);
   };
   const resetPosition = () => { targetShift.current = 0; };
-  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} src={`/assets/brands/${file}`} width={140} height={140} alt={name} /></div>)}</div></div></div></section>;
+  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} style={{transform:`scale(${popularBrandScales[file] ?? 1})`}} src={`/assets/brands/${file}`} width={140} height={140} alt={name} /></div>)}</div></div></div></section>;
 }
 
 function HeroSlideshow({openConsult}:{openConsult:()=>void}) {
