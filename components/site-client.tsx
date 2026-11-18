@@ -75,6 +75,13 @@ const homepageCategoryExamples:Record<string,string> = {
   "hand-hygiene-soaps":"Liquid Hand Wash, Foam Soap, Hand Sanitizer, Antibacterial Solutions, Industrial Hand Cleaners.",
   "linens-guest-apparel":"Toiletries, Dental Kits, Shaving Kits, Slippers, Room-Care Items, Hospitality Consumables, Housekeeping Apparel."
 };
+const popularBrandLogos = [
+  ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Whisper", "346245.png"], ["Ariel", "ariel-logo.png"],
+  ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
+  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
+  ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"],
+  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"]
+] as const;
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
 const resetPageScroll = () => window.scrollTo({top:0,left:0,behavior:"auto"});
@@ -226,6 +233,7 @@ function Home({openConsult}:{openConsult:()=>void}) {
     <section className="section shell guidance-section"><SectionHead eyebrow="" title={<><span className="title-line">Practical guidance</span><span className="title-line">for busy procurement teams</span></>}/><div className="feature-list">{[[Search,"Find the right fit faster","Narrow a broad market into options relevant to your site and routine."],[SlidersHorizontal,"Balance quality and budget","Choose the level of specification that makes sense for each requirement."],[RotateCcw,"Plan repeat supply","Discuss consumables and replenishment needs alongside one-off equipment."],[MessageSquareText,"Talk to a real person","Ask questions about intended use, compatibility, sizes and alternatives."]].map(([I,t,c])=><article key={t as string}><span><I/></span><div><h3>{t as string}</h3><p>{c as string}</p></div></article>)}</div></section>
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="" title="Testimonials coming soon" copy="Genuine customer testimonials have not yet been supplied. This section is reserved for verified feedback from institutional buyers."/><div className="testimonial-placeholder"><MessageSquareText/><p>Have you worked with Ashutosh Trade? Verified customer feedback can be added here once approved.</p></div></div></section>
     <section className="section shell action-strip final-action"><div><h2>Ready for clearer product options?</h2><p>Explore the product categories, request a quotation or book your free consultation call.</p></div><div><Link className="button hero-enquire" href="/products">EXPLORE PRODUCTS</Link></div></section>
+    <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window"><div className="popular-brands-track">{[0,1].map(copy=><div className="popular-brands-set" key={copy}>{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={`${copy}-${name}`}><Image src={`/assets/brands/${file}`} width={180} height={96} alt={name} /></div>)}</div>)}</div></div></section>
   </>;
 }
 

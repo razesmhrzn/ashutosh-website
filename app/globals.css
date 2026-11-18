@@ -849,6 +849,17 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-requirement .products-enquire{
   margin-top:30px
 }
+.popular-brands{overflow:hidden;padding:56px 0 64px;background:#fff;border-top:1px solid rgb(23 53 47/.1)}
+.popular-brands h2{margin:0 0 24px;color:#2e795a;font-size:clamp(1.55rem,2.8vw,2.35rem);letter-spacing:-.04em;text-align:center}
+.popular-brands-window{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.popular-brands-track{display:flex;width:max-content;animation:popular-brands-marquee 42s linear infinite}
+.popular-brands-set{display:flex;align-items:center;gap:28px;padding-right:28px}
+.popular-brand{display:grid;place-items:center;width:180px;height:96px;padding:12px 18px;border:1px solid #e4eceb;border-radius:14px;background:#fff;flex:none}
+.popular-brand img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.popular-brands:hover .popular-brands-track,.popular-brands:focus-within .popular-brands-track{animation-play-state:paused}
+@keyframes popular-brands-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-set{gap:18px;padding-right:18px}.popular-brand{width:138px;height:76px;padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){.popular-brands-track{animation:none;transform:none}.popular-brands-set:last-child{display:none}}
 
 /* Footer policy links. */
 .footer-legal-links a{color:#95bcac}
