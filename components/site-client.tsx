@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import {
-  ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
+  ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ChevronLeft, ChevronRight, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
   School, Search, ShieldCheck, Shirt, Sparkles, ScrollText, Send, SlidersHorizontal,
   Wind, BriefcaseBusiness, PackageSearch, MapPin, Box, CheckCircle2, AlertCircle, Mail, Phone
