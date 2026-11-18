@@ -80,13 +80,13 @@ const popularBrandLogos = [
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
   ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
   ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"],
-  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"]
+  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"]
 ] as const;
 const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "3840px-Godrej_Logo.svg.png":"horizontal", "346245.png":"horizontal", "ariel-logo.png":"square",
   "Artboard_1PeeSafeBlack11-01_417x.png":"square", "Dettol-Logo-2010-2019.png":"square", "diversey-holdings-logo-png_seekl.png":"horizontal",
   "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
-  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical"
+  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square"
 };
 const popularBrandScales:Record<string,number> = {
   "ariel-logo.png":.8, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.9,
