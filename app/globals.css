@@ -855,9 +855,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .popular-brands-track{display:flex;width:max-content;will-change:transform}
 .popular-brands-set{display:flex;align-items:center;gap:28px;padding-right:28px}
 .popular-brand{display:grid;place-items:center;width:140px;height:140px;padding:10px;border:0;border-radius:0;background:transparent;flex:none}
-.popular-brand img{width:auto;height:auto;max-width:120px;max-height:80px;object-fit:contain;mix-blend-mode:multiply}
-.popular-brand-logo-square{max-width:100px!important;max-height:100px!important}
-.popular-brand-logo-vertical{max-width:80px!important;max-height:120px!important}
+.popular-brand img{width:auto;height:auto;max-width:95px;max-height:95px;object-fit:contain;mix-blend-mode:multiply}
+.popular-brand-logo-square,.popular-brand-logo-vertical{max-width:95px!important;max-height:95px!important}
+.popular-brand-logo-horizontal{max-width:120px!important;max-height:95px!important}
 .popular-brands-arrow{display:none}
 @media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-window{padding-inline:20px}.popular-brands-set{gap:18px;padding-right:18px}.popular-brand{width:140px;height:140px;padding:10px}}
 
