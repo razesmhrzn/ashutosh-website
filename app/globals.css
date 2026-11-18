@@ -850,7 +850,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   margin-top:30px
 }
 .popular-brands{overflow:hidden;padding:56px 0 64px;background:#fff;border-top:1px solid rgb(23 53 47/.1)}
-.popular-brands h2{margin:0 0 24px;color:#2e795a;font-family:var(--site-font);font-size:calc(clamp(1.55rem,2.8vw,2.35rem) - 5pt);font-style:normal;font-weight:600;letter-spacing:.05em;text-align:center}
+.popular-brands h2{margin:0 0 24px;color:#2e795a;font-family:var(--site-font);font-size:calc(clamp(1.55rem,2.8vw,2.35rem) - 15pt);font-style:normal;font-weight:600;letter-spacing:.1em;text-align:center}
 .popular-brands-window{position:relative;overflow:hidden;width:100%;padding-inline:30px;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .popular-brands-track{display:flex;width:max-content;will-change:transform}
 .popular-brands-set{display:flex;align-items:center;gap:28px;padding-right:28px}
