@@ -89,9 +89,9 @@ const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square"
 };
 const popularBrandScales:Record<string,number> = {
-  "ariel-logo.png":.8, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.9,
-  "diversey-holdings-logo-png_seekl.png":.765, "latest.png":.765, "logo.png":.6375, "Mr-Muscles-logo-1.png":.81,
-  "Tide-Logo.png":.85, "softylogo2.png":.9, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81
+  "ariel-logo.png":.8, "346245.png":.85, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.9,
+  "diversey-holdings-logo-png_seekl.png":.765, "latest.png":.765, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
+  "Tide-Logo.png":.85, "softylogo2.png":.81, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81, "unilever-surf-excel.png":.85
 };
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
