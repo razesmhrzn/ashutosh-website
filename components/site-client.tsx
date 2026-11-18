@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import {
-  ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ChevronLeft, ChevronRight, ClipboardList, Clock,
+  ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
   School, Search, ShieldCheck, Shirt, Sparkles, ScrollText, Send, SlidersHorizontal,
   Wind, BriefcaseBusiness, PackageSearch, MapPin, Box, CheckCircle2, AlertCircle, Mail, Phone
@@ -233,8 +233,20 @@ function Home({openConsult}:{openConsult:()=>void}) {
     <section className="section shell guidance-section"><SectionHead eyebrow="" title={<><span className="title-line">Practical guidance</span><span className="title-line">for busy procurement teams</span></>}/><div className="feature-list">{[[Search,"Find the right fit faster","Narrow a broad market into options relevant to your site and routine."],[SlidersHorizontal,"Balance quality and budget","Choose the level of specification that makes sense for each requirement."],[RotateCcw,"Plan repeat supply","Discuss consumables and replenishment needs alongside one-off equipment."],[MessageSquareText,"Talk to a real person","Ask questions about intended use, compatibility, sizes and alternatives."]].map(([I,t,c])=><article key={t as string}><span><I/></span><div><h3>{t as string}</h3><p>{c as string}</p></div></article>)}</div></section>
     <section className="section section-tint"><div className="shell"><SectionHead eyebrow="" title="Testimonials coming soon" copy="Genuine customer testimonials have not yet been supplied. This section is reserved for verified feedback from institutional buyers."/><div className="testimonial-placeholder"><MessageSquareText/><p>Have you worked with Ashutosh Trade? Verified customer feedback can be added here once approved.</p></div></div></section>
     <section className="section shell action-strip final-action"><div><h2>Ready for clearer product options?</h2><p>Explore the product categories, request a quotation or book your free consultation call.</p></div><div><Link className="button hero-enquire" href="/products">EXPLORE PRODUCTS</Link></div></section>
-    <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window"><button className="popular-brands-arrow popular-brands-arrow-left" type="button" aria-label="Show previous brands"><ChevronLeft size={22}/></button><div className="popular-brands-track">{[0,1].map(copy=><div className="popular-brands-set" key={copy}>{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={`${copy}-${name}`}><Image src={`/assets/brands/${file}`} width={180} height={96} alt={name} /></div>)}</div>)}</div><button className="popular-brands-arrow popular-brands-arrow-right" type="button" aria-label="Show next brands"><ChevronRight size={22}/></button></div></section>
+    <PopularBrands />
   </>;
+}
+
+function PopularBrands() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const progress = (event.clientX - bounds.left) / bounds.width;
+    const shift = (progress - 0.5) * -72;
+    if (trackRef.current) trackRef.current.style.transform = `translate3d(${shift}px, 0, 0)`;
+  };
+  const resetPosition = () => { if (trackRef.current) trackRef.current.style.transform = "translate3d(0, 0, 0)"; };
+  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image src={`/assets/brands/${file}`} width={180} height={96} alt={name} /></div>)}</div></div></div></section>;
 }
 
 function HeroSlideshow({openConsult}:{openConsult:()=>void}) {

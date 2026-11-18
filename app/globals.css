@@ -850,18 +850,14 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
   margin-top:30px
 }
 .popular-brands{overflow:hidden;padding:56px 0 64px;background:#fff;border-top:1px solid rgb(23 53 47/.1)}
-.popular-brands h2{margin:0 0 24px;color:#2e795a;font-family:var(--site-font);font-size:calc(clamp(1.55rem,2.8vw,2.35rem) - 5pt);font-weight:400;letter-spacing:-.05em;text-align:center}
-.popular-brands-window{position:relative;overflow:hidden;width:100%;padding-inline:54px;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.popular-brands-track{display:flex;width:max-content;animation:popular-brands-marquee 42s linear infinite}
+.popular-brands h2{margin:0 0 24px;color:#2e795a;font-family:var(--site-font);font-size:calc(clamp(1.55rem,2.8vw,2.35rem) - 5pt);font-style:normal;font-weight:700;letter-spacing:.05em;text-align:center}
+.popular-brands-window{position:relative;overflow:hidden;width:100%;padding-inline:30px;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.popular-brands-track{display:flex;width:max-content;transition:transform .35s ease-out;will-change:transform}
 .popular-brands-set{display:flex;align-items:center;gap:28px;padding-right:28px}
-.popular-brand{display:grid;place-items:center;width:180px;height:122px;padding:10px 18px;border:0;border-radius:0;background:transparent;flex:none}
+.popular-brand{display:grid;place-items:center;width:180px;height:150px;padding:12px 18px;border:0;border-radius:0;background:transparent;flex:none}
 .popular-brand img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
-.popular-brands-arrow{position:absolute;top:50%;z-index:2;display:grid;place-items:center;width:38px;height:38px;border:1px solid #d5e3e1;border-radius:50%;background:#fff;color:#2e795a;box-shadow:0 8px 18px rgb(23 53 47/.12);transform:translateY(-50%);cursor:pointer}
-.popular-brands-arrow:hover{background:#2e795a;color:#fff}.popular-brands-arrow-left{left:10px}.popular-brands-arrow-right{right:10px}
-.popular-brands:hover .popular-brands-track,.popular-brands:focus-within .popular-brands-track{animation-play-state:paused}
-@keyframes popular-brands-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-window{padding-inline:42px}.popular-brands-set{gap:18px;padding-right:18px}.popular-brand{width:138px;height:100px;padding:10px 14px}.popular-brands-arrow{width:32px;height:32px}.popular-brands-arrow-left{left:5px}.popular-brands-arrow-right{right:5px}}
-@media(prefers-reduced-motion:reduce){.popular-brands-track{animation:none;transform:none}.popular-brands-set:last-child{display:none}}
+.popular-brands-arrow{display:none}
+@media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-window{padding-inline:20px}.popular-brands-set{gap:18px;padding-right:18px}.popular-brand{width:138px;height:120px;padding:10px 14px}}
 
 /* Footer policy links. */
 .footer-legal-links a{color:#95bcac}
