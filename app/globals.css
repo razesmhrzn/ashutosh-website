@@ -849,7 +849,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .tools-category-page .products-index-hero-copy h1{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:.25em;font-style:normal}
 .tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:0}
 @media(max-width:760px){.tools-category-page .products-index-hero{top:68px;padding:16px 0 19px}}
-.category-cleaning-laundry-chemicals .products-index-hero{background:rgb(255 255 255/.92);color:#2e795a;padding:6px 0 8px}
+.category-cleaning-laundry-chemicals .products-index-hero{background:rgb(255 255 255/.92);color:#2e795a;padding:4.5px 0 6px}
 .category-cleaning-laundry-chemicals .products-index-hero::before{display:none}
 .category-cleaning-laundry-chemicals .products-index-hero-art{background:transparent;border:0;box-shadow:none}
 .category-cleaning-laundry-chemicals .products-index-dot{display:none}
@@ -857,7 +857,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .category-cleaning-laundry-chemicals .products-index-hero-copy h1 span:last-child{color:#2e795a}
 .category-cleaning-laundry-chemicals .products-index-icon{width:58px;height:58px;background:transparent;border:0;box-shadow:none}
 .category-cleaning-laundry-chemicals .products-index-icon svg{width:24px;height:24px}
-@media(max-width:760px){.category-cleaning-laundry-chemicals .products-index-hero{padding:5px 0 7px}.category-cleaning-laundry-chemicals .products-index-hero-art{width:min(32vw,58px)}.category-cleaning-laundry-chemicals .products-index-hero-copy h1{font-size:clamp(.9rem,4.5vw,1.3rem)}}
+@media(max-width:760px){.category-cleaning-laundry-chemicals .products-index-hero{padding:4px 0 5px}.category-cleaning-laundry-chemicals .products-index-hero-art{width:min(32vw,58px)}.category-cleaning-laundry-chemicals .products-index-hero-copy h1{font-size:clamp(.9rem,4.5vw,1.3rem)}}
 
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
