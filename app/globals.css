@@ -714,7 +714,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-reduced,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-reduced{transform:scale(.81);filter:saturate(1.08) contrast(1.04)}
 .cleaning-placeholder-grid .category-media.is-clickable img.clc-image-third{transform:scale(1.08)}
 .cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-third,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-third{transform:scale(1.14);filter:saturate(1.08) contrast(1.04)}
-.clc-image-dialog{width:min(94vw,1100px);max-width:1100px}.clc-image-full{position:relative;width:100%;height:min(78vh,780px)}.clc-image-full img{object-fit:contain}
+.clc-image-dialog{width:100vw;max-width:none;height:100vh;max-height:none;padding:20px;background:rgb(0 0 0/.95);border:0;border-radius:0}.clc-image-full{position:relative;width:100%;height:calc(100vh - 40px)}.clc-image-full img{object-fit:contain}
 .cleaning-placeholder-grid .category-card h3{
   position:relative;
   inset:auto;
