@@ -874,14 +874,14 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Apply the finalized CLC presentation to every placeholder product subpage. */
 .tools-category-page .products-index-hero{height:82px;min-height:82px;background:rgb(255 255 255/.92);color:#2e795a;padding:0}
 .tools-category-page .products-index-hero::before{display:none}
-.tools-category-page .products-index-hero-art{width:min(100%,115px);background:transparent;border:0;box-shadow:none;transform:translateY(-15px)}
+.tools-category-page .products-index-hero-art{width:min(100%,115px);background:transparent;border:0;box-shadow:none;transform:translate(17px,-15px)}
 .tools-category-page .products-index-icon{left:calc(50% + 16px);width:48px;height:48px;background:#d7d46d;border:0;box-shadow:none}
 .tools-category-page .products-index-icon svg{width:24px;height:24px}
 .tools-category-page .products-index-dot{display:none}
 .tools-category-page .products-index-hero-copy{transform:translate(92px,-15px)}
 .tools-category-page .products-index-hero-copy h1{margin:0;color:#2e795a;font-size:clamp(.816rem,1.632vw,1.7085rem);font-style:normal;white-space:nowrap}
 .tools-category-page .products-index-catalogue{padding-top:39px;background:#fff}
-@media(max-width:760px){.tools-category-page .products-index-hero{height:72px;min-height:72px;padding:0}.tools-category-page .products-index-hero-art{width:min(32vw,48px);transform:translateY(-15px)}.tools-category-page .products-index-hero-copy{transform:translate(92px,-15px)}.tools-category-page .products-index-hero-copy h1{font-size:clamp(.765rem,3.825vw,1.105rem)}}
+@media(max-width:760px){.tools-category-page .products-index-hero{height:72px;min-height:72px;padding:0}.tools-category-page .products-index-hero-art{width:min(32vw,48px);transform:translate(17px,-15px)}.tools-category-page .products-index-hero-copy{transform:translate(92px,-15px)}.tools-category-page .products-index-hero-copy h1{font-size:clamp(.765rem,3.825vw,1.105rem)}}
 .category-cleaning-laundry-chemicals .products-index-hero-art{transform:translate(17px,-15px)}
 .category-cleaning-laundry-chemicals .products-index-icon{left:calc(50% + 16px)}
 .category-cleaning-laundry-chemicals .products-index-hero-copy{transform:translate(92px,-15px)}
