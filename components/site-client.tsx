@@ -354,7 +354,7 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
     </section>
     <section className="clc-enquiry-band"><div className="shell"><div><span className="clc-kicker">Need help choosing?</span><h2>Tell us what the product needs to do.</h2></div><Link className="clc-enquiry-link" href="/contact?type=quote&category=cleaning-laundry-chemicals">Request recommendations <ArrowUpRight/></Link></div></section>
   </div>;
-  if(slug==="cleaning-tools-equipment") return <div className="products-index-page tools-category-page">
+  if(slug==="cleaning-tools-equipment") return <div className="products-index-page tools-category-page category-cleaning-tools-equipment">
     <section className="products-index-hero" aria-labelledby="cleaning-tools-equipment-title">
       <div className="shell products-index-hero-layout">
         <div className="products-index-hero-copy">
@@ -371,7 +371,7 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
       <CategoryPlaceholderGrid prefix="CTE" count={15}/>
     </section>
   </div>;
-  if(placeholderPage) return <div className="products-index-page tools-category-page">
+  if(placeholderPage) return <div className={`products-index-page tools-category-page category-${slug}`}>
     <section className="products-index-hero" aria-labelledby={`${slug}-title`}>
       <div className="shell products-index-hero-layout">
         <div className="products-index-hero-copy"><h1 id={`${slug}-title`}>{placeholderPage.title}</h1></div>
