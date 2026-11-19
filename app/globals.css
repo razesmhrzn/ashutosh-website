@@ -720,6 +720,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-box-fit,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-box-fit{transform:scale(1.04);filter:saturate(1.08) contrast(1.04)}
 .cleaning-placeholder-grid .category-media.is-clickable img.clc-image-thirtyfirst{object-fit:cover;object-position:center;transform:scale(1.08)}
 .cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-thirtyfirst,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-thirtyfirst{transform:scale(1.12);filter:saturate(1.08) contrast(1.04)}
+.cleaning-placeholder-grid .category-media.is-clickable img.clc-image-sixteenth{object-fit:cover;object-position:center;transform:scale(1.08)}
+.cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-sixteenth,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-sixteenth{transform:scale(1.12);filter:saturate(1.08) contrast(1.04)}
 .clc-image-dialog{width:100vw;max-width:none;height:100vh;max-height:none;padding:20px;background:rgb(0 0 0/.95);border:0;border-radius:0}.clc-image-dialog>button{z-index:5;top:18px;right:18px;width:40px;height:40px;border:0;border-radius:0;background:transparent;color:rgb(255 255 255/.5);opacity:1;box-shadow:none}.clc-image-dialog>button:hover{background:transparent;color:#fff}.clc-image-full{position:relative;width:100%;height:calc(100vh - 40px);cursor:zoom-out}.clc-image-full img{object-fit:contain}
 .cleaning-placeholder-grid .category-card h3{
   position:relative;
