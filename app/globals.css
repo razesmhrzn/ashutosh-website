@@ -875,7 +875,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .tools-category-page .products-index-hero{height:82px;min-height:82px;background:rgb(255 255 255/.92);color:#2e795a;padding:0}
 .tools-category-page .products-index-hero::before{display:none}
 .tools-category-page .products-index-hero-art{width:min(100%,115px);background:transparent;border:0;box-shadow:none;transform:translateY(-15px)}
-.tools-category-page .products-index-icon{left:calc(50% + 10px);width:48px;height:48px;background:#d7d46d;border:0;box-shadow:none}
+.tools-category-page .products-index-icon{left:calc(50% + 16px);width:48px;height:48px;background:#d7d46d;border:0;box-shadow:none}
 .tools-category-page .products-index-icon svg{width:24px;height:24px}
 .tools-category-page .products-index-dot{display:none}
 .tools-category-page .products-index-hero-copy{transform:translate(92px,-15px)}
