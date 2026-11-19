@@ -712,8 +712,8 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .cleaning-placeholder-grid .category-media.is-clickable:hover img,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img{transform:scale(1.06);filter:saturate(1.08) contrast(1.04)}
 .cleaning-placeholder-grid .category-media.is-clickable img.clc-image-reduced{transform:scale(.75)}
 .cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-reduced,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-reduced{transform:scale(.81);filter:saturate(1.08) contrast(1.04)}
-.cleaning-placeholder-grid .category-media.is-clickable img.clc-image-third{transform:scale(1.08)}
-.cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-third,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-third{transform:scale(1.14);filter:saturate(1.08) contrast(1.04)}
+.cleaning-placeholder-grid .category-media.is-clickable img.clc-image-third{transform:scale(1.14)}
+.cleaning-placeholder-grid .category-media.is-clickable:hover img.clc-image-third,.cleaning-placeholder-grid .category-media.is-clickable:focus-visible img.clc-image-third{transform:scale(1.2);filter:saturate(1.08) contrast(1.04)}
 .clc-image-dialog{width:100vw;max-width:none;height:100vh;max-height:none;padding:20px;background:rgb(0 0 0/.95);border:0;border-radius:0}.clc-image-full{position:relative;width:100%;height:calc(100vh - 40px)}.clc-image-full img{object-fit:contain}
 .cleaning-placeholder-grid .category-card h3{
   position:relative;
