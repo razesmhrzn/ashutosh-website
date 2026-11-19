@@ -83,18 +83,18 @@ const popularBrandLogos = [
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
   ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
   ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"],
-  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"]
+  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
 ] as const;
 const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "3840px-Godrej_Logo.svg.png":"horizontal", "346245.png":"horizontal", "ariel-logo.png":"square",
   "Artboard_1PeeSafeBlack11-01_417x.png":"square", "Dettol-Logo-2010-2019.png":"square", "diversey-holdings-logo-png_seekl.png":"horizontal",
   "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
-  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square"
+  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square", "comfort.png":"horizontal", "Signora Ware logo.png":"horizontal"
 };
 const popularBrandScales:Record<string,number> = {
   "ariel-logo.png":.8, "346245.png":.85, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.9,
   "diversey-holdings-logo-png_seekl.png":.765, "latest.png":.765, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
-  "Tide-Logo.png":.85, "softylogo2.png":.81, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81, "unilever-surf-excel.png":.85
+  "Tide-Logo.png":.85, "softylogo2.png":.81, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81, "unilever-surf-excel.png":.85, "comfort.png":.85, "Signora Ware logo.png":.9
 };
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
