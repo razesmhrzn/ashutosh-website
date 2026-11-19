@@ -885,6 +885,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .category-cleaning-laundry-chemicals .products-index-hero-art{transform:translate(17px,-15px)}
 .category-cleaning-laundry-chemicals .products-index-icon{left:calc(50% + 16px)}
 .category-cleaning-laundry-chemicals .products-index-hero-copy{transform:translate(92px,-15px)}
+.category-cleaning-tools-equipment .products-index-hero-copy h1,.category-cleaning-tools-equipment .products-index-hero-copy h1 span{color:#2e795a}
 @media(max-width:760px){.category-cleaning-laundry-chemicals .products-index-hero-art{transform:translate(17px,-15px)}.category-cleaning-laundry-chemicals .products-index-hero-copy{transform:translate(92px,-15px)}}
 
 .contact-layout{padding-top:142px}
