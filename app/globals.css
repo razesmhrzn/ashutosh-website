@@ -891,6 +891,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .category-cleaning-tools-equipment .products-index-hero-copy h1,.category-cleaning-tools-equipment .products-index-hero-copy h1 span,.category-cleaning-tools-equipment .products-index-hero-copy h1 span:last-child{color:#2e795a!important}
 @media(max-width:760px){.category-cleaning-laundry-chemicals .products-index-hero-art{transform:translate(17px,-15px)}.category-cleaning-laundry-chemicals .products-index-hero-copy{transform:translate(92px,-15px)}}
 
+/* Use Lato Semibold for every product-subpage hero headline. */
+.products-index-page .products-index-hero-copy h1{font-family:"Lato",var(--site-font),sans-serif;font-weight:600}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
