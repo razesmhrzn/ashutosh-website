@@ -894,6 +894,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Use Lato Semibold for every product-subpage hero headline. */
 .products-index-page .products-index-hero-copy h1{font-family:"Lato",var(--site-font),sans-serif;font-weight:600}
 
+/* Reduce product image labels by 10% across all nine product subpages. */
+.products-index-page .products-page-grid .category-card h3{font-size:calc(clamp(1.00035rem,1.51335vw,1.346625rem) + 1.8pt)}
+
 .contact-layout{padding-top:142px}
 .products-requirement{background:transparent;color:var(--foreground)}
 .products-requirement p{color:#546875}
