@@ -79,22 +79,22 @@ const homepageCategoryExamples:Record<string,string> = {
   "linens-guest-apparel":"Toiletries, Dental Kits, Shaving Kits, Slippers, Room-Care Items, Hospitality Consumables, Housekeeping Apparel."
 };
 const popularBrandLogos = [
-  ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Whisper", "346245.png"], ["Ariel", "ariel-logo.png"],
+  ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Whisper", "346245.png"], ["Hilltake", "Hilltake.png"], ["Ariel", "ariel-logo.png"],
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
-  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
-  ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"],
+  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
+  ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"], ["Kuat", "Kuat.png"],
   ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
 ] as const;
 const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "3840px-Godrej_Logo.svg.png":"horizontal", "346245.png":"horizontal", "ariel-logo.png":"square",
   "Artboard_1PeeSafeBlack11-01_417x.png":"square", "Dettol-Logo-2010-2019.png":"square", "diversey-holdings-logo-png_seekl.png":"horizontal",
   "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
-  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square", "comfort.png":"horizontal", "Signora Ware logo.png":"horizontal"
+  "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Kuat.png":"horizontal", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "unilever-surf-excel.png":"square", "comfort.png":"horizontal", "Signora Ware logo.png":"horizontal", "Hilltake.png":"horizontal", "Aristo.png":"horizontal"
 };
 const popularBrandScales:Record<string,number> = {
   "ariel-logo.png":.8, "346245.png":.85, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.9,
   "diversey-holdings-logo-png_seekl.png":.765, "latest.png":.765, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
-  "Tide-Logo.png":.85, "softylogo2.png":.81, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81, "unilever-surf-excel.png":.85, "comfort.png":.85, "Signora Ware logo.png":.9
+  "Tide-Logo.png":.85, "softylogo2.png":.81, "Kuat.png":.7, "Unilever-Logo.png":.765, "3840px-Godrej_Logo.svg.png":.81, "unilever-surf-excel.png":.85, "comfort.png":.85, "Signora Ware logo.png":.9, "Hilltake.png":.72, "Aristo.png":.85
 };
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
