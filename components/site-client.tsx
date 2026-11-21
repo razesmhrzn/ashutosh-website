@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CSSProperties, FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight, BedDouble, BrushCleaning, Building2, Check, ChevronDown, ClipboardList, Clock,
   Cog, FlaskConical, Hand, HeartPulse, Hotel, Menu, MessageSquareText, PanelTop, RotateCcw,
@@ -389,12 +389,30 @@ function CategoryPage({slug,openConsult}:{slug:string,openConsult:()=>void}) {
 }
 
 function CategoryPlaceholderGrid({prefix,count=15}:{prefix:string,count?:number}) {
-  const [selected,setSelected]=useState<readonly [string,string]|null>(null); const [zoomed,setZoomed]=useState(false); const [pan,setPan]=useState({x:0,y:0}); const [imageSize,setImageSize]=useState({w:0,h:0}); const [overImage,setOverImage]=useState(false); const dragStart=useRef<{x:number,y:number}|null>(null); const panStart=useRef({x:0,y:0}); const dragMoved=useRef(false);
+  const [selected,setSelected]=useState<readonly [string,string]|null>(null);
+  const [zoomed,setZoomed]=useState(false);
+  const [pan,setPan]=useState({x:0,y:0});
+  const [dragging,setDragging]=useState(false);
+  const dragStart=useRef<{x:number,y:number,panX:number,panY:number}|null>(null);
+  const dragMoved=useRef(false);
+  const imageRef=useRef<HTMLImageElement>(null);
+  const resetZoom=()=>{setSelected(null);setZoomed(false);setPan({x:0,y:0});setDragging(false);dragStart.current=null};
+  const withinImage=(x:number,y:number)=>{const bounds=imageRef.current?.getBoundingClientRect();return !!bounds&&x>=bounds.left&&x<=bounds.right&&y>=bounds.top&&y<=bounds.bottom};
   return <><div className="category-grid cleaning-placeholder-grid">{Array.from({length:count},(_,index)=>{
     const productNumber=index+1;
     const clc=prefix==="CLC"?clcPlaceholders[index]:null;
     return <article className="category-card" key={productNumber}><div className={`category-media${clc?" is-clickable":""}`} onClick={()=>clc&&(setSelected(clc),setZoomed(false),setPan({x:0,y:0}))} onKeyDown={event=>{if(clc&&(event.key==="Enter"||event.key===" ")){event.preventDefault();setSelected(clc);setZoomed(false);setPan({x:0,y:0})}}} role={clc?"button":undefined} tabIndex={clc?0:undefined}>{clc?<Image className={`${productNumber===2?"clc-image-reduced ":""}${productNumber===3?"clc-image-third ":""}${productNumber===16||productNumber===17||productNumber===18?"clc-image-box-fit ":""}${productNumber===25?"clc-image-twentyfifth ":""}${productNumber===31?"clc-image-thirtyfirst":""}`} src={`/assets/clc/${clc[0]}`} fill sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 25vw" alt={clc[1]}/>:<span className="placeholder-sequence">{String(productNumber).padStart(2,"0")}</span>}</div><h3>{clc?clc[1]:`${prefix}-${productNumber}`}</h3></article>;
-  })}</div>{selected&&<Dialog open={Boolean(selected)} onOpenChange={open=>{if(!open){setSelected(null);setZoomed(false);setPan({x:0,y:0})}}}><DialogContent className="clc-image-dialog" onInteractOutside={()=>{setSelected(null);setZoomed(false);setPan({x:0,y:0})}} onClick={event=>{if(event.target===event.currentTarget){setSelected(null);setZoomed(false);setPan({x:0,y:0})}}}><div className={`clc-image-full${zoomed?" is-zoomed":""}${overImage?" is-over-image":""}`} onPointerMove={event=>{if(zoomed){setOverImage(false);return}const box=event.currentTarget.getBoundingClientRect();const ratio=Math.min(box.width/imageSize.w,box.height/imageSize.h);const iw=imageSize.w*ratio;const ih=imageSize.h*ratio;setOverImage(event.clientX>=box.left+(box.width-iw)/2&&event.clientX<=box.left+(box.width+iw)/2&&event.clientY>=box.top+(box.height-ih)/2&&event.clientY<=box.top+(box.height+ih)/2)}} onPointerLeave={()=>setOverImage(false)} onClick={event=>{const target=event.target as HTMLElement;if(target.tagName.toLowerCase()!=="img"){setSelected(null);setZoomed(false);setPan({x:0,y:0})}}}><Image src={`/assets/clc/${selected[0]}`} fill sizes="100vw" alt={selected[1]} onLoad={event=>setImageSize({w:event.currentTarget.naturalWidth,h:event.currentTarget.naturalHeight})} style={zoomed?{width:imageSize.w,height:imageSize.h,"--pan-x":`${pan.x}px`,"--pan-y":`${pan.y}px`} as CSSProperties:undefined} onPointerDown={event=>{if(zoomed){dragMoved.current=false;dragStart.current={x:event.clientX,y:event.clientY};panStart.current=pan;event.currentTarget.setPointerCapture(event.pointerId)}}} onPointerMove={event=>{if(zoomed&&dragStart.current){const dx=event.clientX-dragStart.current.x;const dy=event.clientY-dragStart.current.y;if(Math.abs(dx)>3||Math.abs(dy)>3)dragMoved.current=true;setPan({x:panStart.current.x+dx,y:panStart.current.y+dy})}}} onPointerUp={event=>{dragStart.current=null;event.currentTarget.releasePointerCapture?.(event.pointerId)}} onPointerCancel={()=>{dragStart.current=null}} onClick={event=>{if(dragMoved.current){dragMoved.current=false;return}const image=event.currentTarget;const rect=image.getBoundingClientRect();const scale=Math.min(rect.width/image.naturalWidth,rect.height/image.naturalHeight);const width=image.naturalWidth*scale;const height=image.naturalHeight*scale;const left=rect.left+(rect.width-width)/2;const top=rect.top+(rect.height-height)/2;if(event.clientX<left||event.clientX>left+width||event.clientY<top||event.clientY>top+height){setSelected(null);setZoomed(false);setPan({x:0,y:0})}else{setZoomed(value=>!value);setPan({x:0,y:0})}}}/></div></DialogContent></Dialog>}</>;
+  })}</div>{selected&&<Dialog open onOpenChange={open=>{if(!open)resetZoom()}}><DialogContent className="clc-image-dialog" onInteractOutside={resetZoom}>
+    <div className={`clc-image-full${zoomed?" is-zoomed":""}${dragging?" is-dragging":""}`}
+      onPointerDown={event=>{if(!zoomed||!withinImage(event.clientX,event.clientY))return;event.preventDefault();dragStart.current={x:event.clientX,y:event.clientY,panX:pan.x,panY:pan.y};dragMoved.current=false;setDragging(true);event.currentTarget.setPointerCapture(event.pointerId)}}
+      onPointerMove={event=>{const start=dragStart.current;if(!start)return;const dx=event.clientX-start.x;const dy=event.clientY-start.y;if(Math.abs(dx)>3||Math.abs(dy)>3)dragMoved.current=true;setPan({x:start.panX+dx,y:start.panY+dy})}}
+      onPointerUp={event=>{dragStart.current=null;setDragging(false);if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId)}}
+      onPointerCancel={()=>{dragStart.current=null;setDragging(false)}}
+      onClick={event=>{if(dragMoved.current){dragMoved.current=false;return}if(!withinImage(event.clientX,event.clientY)){resetZoom();return}setZoomed(value=>!value);setPan({x:0,y:0})}}>
+      {/* A native image keeps its intrinsic dimensions; the fitted and pixel-size states share one center. */}
+      <img ref={imageRef} src={`/assets/clc/${selected[0]}`} alt={selected[1]} draggable={false} style={zoomed?{left:`calc(50% + ${pan.x}px)`,top:`calc(50% + ${pan.y}px)`}:undefined}/>
+    </div>
+  </DialogContent></Dialog>}</>;
 }
 
 function Contact({openConsult}:{openConsult:()=>void}) {
