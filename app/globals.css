@@ -831,7 +831,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .products-index-hero{min-height:0;padding:64px 0 74px}
 .products-index-hero-art{width:min(100%,260px)}
 .products-index-catalogue{padding-top:39px}
-.products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
+.products-page-grid .category-card h3{--overview-label-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt);font-size:var(--overview-label-size)}
 .static-category-range[aria-labelledby="cleaning-tools-equipment-title"] h1.page-display-title{font-size:clamp(1.40625rem,2.8125vw,2.8125rem)}
 .tools-category-page .products-index-hero-copy h1{max-width:780px;margin:18px 0 24px;color:#fff;font-family:var(--site-font);font-size:clamp(3.2rem,6.4vw,6.7rem);font-weight:700;letter-spacing:-.065em;line-height:.86;text-align:left}
 .tools-category-page .products-index-hero-copy h1 span{display:block}.tools-category-page .products-index-hero-copy h1 span:last-child{margin-left:clamp(0px,5vw,72px);color:#f4f1e8}
@@ -936,14 +936,15 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .footer-legal-links a{color:#95bcac}
 
 /* Match the nine overview card labels to the same cards on Home. */
-.products-index-page:not(.tools-category-page) .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
+.products-index-page:not(.tools-category-page) .products-page-grid .category-card h3{font-size:var(--overview-label-size)}
 
-/* Larger product hero headings across all nine category pages. */
-.tools-category-page .products-index-hero-copy h1{font-size:clamp(1.428rem,2.856vw,2.989875rem);white-space:normal;line-height:1.1}
+/* Keep the enlarged product hero headings on mobile only. */
 @media(max-width:760px){
   .tools-category-page .products-index-hero,
   .category-cleaning-laundry-chemicals .products-index-hero{height:auto;min-height:112px}
   .tools-category-page .products-index-hero-layout{min-height:112px}
   .tools-category-page .products-index-hero-copy h1{font-size:clamp(1.33875rem,5.6vw,1.75rem)}
+  .final-action>div:last-child{width:100%;justify-content:center;align-self:center}
+  .final-action>div:last-child .button{width:auto}
   .footer-main-links{padding-left:84px;top:0}
 }
