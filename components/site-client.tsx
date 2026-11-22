@@ -81,14 +81,14 @@ const homepageCategoryExamples:Record<string,string> = {
 const popularBrandLogos = [
   ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Whisper", "346245.png"], ["Ariel", "ariel-logo.png"], ["Ecogenics", "ecogenics.png"],
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
-  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["Haylide", "Haylide.png"], ["PASEO", "latest.png"], ["Hilltake", "Hilltake.png"], ["Bagmati", "BAGMATI LOGO.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
+  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["Karcher", "Karcher Logo.png"], ["Haylide", "Haylide.png"], ["PASEO", "latest.png"], ["Hilltake", "Hilltake.png"], ["Bagmati", "BAGMATI LOGO.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
   ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"], ["Kuat", "Kuat.png"],
-  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
+  ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["IPC", "IPC logo.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
 ] as const;
 const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "3840px-Godrej_Logo.svg.png":"horizontal", "BAGMATI LOGO.png":"horizontal", "346245.png":"horizontal", "ariel-logo.png":"square",
   "Artboard_1PeeSafeBlack11-01_417x.png":"square", "Dettol-Logo-2010-2019.png":"square", "diversey-holdings-logo-png_seekl.png":"horizontal",
-  "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "Haylide.png":"horizontal", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
+  "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "Haylide.png":"horizontal", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical", "Karcher Logo.png":"horizontal", "IPC logo.png":"vertical",
   "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Kuat.png":"horizontal", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "ecogenics.png":"horizontal", "unilever-surf-excel.png":"square", "comfort.png":"horizontal", "Signora Ware logo.png":"horizontal", "Hilltake.png":"horizontal", "Aristo.png":"horizontal"
 };
 const popularBrandScales:Record<string,number> = {
