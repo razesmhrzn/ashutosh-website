@@ -94,7 +94,7 @@ const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
 const popularBrandScales:Record<string,number> = {
   "ariel-logo.png":.72, "346245.png":.7225, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.765,
   "diversey-holdings-logo-png_seekl.png":.765, "Haylide.png":.8, "latest.png":.612, "Lizol_Logo_Bacteria__Viruses.png":.85, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
-  "Tide-Logo.png":.68, "softylogo2.png":.81, "Kuat.png":.595, "Unilever-Logo.png":.65025, "3840px-Godrej_Logo.svg.png":.729, "BAGMATI LOGO.png":.6375, "ecogenics.png":.92, "unilever-surf-excel.png":.85, "comfort.png":.7225, "Signora Ware logo.png":.9, "Hilltake.png":.72, "Aristo.png":.6375
+  "Tide-Logo.png":.68, "softylogo2.png":.81, "Kuat.png":.595, "Unilever-Logo.png":.65025, "3840px-Godrej_Logo.svg.png":.729, "BAGMATI LOGO.png":.6375, "ecogenics.png":.92, "unilever-surf-excel.png":.85, "comfort.png":.7225, "Signora Ware logo.png":.9, "Hilltake.png":.72, "Aristo.png":.6375, "Karcher Logo.png":.75, "IPC logo.png":.75
 };
 const formSubmitEndpoint = "/api/send-enquiry";
 const isCurrent = (pathname:string, href:string) => href === "/" ? pathname === "/" : href === "/about-us" ? pathname === "/about-us" || pathname === "/about" : pathname === href || (href === "/products" && pathname.startsWith("/products/"));
