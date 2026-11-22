@@ -252,7 +252,7 @@ function Home({openConsult}:{openConsult:()=>void}) {
 }
 
 function PopularBrands() {
-  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window"><div className="popular-brands-track">{[false,true].map(duplicate=><div className="popular-brands-set" aria-hidden={duplicate||undefined} key={String(duplicate)}>{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} style={{transform:`scale(${popularBrandScales[file] ?? 1})`}} src={`/assets/brands/${file}`} width={140} height={140} alt={duplicate?"":name} /></div>)}</div>)}</div></div></section>;
+  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window"><div className="popular-brands-track">{[false,true].map(duplicate=><div className="popular-brands-set" aria-hidden={duplicate||undefined} key={String(duplicate)}>{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} style={{transform:`scale(${popularBrandScales[file] ?? 1})`}} src={`/assets/brands/${file}`} width={140} height={140} alt={duplicate?"":name} loading="eager" /></div>)}</div>)}</div></div></section>;
 }
 
 function HeroSlideshow({openConsult}:{openConsult:()=>void}) {
