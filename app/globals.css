@@ -917,7 +917,7 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .popular-brand-logo-square,.popular-brand-logo-vertical{max-width:95px!important;max-height:95px!important}
 .popular-brand-logo-horizontal{max-width:120px!important;max-height:95px!important}
 .popular-brands-arrow{display:none}
-@media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-window{padding-inline:20px}.popular-brands-set{gap:13.5px;padding-right:13.5px}.popular-brand{width:140px;height:140px;padding:10px}}
+@media(max-width:760px){.popular-brands{padding:42px 0 50px}.popular-brands-window{padding-inline:20px}.popular-brands-set{gap:6.885px;padding-right:6.885px}.popular-brand{width:140px;height:140px;padding:10px}}
 @media(max-width:760px){
   .popular-brands h2{font-size:calc(3 * (1.55rem - 15pt))}
   .tools-category-page .products-index-hero-layout{grid-template-columns:minmax(0,1fr) 48px;gap:8px;min-height:72px}
