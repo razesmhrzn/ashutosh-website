@@ -935,6 +935,9 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 /* Footer policy links. */
 .footer-legal-links a{color:#95bcac}
 
+/* Match the nine overview card labels to the same cards on Home. */
+.products-index-page:not(.tools-category-page) .products-page-grid .category-card h3{font-size:calc(clamp(1.1115rem,1.6815vw,1.49625rem) + 1pt)}
+
 /* Larger product hero headings across all nine category pages. */
 .tools-category-page .products-index-hero-copy h1{font-size:clamp(1.428rem,2.856vw,2.989875rem);white-space:normal;line-height:1.1}
 @media(max-width:760px){
