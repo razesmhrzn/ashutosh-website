@@ -13,7 +13,7 @@ import { categories, categoryBySlug, consultationMessage, productById, products,
 import { business } from "@/lib/business-config";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -221,7 +221,7 @@ function Header({pathname,openConsult}:{pathname:string,openConsult:()=>void}) {
       </nav>
       <Sheet>
         <SheetTrigger asChild><button className="menu-button" aria-label="Open navigation"><Menu/></button></SheetTrigger>
-        <SheetContent className="mobile-sheet"><SheetHeader><SheetTitle>Ashutosh Trade</SheetTitle><SheetDescription>Housekeeping, facility and cleaning-supply information for organizations in Nepal.</SheetDescription></SheetHeader>
+        <SheetContent className="mobile-sheet"><SheetHeader className="sr-only"><SheetTitle>Navigation</SheetTitle></SheetHeader>
           <nav className="mobile-nav" aria-label="Mobile navigation"><SheetClose asChild><Link href="/" aria-current={pathname==="/"?"page":undefined} onClick={resetPageScroll}>HOME</Link></SheetClose><SheetClose asChild><Link href="/about-us" aria-current={isCurrent(pathname,"/about-us")?"page":undefined} onClick={resetPageScroll}>ABOUT US</Link></SheetClose><details open={pathname.startsWith("/products")}><summary>PRODUCTS <ChevronDown size={17}/></summary><div>{productNavigationCategories.map(c=><SheetClose asChild key={c.slug}><Link href={`/products/${c.slug}`} aria-current={pathname===`/products/${c.slug}`?"page":undefined}>{navigationCategoryName(c.slug,c.shortName)}</Link></SheetClose>)}</div></details><SheetClose asChild><Link href="/contact" aria-current={pathname==="/contact"?"page":undefined} onClick={resetPageScroll}>CONTACT</Link></SheetClose>
           </nav>
         </SheetContent>
@@ -252,25 +252,7 @@ function Home({openConsult}:{openConsult:()=>void}) {
 }
 
 function PopularBrands() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const targetShift = useRef(0);
-  const currentShift = useRef(0);
-  const frameRef = useRef<number | null>(null);
-  const animate = () => {
-    currentShift.current += (targetShift.current - currentShift.current) * 0.12;
-    if (trackRef.current) trackRef.current.style.transform = `translate3d(${currentShift.current}px, 0, 0)`;
-    frameRef.current = requestAnimationFrame(animate);
-  };
-  useEffect(() => () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); }, []);
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
-    const maxShift = Math.max(0, (trackRef.current?.scrollWidth ?? 0) - bounds.width + 60);
-    targetShift.current = -progress * maxShift;
-    if (frameRef.current === null) frameRef.current = requestAnimationFrame(animate);
-  };
-  const resetPosition = () => { targetShift.current = 0; };
-  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window" onPointerMove={handlePointerMove} onPointerLeave={resetPosition}><div className="popular-brands-track" ref={trackRef}><div className="popular-brands-set">{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} style={{transform:`scale(${popularBrandScales[file] ?? 1})`}} src={`/assets/brands/${file}`} width={140} height={140} alt={name} /></div>)}</div></div></div></section>;
+  return <section className="popular-brands" aria-labelledby="popular-brands-title"><div className="shell"><h2 id="popular-brands-title">Popular Brands</h2></div><div className="popular-brands-window"><div className="popular-brands-track">{[false,true].map(duplicate=><div className="popular-brands-set" aria-hidden={duplicate||undefined} key={String(duplicate)}>{popularBrandLogos.map(([name,file])=><div className="popular-brand" key={name}><Image className={`popular-brand-logo popular-brand-logo-${popularBrandShapes[file]}`} style={{transform:`scale(${popularBrandScales[file] ?? 1})`}} src={`/assets/brands/${file}`} width={140} height={140} alt={duplicate?"":name} /></div>)}</div>)}</div></div></section>;
 }
 
 function HeroSlideshow({openConsult}:{openConsult:()=>void}) {

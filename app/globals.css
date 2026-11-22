@@ -907,6 +907,10 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 .popular-brands h2{margin:0 0 24px;color:#2e795a;font-family:"Lato",var(--site-font),sans-serif;font-size:calc(clamp(1.55rem,2.8vw,2.35rem) - 15pt);font-style:normal;font-weight:700;letter-spacing:.1em;text-align:center}
 .popular-brands-window{position:relative;overflow:hidden;width:100%;padding-inline:30px;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .popular-brands-track{display:flex;width:max-content;will-change:transform}
+.popular-brands-track{animation:popular-brands-scroll 55s linear infinite}
+@keyframes popular-brands-scroll{to{transform:translateX(-50%)}}
+@media(hover:hover){.popular-brands-window:hover .popular-brands-track{animation-play-state:paused}}
+@media(prefers-reduced-motion:reduce){.popular-brands-track{animation:none}}
 .popular-brands-set{display:flex;align-items:center;gap:28px;padding-right:28px}
 .popular-brand{display:grid;place-items:center;width:140px;height:140px;padding:10px;border:0;border-radius:0;background:transparent;flex:none}
 .popular-brand img{width:auto;height:auto;max-width:95px;max-height:95px;object-fit:contain;mix-blend-mode:multiply}
@@ -930,3 +934,13 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 
 /* Footer policy links. */
 .footer-legal-links a{color:#95bcac}
+
+/* Larger product hero headings across all nine category pages. */
+.tools-category-page .products-index-hero-copy h1{font-size:clamp(1.428rem,2.856vw,2.989875rem);white-space:normal;line-height:1.1}
+@media(max-width:760px){
+  .tools-category-page .products-index-hero,
+  .category-cleaning-laundry-chemicals .products-index-hero{height:auto;min-height:112px}
+  .tools-category-page .products-index-hero-layout{min-height:112px}
+  .tools-category-page .products-index-hero-copy h1{font-size:clamp(1.33875rem,5.6vw,1.75rem)}
+  .footer-main-links{padding-left:84px;top:0}
+}
