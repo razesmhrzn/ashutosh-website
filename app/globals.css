@@ -953,5 +953,5 @@ main{background:transparent}.site-header,.mega-menu{background:rgb(255 255 255/.
 @media(min-width:761px){
   .products-index-page:not(.tools-category-page) .products-page-grid .category-card h3{font-size:clamp(1.01561rem,1.42928vw,1.34265rem)}
   .products-index-page.tools-category-page .products-page-grid .category-card h3{font-size:clamp(1.08644rem,1.42928vw,1.41348rem)}
-  .products-index-page.tools-category-page .cleaning-placeholder-grid .category-card h3{font-size:1.15rem}
+  .products-index-page.tools-category-page .cleaning-placeholder-grid .category-card h3{font-size:1.2075rem}
 }
