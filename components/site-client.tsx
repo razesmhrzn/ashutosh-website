@@ -135,7 +135,7 @@ export function SiteClient({ pathname }:{pathname:string}) {
   },[]);
 
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>(".section"));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(".section:not(.static-category-range)"));
     sections.forEach(section => section.classList.add("reveal-ready"));
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) {
