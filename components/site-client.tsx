@@ -79,9 +79,9 @@ const homepageCategoryExamples:Record<string,string> = {
   "linens-guest-apparel":"Toiletries, Dental Kits, Shaving Kits, Slippers, Room-Care Items, Hospitality Consumables, Housekeeping Apparel."
 };
 const popularBrandLogos = [
-  ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Bagmati", "BAGMATI LOGO.png"], ["Whisper", "346245.png"], ["Hilltake", "Hilltake.png"], ["Ariel", "ariel-logo.png"], ["Ecogenics", "ecogenics.png"],
+  ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Whisper", "346245.png"], ["Ariel", "ariel-logo.png"], ["Ecogenics", "ecogenics.png"],
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
-  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["Haylide", "Haylide.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
+  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["Haylide", "Haylide.png"], ["PASEO", "latest.png"], ["Hilltake", "Hilltake.png"], ["Bagmati", "BAGMATI LOGO.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
   ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"], ["Kuat", "Kuat.png"],
   ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
 ] as const;
