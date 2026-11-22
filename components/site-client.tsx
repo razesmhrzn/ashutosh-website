@@ -81,19 +81,19 @@ const homepageCategoryExamples:Record<string,string> = {
 const popularBrandLogos = [
   ["Godrej", "3840px-Godrej_Logo.svg.png"], ["Bagmati", "BAGMATI LOGO.png"], ["Whisper", "346245.png"], ["Hilltake", "Hilltake.png"], ["Ariel", "ariel-logo.png"],
   ["Pee Safe", "Artboard_1PeeSafeBlack11-01_417x.png"], ["Dettol", "Dettol-Logo-2010-2019.png"], ["Diversey", "diversey-holdings-logo-png_seekl.png"],
-  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
+  ["Harpic", "Harpic_Logo-refresh_blueglow_rgb.png"], ["Aristo", "Aristo.png"], ["Haylide", "Haylide.png"], ["PASEO", "latest.png"], ["Lizol", "Lizol_Logo_Bacteria__Viruses.png"],
   ["Kleen Force", "logo.png"], ["Mr Muscle", "Mr-Muscles-logo-1.png"], ["Softy", "softylogo2.png"], ["Kuat", "Kuat.png"],
   ["Tide", "Tide-Logo.png"], ["Unilever", "Unilever-Logo.png"], ["Ecogenics", "ecogenics.png"], ["Surf Excel", "unilever-surf-excel.png"], ["Comfort", "comfort.png"], ["Signora Ware", "Signora Ware logo.png"]
 ] as const;
 const popularBrandShapes:Record<string,"horizontal"|"square"|"vertical"> = {
   "3840px-Godrej_Logo.svg.png":"horizontal", "BAGMATI LOGO.png":"horizontal", "346245.png":"horizontal", "ariel-logo.png":"square",
   "Artboard_1PeeSafeBlack11-01_417x.png":"square", "Dettol-Logo-2010-2019.png":"square", "diversey-holdings-logo-png_seekl.png":"horizontal",
-  "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
+  "Harpic_Logo-refresh_blueglow_rgb.png":"vertical", "Haylide.png":"horizontal", "latest.png":"horizontal", "Lizol_Logo_Bacteria__Viruses.png":"vertical",
   "logo.png":"horizontal", "Mr-Muscles-logo-1.png":"horizontal", "softylogo2.png":"square", "Kuat.png":"horizontal", "Tide-Logo.png":"square", "Unilever-Logo.png":"vertical", "ecogenics.png":"horizontal", "unilever-surf-excel.png":"square", "comfort.png":"horizontal", "Signora Ware logo.png":"horizontal", "Hilltake.png":"horizontal", "Aristo.png":"horizontal"
 };
 const popularBrandScales:Record<string,number> = {
   "ariel-logo.png":.72, "346245.png":.7225, "Artboard_1PeeSafeBlack11-01_417x.png":.5625, "Dettol-Logo-2010-2019.png":.765,
-  "diversey-holdings-logo-png_seekl.png":.765, "latest.png":.612, "Lizol_Logo_Bacteria__Viruses.png":.85, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
+  "diversey-holdings-logo-png_seekl.png":.765, "Haylide.png":.8, "latest.png":.612, "Lizol_Logo_Bacteria__Viruses.png":.85, "logo.png":.6375, "Mr-Muscles-logo-1.png":.729,
   "Tide-Logo.png":.68, "softylogo2.png":.81, "Kuat.png":.595, "Unilever-Logo.png":.65025, "3840px-Godrej_Logo.svg.png":.729, "BAGMATI LOGO.png":.6375, "ecogenics.png":.8, "unilever-surf-excel.png":.85, "comfort.png":.7225, "Signora Ware logo.png":.9, "Hilltake.png":.72, "Aristo.png":.6375
 };
 const formSubmitEndpoint = "/api/send-enquiry";
